@@ -1,0 +1,12 @@
+[build]
+  # Install, attempt to rebuild @swc/core, then build the site
+  command = "npm ci && npm rebuild @swc/core && npm run build"
+  publish = "dist"
+
+[context.production.environment]
+  # Use a recent Node version on Netlify
+  NODE_VERSION = "20"
+
+# Optional: functions directory (uncomment if you use Netlify Functions)
+#[functions]
+#  directory = "netlify/functions"
