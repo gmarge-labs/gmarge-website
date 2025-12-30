@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'motion/react';
-import { Code2, Package, Zap, Brain, ChevronDown, ChevronUp } from 'lucide-react';
+import { Code2, Package, Zap, Brain, ChevronDown, ChevronUp, X } from 'lucide-react';
 import { useState } from 'react';
 import { useRouter } from './Router';
 import { Card3D } from './Card3D';
@@ -48,8 +48,83 @@ export function ServicesSection() {
   const [expandedService, setExpandedService] = useState<string | null>(null);
 
   const toggleExpand = (title: string) => {
-    setExpandedService(expandedService === title ? null : title);
-  };
+    setExpandedService((prev) => (prev === title ? null : title));
+  }; 
+
+  const selectedServiceObj = services.find(s => s.title === expandedService) || null;
+  const SelectedIcon = selectedServiceObj?.icon;
+
+  const modalJSX = selectedServiceObj ? (
+    <AnimatePresence>
+      <motion.div
+        className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4 overflow-y-auto"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        onClick={() => setExpandedService(null)}
+        key="service-modal"
+      >
+        <motion.div
+          className="bg-white rounded-3xl shadow-2xl max-w-4xl w-full my-8 max-h-[90vh] overflow-y-auto"
+          initial={{ scale: 0.95, y: 50 }}
+          animate={{ scale: 1, y: 0 }}
+          exit={{ scale: 0.95, y: 50 }}
+          transition={{ duration: 0.3, type: 'spring' }}
+          onClick={(e) => e.stopPropagation()}
+        >
+          {/* Header (deep blue to match Close button) */}
+          <div className="relative bg-[#002B6B] p-6 rounded-t-3xl">
+            <button
+              className="absolute top-4 right-4 w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-colors"
+              onClick={() => setExpandedService(null)}
+            >
+              <X className="w-5 h-5" />
+            </button>
+
+            <div className="flex items-center gap-4 mb-4">
+              <div className="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center">
+                {SelectedIcon && <SelectedIcon className="w-6 h-6 text-white" />}
+              </div>
+              <div>
+                <h2 className="text-2xl font-bold text-white">{selectedServiceObj.title}</h2>
+                <p className="text-white/90">{selectedServiceObj.description}</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Modal Content */}
+          <div className="p-6">
+            <div className="mb-4">
+              <h3 className="text-lg font-semibold mb-3">Overview</h3>
+              <p className="text-black leading-relaxed">{selectedServiceObj.detailedDescription || selectedServiceObj.description}</p>
+            </div>
+
+            <div className="mb-4">
+              <h4 className="text-lg font-semibold mb-3">Key Benefits</h4>
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {selectedServiceObj.benefits?.map((b, i) => (
+                  <li key={i} className="text-sm text-gray-700">• {b}</li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="mb-6">
+              <h4 className="text-lg font-semibold mb-3">Features</h4>
+              <ul className="grid grid-cols-2 gap-3 text-sm text-gray-700">
+                {selectedServiceObj.features.map((f, i) => (
+                  <li key={i}>{f}</li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="flex justify-end">
+              <button className="px-6 py-3 rounded-2xl bg-[#002B6B] text-white" onClick={() => setExpandedService(null)}>Close</button>
+            </div>
+          </div>
+        </motion.div>
+      </motion.div>
+    </AnimatePresence>
+  ) : null;
 
   return (
     <section className="py-16 sm:py-20 lg:py-24 bg-white">
@@ -69,23 +144,38 @@ export function ServicesSection() {
           </p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-2 gap-6 sm:gap-8 max-w-5xl mx-auto">
+        <AnimatePresence>
+          {expandedService && (
+            <motion.div
+              key="services-backdrop"
+              className="fixed inset-0 bg-black/20 z-40"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setExpandedService(null)}
+            />
+          )}
+        </AnimatePresence>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 max-w-7xl mx-auto overflow-visible">
           {services.map((service, index) => {
             const Icon = service.icon;
             const isExpanded = expandedService === service.title;
             return (
               <motion.div
                 key={service.title}
-                className="group relative"
+                className={`group relative h-full overflow-visible ${isExpanded ? 'z-50 md:col-span-2' : ''}`}
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
+                transition={{ type: 'spring', stiffness: 260, damping: 24, delay: index * 0.02 }}
                 layout
+                onClick={() => { if (isExpanded) setExpandedService(null); }}
               >
                 <Card3D
                   key={service.title}
-                  className="bg-white border border-[#BFC0C2] rounded-xl sm:rounded-2xl p-6 sm:p-8 hover:border-[#002B6B] transition-colors hover:shadow-lg"
+                  className={`relative z-50 bg-white border border-[#BFC0C2] rounded-xl sm:rounded-2xl p-6 sm:p-8 hover:border-[#002B6B] transition-colors hover:shadow-lg h-full flex flex-col justify-between ${isExpanded ? 'shadow-2xl' : ''}`}
+                  style={{ transformOrigin: 'center' }}
+                  initial={{}}
                 >
                   <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-[#E8F0FF] border border-[#BFC0C2] flex items-center justify-center mb-5 sm:mb-6">
                     <Icon className="w-8 h-8 text-[#002B6B]" />
@@ -113,59 +203,13 @@ export function ServicesSection() {
                     ))}
                   </ul>
 
-                  {/* Expanded Details Section */}
-                  <AnimatePresence>
-                    {isExpanded && (
-                      <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: 'auto' }}
-                        exit={{ opacity: 0, height: 0 }}
-                        transition={{ duration: 0.3 }}
-                        className="overflow-hidden mb-6"
-                      >
-                        <div className="border-t border-[#BFC0C2] pt-6 space-y-6">
-                          {/* Detailed Description */}
-                          <div>
-                            <h4 className="text-lg font-semibold text-[#002B6B] mb-3">
-                              Detailed Overview
-                            </h4>
-                            <p className="text-black leading-relaxed">
-                              {service.detailedDescription}
-                            </p>
-                          </div>
 
-                          {/* Benefits Section */}
-                          <div>
-                            <h4 className="text-lg font-semibold text-[#002B6B] mb-3">
-                              Key Benefits
-                            </h4>
-                            <ul className="space-y-2">
-                              {service.benefits.map((benefit, i) => (
-                                <motion.li
-                                  key={benefit}
-                                  className="flex items-start gap-3 text-black"
-                                  initial={{ opacity: 0, x: -20 }}
-                                  animate={{ opacity: 1, x: 0 }}
-                                  transition={{ delay: i * 0.05 }}
-                                >
-                                  <div className="w-5 h-5 rounded-full bg-gradient-to-r from-[#002B6B] to-[#004B9B] flex items-center justify-center flex-shrink-0 mt-0.5">
-                                    <span className="text-white text-xs">→</span>
-                                  </div>
-                                  <span className="flex-1">{benefit}</span>
-                                </motion.li>
-                              ))}
-                            </ul>
-                          </div>
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
 
                   <motion.button
                     className="w-full px-6 py-3 rounded-full bg-[#002B6B] text-white hover:bg-[#004B9B] transition-colors flex items-center justify-center gap-2"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    onClick={() => toggleExpand(service.title)}
+                    onClick={(e: React.MouseEvent) => { e.stopPropagation(); toggleExpand(service.title); }}
                   >
                     {isExpanded ? (
                       <>
@@ -184,6 +228,9 @@ export function ServicesSection() {
             );
           })}
         </div>
+
+        {modalJSX}
+
       </div>
     </section>
   );

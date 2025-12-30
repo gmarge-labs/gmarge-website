@@ -18,7 +18,7 @@ const services = [
       'Performance Optimization',
       'Quality Assurance'
     ],
-    image: 'https://backend.coreops.ai/wp-content/uploads/2025/06/9-Benefits-of-Artificial-Intelligence-AI-in-2025.png',
+    image: 'https://backend.coreops.ai/wp-content/uploads/2025/07/Blog-2-Architecture-intelligence.png',
     details: 'Our development team brings years of expertise in building enterprise-grade AI solutions. We follow industry best practices and agile methodologies to deliver solutions that scale with your business.'
   },
   {
@@ -33,7 +33,7 @@ const services = [
       'Regular Updates',
       'Technical Support'
     ],
-    image: 'https://backend.coreops.ai/wp-content/uploads/2025/06/HR_-The-Hidden-Accelerator-Of-AI-Adoption.png',
+    image: 'https://backend.coreops.ai/wp-content/uploads/2025/06/AI-Services-Banner-Dsktp-1.png',
     details: 'Launch your AI solution in days, not months. Our ready-to-deploy chatbots and automation tools are specifically designed for small businesses like restaurants, salons, and service providers who need practical solutions without the complexity.'
   },
   {
@@ -48,7 +48,7 @@ const services = [
       'Change Management',
       'Training Programs'
     ],
-    image: 'https://images.unsplash.com/photo-1758691736084-4ef3e6f6a2cf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxidXNpbmVzcyUyMGNvbnN1bHRpbmclMjBzdHJhdGVneXxlbnwxfHx8fDE3NjUzMTg3NzV8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+    image: 'https://backend.coreops.ai/wp-content/uploads/2025/07/Integrating-AI-into-legacy.png',
     details: 'Transform your organization with data-driven insights. Our consultants help you identify high-impact AI opportunities and build a roadmap for successful implementation.'
   },
 ];

@@ -20,12 +20,9 @@ const solutions = [
     image: 'https://images.unsplash.com/photo-1762341114881-669da93fef88?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBidXNpbmVzcyUyMHRlY2hub2xvZ3klMjBtb2Rlcm58ZW58MXx8fHwxNzY2OTM0NTY1fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
     fullDescription: 'Every small business is unique, and so are our AI solutions. We specialize in creating custom AI assistants tailored to your specific industry, workflow, and business goals. Whether you run a cleaning company, restaurant, hair salon, carpentry business, retail store, coffee shop, photography studio, or any other small business, we build intelligent solutions that integrate seamlessly into your operations and grow with you. Our AI solutions handle everything from customer interactions and appointment scheduling to inventory tracking and payment processing - all available 24/7 to help you capture more business and serve your customers better. Featured success story: Sparkleville Cleaning Company achieved an 18.5x ROI with our custom chatbot, increasing bookings by 85% while reducing response times from hours to seconds.',
     useCases: [
-      'Cleaning Services AI (Sparkleville Featured Solution): 24/7 booking automation, instant quote generation based on service type and area, customer inquiry handling, service customization, special request management, appointment scheduling, and automated follow-ups - proven 18.5x ROI and 85% booking increase',
-      'Restaurant AI: Automated table reservations, order taking, menu inquiries, dietary preferences, takeout coordination, waitlist management, and customer feedback collection',
-      'Salon & Spa AI: Smart appointment booking, stylist/therapist matching, service recommendations, automated reminders, cancellation management, client history tracking, and package upselling',
-      'Contractor & Carpentry AI: Project estimates, appointment scheduling, material cost calculations, job tracking, client communication, progress updates, and invoice management',
-      'Coffee Shop & Café AI: Mobile ordering, customization options, pickup scheduling, loyalty rewards, menu questions, dietary accommodations, and catering inquiries',
-      'Photography Studio AI: Session booking, package selection, location coordination, date availability, client questionnaires, shoot preparation, and gallery access management'
+      'G-marge Cleaning Services System : 24/7 booking automation, instant quote generation based on service type and area, customer inquiry handling, service customization, special request management, appointment scheduling, and automated follow-ups - proven 18.5x ROI and 85% booking increase',
+      'G-marge Customised Tailoring System: 24/7 booking automation, instant quote generation based on fabric type and garment style, custom measurement collection, fitting appointment coordination, alteration request management, fabric selection guidance, automated progress updates, customer preference preservation, and premium service upselling - proven ROI increase with 85%+ booking growth',
+      'G-marge Corporate Wears for US/Europe: Instant bulk order quote generation, size matrix management with employee profile integration, multi-location order consolidation, customization options, bulk order tracking and inventory coordination, employee reorder self-service portal, seasonal renewal automation, contract management, compliance documentation, and regional delivery scheduling - streamlines enterprise apparel operations with reduced administrative overhead and improved employee satisfaction',
     ],
     benefits: [
       'Get a solution built specifically for YOUR business type and workflow',
@@ -63,7 +60,7 @@ export function SolutionsPage() {
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4">
               Industry{' '}
               <span className="bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">
-                Solutions
+                Products
               </span>
             </h1>
             <p className="text-lg sm:text-xl text-blue-200 max-w-3xl mx-auto">
@@ -165,7 +162,7 @@ export function SolutionsPage() {
 
                     {/* Industry Solutions */}
                     <div className="mb-10">
-                      <h4 className="text-2xl font-bold mb-6 text-gray-900">Industry Solutions</h4>
+                      <h4 className="text-2xl font-bold mb-6 text-gray-900">Industry Products</h4>
                       <div className="grid sm:grid-cols-2 gap-4">
                         {solution.useCases.map((useCase, i) => {
                           const [title, description] = useCase.split(': ');
