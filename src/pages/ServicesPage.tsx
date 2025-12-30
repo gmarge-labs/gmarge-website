@@ -33,7 +33,7 @@ const services = [
       'Regular Updates',
       'Technical Support'
     ],
-    image: 'https://backend.coreops.ai/wp-content/uploads/2025/06/AI-Services-Banner-Dsktp-1.png',
+    image: 'https://backend.coreops.ai/wp-content/uploads/2025/06/AI-integration.png',
     details: 'Launch your AI solution in days, not months. Our ready-to-deploy chatbots and automation tools are specifically designed for small businesses like restaurants, salons, and service providers who need practical solutions without the complexity.'
   },
   {

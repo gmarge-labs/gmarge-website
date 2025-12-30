@@ -48,7 +48,7 @@ export function ServicesSection() {
   const [expandedService, setExpandedService] = useState<string | null>(null);
 
   const toggleExpand = (title: string) => {
-    setExpandedService((prev) => (prev === title ? null : title));
+    setExpandedService((prev: string | null) => (prev === title ? null : title));
   }; 
 
   const selectedServiceObj = services.find(s => s.title === expandedService) || null;
@@ -70,7 +70,7 @@ export function ServicesSection() {
           animate={{ scale: 1, y: 0 }}
           exit={{ scale: 0.95, y: 50 }}
           transition={{ duration: 0.3, type: 'spring' }}
-          onClick={(e) => e.stopPropagation()}
+          onClick={(e: React.MouseEvent) => e.stopPropagation()}
         >
           {/* Header (deep blue to match Close button) */}
           <div className="relative bg-[#002B6B] p-6 rounded-t-3xl">

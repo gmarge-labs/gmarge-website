@@ -4,9 +4,11 @@ import { ReactNode, useRef } from 'react';
 interface Card3DProps {
   children: ReactNode;
   className?: string;
+  style?: React.CSSProperties;
+  initial?: any;
 }
 
-export function Card3D({ children, className = '' }: Card3DProps) {
+export function Card3D({ children, className = '', style, initial }: Card3DProps) {
   const cardRef = useRef<HTMLDivElement>(null);
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
@@ -33,10 +35,12 @@ export function Card3D({ children, className = '' }: Card3DProps) {
       ref={cardRef}
       className={`relative ${className}`}
       style={{
+        ...(style || {}),
         transformStyle: 'preserve-3d',
         rotateX,
         rotateY,
       }}
+      initial={initial}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       whileHover={{ scale: 1.05 }}
