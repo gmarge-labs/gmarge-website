@@ -63,7 +63,9 @@ export function Navbar() {
               >
                 <ImageWithFallback
                   src="/gmarge-logo-4x.png"
-                  alt="G-marge Logo"
+                  alt="G-marge"
+                  width={80}
+                  height={80}
                   className="w-full h-full object-contain"
                 />
               </motion.div>

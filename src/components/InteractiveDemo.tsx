@@ -143,6 +143,7 @@ export function InteractiveDemo() {
                     disabled
                   />
                   <motion.button
+                    aria-label="Send message"
                     className="p-2 rounded-lg bg-[#002B6B] text-white hover:bg-[#002B6B] transition-colors"
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}

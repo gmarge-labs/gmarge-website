@@ -3333,3 +3333,49 @@ html {
     opacity: .5;
   }
 }
+
+/* ─────────────────────────────────────────────────────────────────────────
+   Accessibility additions.
+
+   Appended by hand rather than generated. src/styles/globals.css holds the
+   same two blocks so they survive a future Tailwind regeneration, but that
+   file is not imported anywhere (and cannot be, as-is: it still contains
+   @apply / @theme / @custom-variant source directives). index.css is the
+   stylesheet main.tsx actually loads, so these have to live here to work.
+   ───────────────────────────────────────────────────────────────────────── */
+
+/* Honour the OS "reduce motion" setting. Inert for everyone else. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  html {
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Skip link: off-screen until it takes keyboard focus. */
+.skip-to-content {
+  position: fixed;
+  top: 0;
+  left: -9999px;
+  z-index: 100;
+  padding: 0.75rem 1.25rem;
+  background-color: #002B6B;
+  color: #FFFFFF;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom-right-radius: 0.5rem;
+}
+
+.skip-to-content:focus {
+  left: 0;
+  outline: 2px solid #FFFFFF;
+  outline-offset: -4px;
+}

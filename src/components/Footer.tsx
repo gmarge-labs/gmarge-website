@@ -14,6 +14,7 @@ const socialLinks: {
   icon: typeof Linkedin;
   href: string;
   label: string;
+  ariaLabel: string;
   target?: string;
   rel?: string;
 }[] = [
@@ -21,12 +22,14 @@ const socialLinks: {
     icon: Linkedin,
     href: 'https://www.linkedin.com/in/halimabulamaladan/',
     label: 'LinkedIn',
+    // Icon-only links carry no text, so each needs its own accessible name.
+    ariaLabel: 'G-marge on LinkedIn (opens in a new tab)',
     target: '_blank',
     rel: 'noopener noreferrer',
   },
   // mailto: hands off to the mail client, so it never navigates away and
   // needs no target.
-  { icon: Mail, href: 'mailto:halimabl@gmarge.com', label: 'Email' },
+  { icon: Mail, href: 'mailto:halimabl@gmarge.com', label: 'Email', ariaLabel: 'Email G-marge' },
 ];
 
 export function Footer() {
@@ -141,7 +144,9 @@ export function Footer() {
               >
                 <ImageWithFallback
                   src="/gmarge-logo-4x.png"
-                  alt="G-marge Logo"
+                  alt="G-marge"
+                  width={48}
+                  height={48}
                   className="w-full h-full object-contain"
                 />
               </motion.div>
@@ -176,6 +181,7 @@ export function Footer() {
                     href={social.href}
                     target={social.target}
                     rel={social.rel}
+                    aria-label={social.ariaLabel}
                     className="w-10 h-10 rounded-lg bg-white border border-[#BFC0C2] flex items-center justify-center hover:bg-[#E8F0FF] hover:border-[#002B6B] transition-colors"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}

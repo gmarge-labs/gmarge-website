@@ -59,9 +59,14 @@ function AppContent() {
 
   return (
     <div className="relative min-h-screen bg-white">
+      {/* First focusable element on the page; styled in index.css so it stays
+          off-screen until it takes keyboard focus. */}
+      <a className="skip-to-content" href="#main-content">
+        Skip to content
+      </a>
       <ScrollProgress />
       <Navbar />
-      <main>
+      <main id="main-content" tabIndex={-1}>
         <PageTransition key={currentPage}>
           {renderPage()}
         </PageTransition>

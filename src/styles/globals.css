@@ -240,3 +240,47 @@ html {
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(180deg, #00235A 0%, #001B48 100%);
 }
+/* ─────────────────────────────────────────────────────────────────────────
+   Accessibility.
+
+   NOTE: this file is the Tailwind *source* and is not imported at runtime —
+   src/index.css is the generated stylesheet main.tsx loads. These two blocks
+   are duplicated verbatim at the end of index.css so they take effect today;
+   they live here too so a future regeneration does not drop them.
+   ───────────────────────────────────────────────────────────────────────── */
+
+/* Honour the OS "reduce motion" setting. Inert for everyone else. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  html {
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Skip link: off-screen until it takes keyboard focus. */
+.skip-to-content {
+  position: fixed;
+  top: 0;
+  left: -9999px;
+  z-index: 100;
+  padding: 0.75rem 1.25rem;
+  background-color: #002B6B;
+  color: #FFFFFF;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom-right-radius: 0.5rem;
+}
+
+.skip-to-content:focus {
+  left: 0;
+  outline: 2px solid #FFFFFF;
+  outline-offset: -4px;
+}

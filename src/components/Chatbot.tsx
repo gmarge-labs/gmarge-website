@@ -490,6 +490,8 @@ export function Chatbot() {
       <motion.button
         className="fixed bottom-6 right-6 z-50 w-16 h-16 rounded-full bg-gradient-to-br from-[#002B6B] to-[#004B9B] text-white shadow-2xl flex items-center justify-center"
         onClick={() => setIsOpen(!isOpen)}
+        aria-label={isOpen ? 'Close the chat assistant' : 'Open the chat assistant'}
+        aria-expanded={isOpen}
         whileHover={{ scale: 1.1, boxShadow: '0 10px 30px rgba(0, 43, 107, 0.4)' }}
         whileTap={{ scale: 0.95 }}
         animate={{
@@ -649,6 +651,7 @@ export function Chatbot() {
                 />
                 <motion.button
                   onClick={handleSend}
+                  aria-label="Send message"
                   className="w-10 h-10 rounded-full bg-gradient-to-br from-[#002B6B] to-[#004B9B] text-white flex items-center justify-center"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}

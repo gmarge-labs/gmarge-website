@@ -194,6 +194,7 @@ export default function LicensesPage() {
                     href={library.url}
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label={`${library.name} website (opens in a new tab)`}
                     className="text-[#002B6B] hover:underline"
                   >
                     <ExternalLink className="w-5 h-5" />
