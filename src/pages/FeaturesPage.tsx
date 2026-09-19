@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
-import { Brain, MessageSquare, BarChart3, Zap, Shield, Globe, Clock, Users, Sparkles, CheckCircle2 } from 'lucide-react';
+import { Brain, Bot, BarChart3, Zap, Shield, Plug, Bell, Users, Sparkles, CheckCircle2 } from 'lucide-react';
+import { BOOKING_URL, DEMO_URL, scrollToDemo } from '../config/links';
 import { FloatingShapes } from '../components/FloatingShapes';
 import { ParticleField } from '../components/ParticleField';
 import { Card3D } from '../components/Card3D';
@@ -10,59 +11,59 @@ import { ImageWithFallback } from '../components/figma/ImageWithFallback';
 
 const coreFeatures = [
   {
-    icon: Brain,
-    title: 'Advanced AI Models',
-    description: 'Powered by cutting-edge machine learning algorithms and neural networks that continuously learn and improve from interactions.',
-    benefits: ['GPT-4 Integration', 'Custom Model Training', 'Multi-language Support', 'Contextual Understanding']
-  },
-  {
-    icon: MessageSquare,
-    title: 'Conversational AI',
-    description: 'Natural language processing that understands context, intent, and sentiment to provide human-like interactions.',
-    benefits: ['Natural Dialogue Flow', 'Sentiment Analysis', 'Intent Recognition', '24/7 Availability']
-  },
-  {
     icon: BarChart3,
-    title: 'Real-time Analytics',
-    description: 'Comprehensive dashboards and reports that provide actionable insights into customer behavior and business performance.',
-    benefits: ['Custom Dashboards', 'Performance Metrics', 'Conversion Tracking', 'ROI Measurement']
+    title: 'Live Dashboard Monitoring',
+    description: 'A Streamlit dashboard that pulls fresh from your stack every day, so the number on screen is today\'s number rather than last month\'s.',
+    benefits: ['Daily automatic refresh', 'Built around your questions', 'Team-wide access', 'Yours to keep']
   },
   {
-    icon: Zap,
-    title: 'Lightning Fast',
-    description: 'Optimized infrastructure ensures instant responses and seamless user experiences across all devices.',
-    benefits: ['Sub-second Response', 'Global CDN', 'Auto-scaling', 'Load Balancing']
+    icon: Bot,
+    title: 'AI Agent Interpretation',
+    description: 'An agent reads the same data you do and writes the explanation in plain language — what moved, how much of the change it accounts for, and whether it matters.',
+    benefits: ['Plain-language summaries', 'Change attribution', 'Signal vs. noise checks', 'Ask it follow-up questions']
+  },
+  {
+    icon: Plug,
+    title: 'Shopify + Meta Ads + GA4',
+    description: 'Orders, ad spend and site behaviour reconciled against each other in one place, instead of three tabs telling three different stories.',
+    benefits: ['Shopify order data', 'Meta Marketing API', 'GA4 and BigQuery', 'More platforms on request']
+  },
+  {
+    icon: Bell,
+    title: 'Weekly Anomaly Detection',
+    description: 'Creative fatigue, double-firing pixels, budget drifting to the wrong campaign. Flagged the week it starts, not in the month-end review.',
+    benefits: ['Channel-level alerts', 'Variance-aware thresholds', 'Tracking break detection', 'Weekly digest']
+  },
+  {
+    icon: Brain,
+    title: 'Incrementality Measurement',
+    description: 'Geo holdouts and matched-market tests that separate the sales your ads caused from the ones they merely witnessed.',
+    benefits: ['Holdout test design', 'Statistical power checks', 'Per-channel incremental ROAS', 'Repeatable each quarter']
   },
   {
     icon: Shield,
-    title: 'Enterprise Security',
-    description: 'Bank-level encryption and compliance standards to protect your data and customer information.',
-    benefits: ['End-to-End Encryption', 'SOC 2 Compliant', 'GDPR Ready', 'Regular Audits']
+    title: 'Your Data Stays Yours',
+    description: 'Everything runs on your own data in your own stack. We do not pool it, resell it, or benchmark it against other clients.',
+    benefits: ['No data resale', 'No cross-client pooling', 'You keep the dashboard', 'Access revoked on request']
   },
-  {
-    icon: Globe,
-    title: 'Omnichannel Support',
-    description: 'Deploy AI solutions across multiple platforms including web, mobile, messaging apps, and voice assistants.',
-    benefits: ['Web Integration', 'Mobile Apps', 'WhatsApp & SMS', 'Voice Channels']
-  }
 ];
 
 const additionalFeatures = [
   {
-    icon: Clock,
-    title: 'Appointment Scheduling',
-    description: 'Automated booking and calendar management integrated with your existing systems.'
-  },
-  {
     icon: Users,
     title: 'Customer Segmentation',
-    description: 'AI-powered customer profiling and personalized marketing recommendations.'
+    description: 'Models built on your own purchase history that separate customers worth reacquiring from those who were always going to buy.'
+  },
+  {
+    icon: Zap,
+    title: 'Campaign Evaluation',
+    description: 'Post-mortems that grade spend against incremental return rather than the credit the platform assigned itself.'
   },
   {
     icon: Sparkles,
-    title: 'Personalization Engine',
-    description: 'Tailored experiences based on user behavior, preferences, and historical data.'
-  }
+    title: 'Media Mix Modelling',
+    description: 'For larger spends, a Bayesian MMM that handles saturation and carryover across channels and offline effects.'
+  },
 ];
 
 export default function FeaturesPage() {
@@ -87,28 +88,36 @@ export default function FeaturesPage() {
                 whileHover={{ scale: 1.05 }}
               >
                 <Sparkles className="w-5 h-5 text-[#002B6B]" />
-                <span className="text-sm font-medium text-black">Powerful AI Features</span>
+                <span className="text-sm font-medium text-black">What You Get</span>
               </motion.div>
 
               <h1 className="text-5xl sm:text-6xl font-bold mb-6 text-black">
-                <TextReveal text="Features That" delay={0.2} />
+                <TextReveal text="Everything In" delay={0.2} />
                 <br />
                 <span className="text-[#002B6B]">
-                  <TextReveal text="Transform Business" delay={0.4} />
+                  <TextReveal text="The Core Package" delay={0.4} />
                 </span>
               </h1>
 
               <p className="text-xl text-black mb-8 leading-relaxed">
-                Discover the comprehensive suite of AI-powered features designed to automate workflows, 
-                enhance customer experiences, and drive measurable business growth.
+                A live dashboard, an AI agent that reads it for you, and the incrementality work that turns
+                platform-reported numbers into ones you can defend. All included in the monthly retainer.
               </p>
 
               <div className="flex flex-wrap gap-4">
-                <MagneticButton onClick={() => navigate('contact')}>
-                  Get Started
+                <MagneticButton
+                  onClick={() => {
+                    if (BOOKING_URL) {
+                      window.open(BOOKING_URL, '_blank', 'noopener,noreferrer');
+                    } else {
+                      navigate('contact');
+                    }
+                  }}
+                >
+                  Book a Discovery Call
                 </MagneticButton>
                 <MagneticButton onClick={() => navigate('solutions')} variant="secondary">
-                  View Solutions
+                  How It Works
                 </MagneticButton>
               </div>
             </motion.div>
@@ -122,7 +131,7 @@ export default function FeaturesPage() {
               <div className="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-[#BFC0C2]">
                 <ImageWithFallback
                   src="https://images.unsplash.com/photo-1658401598980-c2276a6aba14?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhaSUyMHRlY2hub2xvZ3klMjBmZWF0dXJlcyUyMGRhc2hib2FyZHxlbnwxfHx8fDE3NjY3NzIzOTl8MA&ixlib=rb-4.1.0&q=80&w=1080"
-                  alt="AI Features Dashboard"
+                  alt="Marketing performance dashboard"
                   className="w-full h-96 object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#002B6B]/80 via-[#002B6B]/20 to-transparent" />
@@ -138,8 +147,8 @@ export default function FeaturesPage() {
                       <Brain className="w-6 h-6 text-white" />
                     </div>
                     <div>
-                      <div className="text-2xl font-bold text-[#002B6B]">99.9%</div>
-                      <div className="text-sm text-gray-600">Uptime</div>
+                      <div className="text-2xl font-bold text-[#002B6B]">Daily</div>
+                      <div className="text-sm text-gray-600">Data Refresh</div>
                     </div>
                   </div>
                 </motion.div>
@@ -154,8 +163,8 @@ export default function FeaturesPage() {
                       <Zap className="w-6 h-6 text-white" />
                     </div>
                     <div>
-                      <div className="text-2xl font-bold text-[#002B6B]">&lt;0.5s</div>
-                      <div className="text-sm text-gray-600">Response Time</div>
+                      <div className="text-2xl font-bold text-[#002B6B]">~2 wks</div>
+                      <div className="text-sm text-gray-600">To Go Live</div>
                     </div>
                   </div>
                 </motion.div>
@@ -176,10 +185,10 @@ export default function FeaturesPage() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-4xl sm:text-5xl font-bold mb-6 text-black">
-              Core <span className="text-[#002B6B]">Capabilities</span>
+              What's <span className="text-[#002B6B]">Included</span>
             </h2>
             <p className="text-xl text-black max-w-3xl mx-auto">
-              Enterprise-grade features that power intelligent automation and customer engagement
+              Six things the core retainer covers, every month, with no usage meters or per-seat fees
             </p>
           </motion.div>
 
@@ -236,10 +245,10 @@ export default function FeaturesPage() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-4xl sm:text-5xl font-bold mb-6 text-black">
-              And <span className="text-[#002B6B]">Much More</span>
+              Deep-Dive <span className="text-[#002B6B]">Add-Ons</span>
             </h2>
             <p className="text-xl text-black max-w-3xl mx-auto">
-              Additional features designed to streamline operations and enhance customer satisfaction
+              Periodic studies scoped per project, run alongside the core package when a specific question needs answering
             </p>
           </motion.div>
 
@@ -283,13 +292,23 @@ export default function FeaturesPage() {
             transition={{ duration: 0.8 }}
           >
             <h2 className="text-4xl sm:text-5xl font-bold mb-6 text-white">
-              Ready to Experience These Features?
+              Want to See It Running?
             </h2>
             <p className="text-xl text-white/90 mb-8">
-              Join hundreds of businesses already transforming their operations with AI
+              Take a look at the live dashboard and the agent explaining a real ROAS drop.
             </p>
-            <MagneticButton onClick={() => navigate('contact')} variant="secondary">
-              Schedule a Demo
+            <MagneticButton
+              onClick={() => {
+                if (DEMO_URL) {
+                  window.open(DEMO_URL, '_blank', 'noopener,noreferrer');
+                } else {
+                  navigate('home');
+                  setTimeout(scrollToDemo, 400);
+                }
+              }}
+              variant="secondary"
+            >
+              See a Demo
             </MagneticButton>
           </motion.div>
         </div>

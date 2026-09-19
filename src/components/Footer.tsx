@@ -4,9 +4,9 @@ import { useRouter } from './Router';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 
 const footerLinks = {
-  Product: ['Features', 'Pricing', 'Security'],
-  Company: ['About', 'API'],
-  Resources: ['Documentation', 'Help Center'],
+  Platform: ['What You Get', 'Pricing', 'Data Security'],
+  Company: ['About', 'Integrations'],
+  Resources: ['Methodology', 'FAQ'],
   Legal: ['Privacy', 'Licenses'],
 };
 
@@ -145,7 +145,7 @@ export function Footer() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
             >
-              Building the future of AI-powered business solutions. Transform your operations with intelligent agents.
+              Live, AI-interpreted marketing measurement for D2C e-commerce brands. We show you the gap between what the platforms report and what your spend is actually doing.
             </motion.p>
 
             {/* Social Links */}
@@ -196,13 +196,13 @@ export function Footer() {
                   // Map link text to route
                   const getRoute = (linkText: string) => {
                     const routeMap: { [key: string]: string } = {
-                      'Features': 'features',
+                      'What You Get': 'features',
                       'Pricing': 'pricing',
-                      'Security': 'security',
+                      'Data Security': 'security',
                       'About': 'about',
-                      'Documentation': 'documentation',
-                      'Help Center': 'help-center',
-                      'API': 'api',
+                      'Methodology': 'documentation',
+                      'FAQ': 'help-center',
+                      'Integrations': 'api',
                       'Privacy': 'privacy',
                       'Licenses': 'licenses'
                     };
@@ -262,7 +262,7 @@ export function Footer() {
           transition={{ duration: 0.6 }}
         >
           <div className="text-black text-sm">
-            © 2025 G-marge. All rights reserved.
+            © 2026 G-marge. All rights reserved.
           </div>
           
           <div className="flex items-center gap-6 text-sm text-black">

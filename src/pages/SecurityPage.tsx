@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { Shield, Lock, Eye, FileCheck, Server, Key, AlertTriangle, CheckCircle2 } from 'lucide-react';
+import { Shield, Lock, EyeOff, FileCheck, Server, Key, Plug, CheckCircle2 } from 'lucide-react';
 import { FloatingShapes } from '../components/FloatingShapes';
 import { ParticleField } from '../components/ParticleField';
 import { Card3D } from '../components/Card3D';
@@ -10,97 +10,97 @@ import { ImageWithFallback } from '../components/figma/ImageWithFallback';
 
 const securityFeatures = [
   {
-    icon: Lock,
-    title: 'End-to-End Encryption',
-    description: 'All data transmitted between clients and our servers is encrypted using industry-standard TLS 1.3 protocol with 256-bit AES encryption.',
+    icon: Plug,
+    title: 'How We Connect',
+    description: 'We connect to your platforms through their own APIs and permission systems, with read-only access wherever the platform supports it. No shared logins, no screen sharing, no exports passed around over email.',
     details: [
-      'TLS 1.3 encryption in transit',
-      'AES-256 encryption at rest',
-      'Regular security audits',
-      'Zero-knowledge architecture'
+      'Read-only access where the platform allows it',
+      'Access granted through your own user permissions',
+      'No shared or personal account credentials',
+      'Every connection revocable by you at any time'
+    ]
+  },
+  {
+    icon: Lock,
+    title: 'Encryption',
+    description: 'Your data is encrypted in transit and at rest. Platform credentials and API tokens are held in a managed secrets store, never in code, spreadsheets or chat messages.',
+    details: [
+      'TLS for every connection in transit',
+      'Encrypted storage at rest',
+      'API tokens held in a managed secrets store',
+      'No credentials in code or documents'
     ]
   },
   {
     icon: Server,
-    title: 'Secure Infrastructure',
-    description: 'Built on enterprise-grade cloud infrastructure with multiple layers of security, redundancy, and 99.9% uptime guarantee.',
+    title: 'Where Your Data Lives',
+    description: 'Each client gets their own isolated database and dashboard instance on managed cloud infrastructure. Your data is not commingled with anyone else\'s at any point in the pipeline.',
     details: [
-      'AWS/Azure certified data centers',
-      'Multi-region redundancy',
-      'DDoS protection',
-      'Regular penetration testing'
+      'Separate database per client',
+      'Separate dashboard instance per client',
+      'Managed cloud hosting with daily backups',
+      'Region of storage agreed before we start'
     ]
   },
   {
-    icon: Eye,
-    title: 'Privacy by Design',
-    description: 'We follow privacy-first principles, collecting only essential data and giving you full control over your information.',
+    icon: EyeOff,
+    title: 'Never Pooled, Never Sold',
+    description: 'We do not pool client data, we do not build benchmarks from it, and we do not sell or share it with anyone. Your numbers are used to answer your questions and nothing else.',
     details: [
-      'GDPR compliant',
-      'CCPA compliant',
-      'Data minimization',
-      'Right to deletion'
-    ]
-  },
-  {
-    icon: FileCheck,
-    title: 'Compliance & Certifications',
-    description: 'We maintain the highest industry standards and certifications to ensure your data is protected and handled responsibly.',
-    details: [
-      'SOC 2 Type II certified',
-      'ISO 27001 compliant',
-      'HIPAA ready',
-      'Regular compliance audits'
+      'No pooling across client accounts',
+      'No benchmarking against other clients',
+      'No resale or sharing with third parties',
+      'No use of your data to train external models'
     ]
   },
   {
     icon: Key,
-    title: 'Access Control',
-    description: 'Robust authentication and authorization mechanisms ensure only authorized users can access sensitive data.',
+    title: 'Who Can See It',
+    description: 'Access is limited to the analyst working on your account, plus whoever on your side you choose to invite. Access is reviewed when people join or leave, and removed the day an engagement ends.',
     details: [
-      'Multi-factor authentication',
-      'Role-based access control',
-      'Single sign-on (SSO)',
-      'Session management'
+      'Access limited to your named analyst',
+      'Multi-factor authentication on every account',
+      'You control who on your team gets a login',
+      'Access removed when the engagement ends'
     ]
   },
   {
-    icon: AlertTriangle,
-    title: 'Threat Detection',
-    description: '24/7 monitoring and advanced threat detection systems identify and neutralize security risks in real-time.',
+    icon: FileCheck,
+    title: 'Your Rights Over Your Data',
+    description: 'You can ask us to delete your data at any time and we will confirm in writing once it is done. We handle GDPR and CCPA data-subject requests that reach us through you, and we work with aggregated data rather than personal details wherever we can.',
     details: [
-      'Real-time monitoring',
-      'Automated threat response',
-      'Security incident logging',
-      'Intrusion detection systems'
+      'Deletion on request, confirmed in writing',
+      'GDPR and CCPA data-subject requests honoured',
+      'Aggregated data preferred over personal data',
+      'Full export of your data on request'
     ]
   }
 ];
 
 const securityPractices = [
   {
-    title: 'Data Encryption',
-    description: 'All sensitive data is encrypted both in transit and at rest using military-grade encryption standards.'
+    title: 'What We Do Not Ask For',
+    description: 'We do not need customer names, email addresses, phone numbers or payment details to do this work, so we ask you not to send them. Orders, spend, sessions and revenue are enough.'
   },
   {
-    title: 'Regular Audits',
-    description: 'Third-party security audits and penetration testing conducted quarterly to identify vulnerabilities.'
+    title: 'Sub-processors',
+    description: 'A short, named list: the cloud host running your database and dashboard, the advertising and commerce platforms you already use, and the model provider behind the written commentary. We name every one before you sign and tell you before it changes.'
   },
   {
-    title: 'Incident Response',
-    description: 'Dedicated security team with 24/7 incident response protocols and automated alerting systems.'
+    title: 'What We Do Not Claim',
+    description: 'We are a small consultancy, not an audited platform, and we hold no formal security certifications. We would rather describe exactly how your data is handled, in writing, than imply a badge we do not have.'
   },
   {
-    title: 'Employee Training',
-    description: 'Comprehensive security training for all employees with regular updates on best practices and threats.'
+    title: 'Least Privilege by Default',
+    description: 'We ask for the narrowest access that lets the work happen. If a platform offers a read-only or analyst-level role, that is the role we ask for, even when it makes our setup slower.'
   },
   {
-    title: 'Backup & Recovery',
-    description: 'Automated daily backups with geo-redundant storage and tested disaster recovery procedures.'
+    title: 'If Something Goes Wrong',
+    description: 'If we believe your data has been exposed, you hear it from us directly and quickly, with what happened, what was affected and what we are doing about it. No holding it back while we work out the wording.'
   },
   {
-    title: 'Vulnerability Management',
-    description: 'Continuous monitoring and patching of systems to address security vulnerabilities promptly.'
+    title: 'When the Engagement Ends',
+    description: 'You keep the dashboard, the data model and the underlying data, and we hand over the code and connection setup. Our own copies and credentials are deleted, and we confirm when that is done.'
   }
 ];
 
@@ -126,25 +126,25 @@ export default function SecurityPage() {
                 whileHover={{ scale: 1.05 }}
               >
                 <Shield className="w-5 h-5 text-[#002B6B]" />
-                <span className="text-sm font-medium text-black">Enterprise-Grade Security</span>
+                <span className="text-sm font-medium text-black">How We Handle Client Data</span>
               </motion.div>
 
               <h1 className="text-5xl sm:text-6xl font-bold mb-6 text-black">
-                <TextReveal text="Your Data," delay={0.2} />
+                <TextReveal text="Your Data" delay={0.2} />
                 <br />
                 <span className="text-[#002B6B]">
-                  <TextReveal text="Our Priority" delay={0.4} />
+                  <TextReveal text="Stays Yours" delay={0.4} />
                 </span>
               </h1>
 
               <p className="text-xl text-black mb-8 leading-relaxed">
-                We implement industry-leading security measures to protect your data and ensure 
-                compliance with global privacy regulations. Your trust is our foundation.
+                We read from your Shopify, ad and analytics accounts to build your dashboard. Here is
+                exactly how that access works, where the data sits, and what happens to it when we're done.
               </p>
 
               <div className="flex flex-wrap gap-4">
                 <MagneticButton onClick={() => navigate('contact')}>
-                  Request Security Overview
+                  Ask a Data Question
                 </MagneticButton>
                 <MagneticButton onClick={() => navigate('about')} variant="secondary">
                   Learn More
@@ -161,7 +161,7 @@ export default function SecurityPage() {
               <div className="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-[#BFC0C2]">
                 <ImageWithFallback
                   src="https://images.unsplash.com/photo-1762340916350-ad5a3d620c16?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjeWJlcnNlY3VyaXR5JTIwcHJvdGVjdGlvbnxlbnwxfHx8fDE3NjY2NzcwMDl8MA&ixlib=rb-4.1.0&q=80&w=1080"
-                  alt="Cybersecurity Protection"
+                  alt="Data Security"
                   className="w-full h-96 object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#002B6B]/80 via-[#002B6B]/20 to-transparent" />
@@ -177,8 +177,8 @@ export default function SecurityPage() {
                       <Shield className="w-6 h-6 text-white" />
                     </div>
                     <div>
-                      <div className="text-sm font-medium text-gray-600">Protected By</div>
-                      <div className="text-lg font-bold text-[#002B6B]">256-bit Encryption</div>
+                      <div className="text-sm font-medium text-gray-600">Default Access</div>
+                      <div className="text-lg font-bold text-[#002B6B]">Read-Only</div>
                     </div>
                   </div>
                 </motion.div>
@@ -199,10 +199,10 @@ export default function SecurityPage() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-4xl sm:text-5xl font-bold mb-6 text-black">
-              Comprehensive <span className="text-[#002B6B]">Security Measures</span>
+              How We Handle <span className="text-[#002B6B]">Your Data</span>
             </h2>
             <p className="text-xl text-black max-w-3xl mx-auto">
-              Multiple layers of protection to keep your data safe and secure
+              Access, storage and deletion, described plainly
             </p>
           </motion.div>
 
@@ -259,10 +259,10 @@ export default function SecurityPage() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-4xl sm:text-5xl font-bold mb-6 text-black">
-              Security <span className="text-[#002B6B]">Best Practices</span>
+              Practices and <span className="text-[#002B6B]">Commitments</span>
             </h2>
             <p className="text-xl text-black max-w-3xl mx-auto">
-              Our commitment to security goes beyond technology
+              What we promise, and what we will not pretend to
             </p>
           </motion.div>
 
@@ -302,13 +302,13 @@ export default function SecurityPage() {
             transition={{ duration: 0.8 }}
           >
             <h2 className="text-4xl sm:text-5xl font-bold mb-6 text-white">
-              Questions About Security?
+              Need This in Writing?
             </h2>
             <p className="text-xl text-white/90 mb-8">
-              Our security team is here to answer any questions about our practices and certifications
+              We'll put the access list, storage details and deletion terms in the agreement before you sign
             </p>
             <MagneticButton onClick={() => navigate('contact')} variant="secondary">
-              Contact Security Team
+              Request the Details
             </MagneticButton>
           </motion.div>
         </div>

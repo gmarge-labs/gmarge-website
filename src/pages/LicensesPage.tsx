@@ -10,83 +10,83 @@ import { ImageWithFallback } from '../components/figma/ImageWithFallback';
 const openSourceLibraries = [
   {
     name: 'React',
-    version: '18.2.0',
+    version: 'v18.3.1',
     license: 'MIT License',
-    description: 'A JavaScript library for building user interfaces',
-    url: 'https://reactjs.org/'
+    description: 'The library this website interface is built with',
+    url: 'https://react.dev/'
   },
   {
-    name: 'Motion (Framer Motion)',
-    version: '11.0.0',
+    name: 'Vite',
+    version: 'v6.3.5',
     license: 'MIT License',
-    description: 'Production-ready animation library for React',
-    url: 'https://motion.dev/'
+    description: 'Build tool and development server used to bundle the site',
+    url: 'https://vite.dev/'
   },
   {
     name: 'Tailwind CSS',
-    version: '4.0.0',
+    version: '[Version to be confirmed]',
     license: 'MIT License',
-    description: 'A utility-first CSS framework',
+    description: 'Utility-first CSS framework used for the site styling',
     url: 'https://tailwindcss.com/'
   },
   {
+    name: 'Motion (formerly Framer Motion)',
+    version: 'v12.23.26',
+    license: 'MIT License',
+    description: 'Animation library used for page and element transitions',
+    url: 'https://motion.dev/'
+  },
+  {
     name: 'Lucide React',
-    version: 'Latest',
+    version: 'v0.487.0',
     license: 'ISC License',
-    description: 'Beautiful & consistent icon toolkit',
+    description: 'The icon set used across these pages',
     url: 'https://lucide.dev/'
   },
   {
-    name: 'Recharts',
-    version: 'Latest',
+    name: 'Radix UI Primitives',
+    version: 'Multiple packages',
     license: 'MIT License',
-    description: 'Redefined chart library built with React and D3',
+    description: 'Accessible, unstyled UI primitives behind the interface components',
+    url: 'https://www.radix-ui.com/'
+  },
+  {
+    name: 'Recharts',
+    version: 'v2.15.4',
+    license: 'MIT License',
+    description: 'Charting library built on React and D3, used for charts on this site',
     url: 'https://recharts.org/'
   },
   {
-    name: 'Axios',
-    version: 'Latest',
-    license: 'MIT License',
-    description: 'Promise based HTTP client',
-    url: 'https://axios-http.com/'
-  },
-  {
     name: 'React Hook Form',
-    version: '7.55.0',
+    version: 'v7.69.0',
     license: 'MIT License',
-    description: 'Performant, flexible and extensible forms',
+    description: 'Form state and validation used by the contact form',
     url: 'https://react-hook-form.com/'
-  },
-  {
-    name: 'Sonner',
-    version: '2.0.3',
-    license: 'MIT License',
-    description: 'An opinionated toast component for React',
-    url: 'https://sonner.emilkowal.ski/'
   }
 ];
 
-const aiModels = [
+const dataStack = [
   {
-    name: 'GPT-4',
-    provider: 'OpenAI',
-    license: 'Commercial License',
-    description: 'Advanced language model for natural conversations',
-    usage: 'Powering chatbot responses and natural language understanding'
+    name: 'Streamlit',
+    provider: 'Streamlit, part of Snowflake',
+    license: 'Apache License 2.0',
+    description: 'Python framework for building data applications',
+    usage: 'Runs the client dashboard and its interactive views'
   },
   {
-    name: 'BERT',
-    provider: 'Google',
-    license: 'Apache 2.0',
-    description: 'Bidirectional Encoder Representations from Transformers',
-    usage: 'Sentiment analysis and intent classification'
+    name: 'pandas',
+    provider: 'pandas development team',
+    license: 'BSD 3-Clause License',
+    description: 'Data analysis and manipulation library for Python',
+    usage: 'Joins and aggregates Shopify, Meta Ads and GA4 data for reporting'
   },
   {
-    name: 'Sentence Transformers',
-    provider: 'UKPLab',
-    license: 'Apache 2.0',
-    description: 'Framework for state-of-the-art sentence embeddings',
-    usage: 'Semantic search and similarity matching'
+    name: 'Python',
+    provider: 'Python Software Foundation',
+    license: 'Python Software Foundation License',
+    description: 'The language the dashboards and data pipelines are written in',
+    usage: 'Runs the daily refresh, incrementality tests and modelling work'
   }
 ];
 
@@ -124,12 +124,12 @@ export default function LicensesPage() {
               </h1>
 
               <p className="text-xl text-black mb-8 leading-relaxed">
-                G-marge is built on the shoulders of amazing open-source projects. We're grateful 
-                to the open-source community and committed to transparency about the technologies we use.
+                This website and the dashboards we build for clients run on open-source software.
+                This page lists the main projects we depend on and the licences they are released under.
               </p>
 
               <p className="text-sm text-gray-600 mb-8">
-                Last Updated: December 26, 2024
+                Last reviewed: [Date to be confirmed]
               </p>
             </motion.div>
 
@@ -163,10 +163,10 @@ export default function LicensesPage() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-4xl sm:text-5xl font-bold mb-6 text-black">
-              <span className="text-[#002B6B]">Libraries</span>
+              <span className="text-[#002B6B]">Website Libraries</span>
             </h2>
             <p className="text-xl text-black max-w-3xl mx-auto">
-              Third-party libraries and frameworks that power G-marge
+              Third-party packages used to build and run this website
             </p>
           </motion.div>
 
@@ -187,7 +187,7 @@ export default function LicensesPage() {
                     </div>
                     <div>
                       <h3 className="text-xl font-bold text-black">{library.name}</h3>
-                      <p className="text-sm text-gray-600">v{library.version}</p>
+                      <p className="text-sm text-gray-600">{library.version}</p>
                     </div>
                   </div>
                   <a
@@ -212,7 +212,7 @@ export default function LicensesPage() {
         </div>
       </section>
 
-      {/* AI Models */}
+      {/* Dashboard Stack */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
@@ -223,17 +223,17 @@ export default function LicensesPage() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-4xl sm:text-5xl font-bold mb-6 text-black">
-              AI Models & <span className="text-[#002B6B]">Technologies</span>
+              Dashboard & <span className="text-[#002B6B]">Data Stack</span>
             </h2>
             <p className="text-xl text-black max-w-3xl mx-auto">
-              Artificial intelligence models and frameworks we utilize
+              Open-source software behind the dashboards and analysis we build for clients
             </p>
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {aiModels.map((model, index) => (
+            {dataStack.map((tool, index) => (
               <motion.div
-                key={model.name}
+                key={tool.name}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -244,18 +244,18 @@ export default function LicensesPage() {
                   <Code className="w-6 h-6 text-white" />
                 </div>
                 
-                <h3 className="text-xl font-bold mb-2 text-black">{model.name}</h3>
-                <p className="text-sm text-gray-600 mb-3">by {model.provider}</p>
-                <p className="text-black mb-4">{model.description}</p>
+                <h3 className="text-xl font-bold mb-2 text-black">{tool.name}</h3>
+                <p className="text-sm text-gray-600 mb-3">by {tool.provider}</p>
+                <p className="text-black mb-4">{tool.description}</p>
                 
                 <div className="mb-4">
                   <p className="text-sm font-medium text-black mb-1">Usage:</p>
-                  <p className="text-sm text-gray-600">{model.usage}</p>
+                  <p className="text-sm text-gray-600">{tool.usage}</p>
                 </div>
                 
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E8F0FF] text-sm text-[#002B6B]">
                   <Shield className="w-4 h-4" />
-                  <span>{model.license}</span>
+                  <span>{tool.license}</span>
                 </div>
               </motion.div>
             ))}
@@ -293,7 +293,7 @@ export default function LicensesPage() {
                 distribution, and private use.
               </p>
               <ul className="space-y-2">
-                {['Commercial use allowed', 'Modification allowed', 'Distribution allowed', 'Private use allowed'].map((item) => (
+                {['Commercial use allowed', 'Modification allowed', 'Distribution allowed', 'Attribution required'].map((item) => (
                   <li key={item} className="flex items-center gap-2 text-black">
                     <CheckCircle2 className="w-5 h-5 text-[#002B6B]" />
                     <span>{item}</span>
@@ -325,20 +325,21 @@ export default function LicensesPage() {
               </ul>
             </motion.div>
 
-            {/* ISC License */}
+            {/* ISC, BSD and PSF Licenses */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               className="p-6 rounded-xl border-2 border-[#BFC0C2] bg-white"
             >
-              <h3 className="text-2xl font-bold mb-4 text-black">ISC License</h3>
+              <h3 className="text-2xl font-bold mb-4 text-black">ISC, BSD and PSF Licenses</h3>
               <p className="text-black mb-4 leading-relaxed">
-                A permissive license functionally equivalent to MIT and BSD 2-Clause licenses. It is 
-                simple and straightforward, allowing unlimited freedom with proper attribution.
+                Permissive licenses that work much like MIT. The ISC license used by lucide-react, the BSD
+                3-Clause license used by pandas, and the Python Software Foundation license all allow commercial
+                use and modification as long as copyright and license notices are kept.
               </p>
               <ul className="space-y-2">
-                {['Very permissive', 'Simple and clear', 'Commercial use allowed', 'Minimal restrictions'].map((item) => (
+                {['Very permissive', 'Commercial use allowed', 'Modification allowed', 'Notices must be kept'].map((item) => (
                   <li key={item} className="flex items-center gap-2 text-black">
                     <CheckCircle2 className="w-5 h-5 text-[#002B6B]" />
                     <span>{item}</span>
@@ -361,9 +362,9 @@ export default function LicensesPage() {
           >
             <h2 className="text-3xl font-bold mb-6 text-black">Attribution & Acknowledgments</h2>
             <p className="text-black mb-4 leading-relaxed">
-              We are deeply grateful to the open-source community for creating and maintaining the 
-              amazing tools that make G-marge possible. Each library and framework listed here represents 
-              countless hours of work by dedicated developers around the world.
+              Thanks to the maintainers of the projects listed here. This list covers the main dependencies rather
+              than every transitive package; a full dependency list for a client dashboard can be provided on request.
+              Each project is used under its own licence, and those licence terms apply, not ours.
             </p>
             <p className="text-black leading-relaxed">
               If you believe we have used your work and not provided proper attribution, please contact 
@@ -371,7 +372,7 @@ export default function LicensesPage() {
               <a href="mailto:halimabl@gmarge.com" className="text-[#002B6B] underline">
                 halimabl@gmarge.com
               </a>
-              {' '}and we will promptly address the issue.
+              {' '}and we will correct it.
             </p>
           </motion.div>
         </div>
@@ -397,7 +398,7 @@ export default function LicensesPage() {
               Questions About Licensing?
             </h2>
             <p className="text-xl text-white/90 mb-8">
-              Contact us for more information about our software licenses and attributions
+              Ask us which components go into a dashboard we build for you
             </p>
             <MagneticButton onClick={() => navigate('contact')} variant="secondary">
               Contact Us

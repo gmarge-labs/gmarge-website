@@ -1,6 +1,7 @@
 import { motion } from 'motion/react';
 import { ArrowRight, CheckCircle, Zap, Shield, TrendingUp } from 'lucide-react';
 import { useRouter } from './Router';
+import { BOOKING_URL, DEMO_URL, scrollToDemo } from '../config/links';
 import { Globe3D } from './Globe3D';
 import { LiquidBlob } from './LiquidBlob';
 
@@ -56,16 +57,18 @@ export function VisualCTA() {
               }}
             >
               <span className="px-4 py-2 rounded-full bg-white/20 text-white text-sm backdrop-blur-sm border border-white/30">
-                Ready to Transform?
+                Stop Guessing
               </span>
             </motion.div>
 
             <h2 className="text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-              Start Your AI Journey Today
+              Start Measuring What's Real
             </h2>
 
             <p className="text-xl text-white/90 mb-8 leading-relaxed">
-              Join 150+ companies already using G-marge AI agents to drive growth, reduce costs, and unlock new opportunities.
+              Book a 30-minute discovery call. We'll look at your current reporting, show you where the
+              reported and incremental numbers are likely to diverge, and tell you honestly whether this is
+              worth doing for a brand your size.
             </p>
 
             <div className="flex flex-wrap gap-4">
@@ -73,7 +76,13 @@ export function VisualCTA() {
                 className="group relative px-8 py-4 rounded-full bg-white text-[#002B6B] font-semibold overflow-hidden"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => navigate('contact')}
+                onClick={() => {
+                  if (BOOKING_URL) {
+                    window.open(BOOKING_URL, '_blank', 'noopener,noreferrer');
+                  } else {
+                    navigate('contact');
+                  }
+                }}
               >
                 <motion.div
                   className="absolute inset-0 bg-gradient-to-r from-[#002B6B] to-[#004B9B]"
@@ -81,16 +90,22 @@ export function VisualCTA() {
                   whileHover={{ x: 0 }}
                   transition={{ duration: 0.3 }}
                 />
-                <span className="relative z-10 group-hover:text-white transition-colors">Get Started</span>
+                <span className="relative z-10 group-hover:text-white transition-colors">Book a Discovery Call</span>
               </motion.button>
 
               <motion.button
                 className="px-8 py-4 rounded-full border-2 border-white text-white font-semibold hover:bg-white hover:text-[#002B6B] transition-all"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => navigate('services')}
+                onClick={() => {
+                  if (DEMO_URL) {
+                    window.open(DEMO_URL, '_blank', 'noopener,noreferrer');
+                  } else {
+                    scrollToDemo();
+                  }
+                }}
               >
-                View Services
+                See a Demo
               </motion.button>
             </div>
 
@@ -103,10 +118,10 @@ export function VisualCTA() {
               transition={{ delay: 0.4 }}
             >
               {[
-                { icon: CheckCircle, label: 'Free Consultation' },
-                { icon: Zap, label: 'Quick Setup' },
-                { icon: Shield, label: 'Enterprise Security' },
-                { icon: TrendingUp, label: 'Proven ROI' },
+                { icon: CheckCircle, label: 'Free discovery call' },
+                { icon: Zap, label: 'Live in about 2 weeks' },
+                { icon: Shield, label: 'Your data stays yours' },
+                { icon: TrendingUp, label: 'Incrementality-first' },
               ].map((item, i) => {
                 const Icon = item.icon;
                 return (

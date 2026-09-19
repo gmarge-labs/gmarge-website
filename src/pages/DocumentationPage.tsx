@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { Book, Code, Terminal, Zap, Puzzle, Rocket, ArrowRight, Copy, CheckCircle2 } from 'lucide-react';
+import { BookOpen, Database, FlaskConical, LayoutDashboard, Bot, AlertTriangle, Scale, Terminal, ArrowRight, Copy, CheckCircle2 } from 'lucide-react';
 import { FloatingShapes } from '../components/FloatingShapes';
 import { ParticleField } from '../components/ParticleField';
 import { Card3D } from '../components/Card3D';
@@ -11,140 +11,147 @@ import { useState } from 'react';
 
 const documentationSections = [
   {
-    icon: Rocket,
-    title: 'Getting Started',
-    description: 'Quick start guide to integrate AI solutions into your business',
+    icon: Database,
+    title: 'Data Foundations',
+    description: 'Where every number on the dashboard comes from, and what happens to it before you see it',
     topics: [
-      'Account Setup',
-      'Initial Configuration',
-      'First Chatbot Deployment',
-      'Testing & Validation'
+      'Shopify as the revenue source of truth',
+      'Meta Ads and GA4 daily pulls',
+      'Deduplication, refunds and currency',
+      'Refreshed daily, timestamped on screen'
     ],
-    link: '#getting-started'
+    link: '#data-foundations'
   },
   {
-    icon: Code,
-    title: 'API Reference',
-    description: 'Complete API documentation with code examples and endpoints',
+    icon: FlaskConical,
+    title: 'Holdout Test Design',
+    description: 'How we design geo holdouts and matched-market tests to measure what advertising actually caused',
     topics: [
-      'Authentication',
-      'REST API Endpoints',
-      'Webhooks',
-      'Rate Limits'
+      'Choosing and matching regions',
+      'Holdout size and test length',
+      'Pre-period and post-period reads',
+      'What a result can and cannot prove'
     ],
-    link: '#api-reference'
+    link: '#holdout-design'
   },
   {
-    icon: Puzzle,
-    title: 'Integration Guides',
-    description: 'Step-by-step guides for popular platforms and tools',
+    icon: LayoutDashboard,
+    title: 'How The Dashboard Is Built',
+    description: 'A Streamlit dashboard wired to your own data, built around decisions rather than vanity charts',
     topics: [
-      'Website Integration',
-      'WhatsApp Business',
-      'Facebook Messenger',
-      'Custom Applications'
+      'One agreed definition per metric',
+      'Blended and channel-level views',
+      'Reported and incremental side by side',
+      'Live in about two weeks'
     ],
-    link: '#integrations'
+    link: '#dashboard'
   },
   {
-    icon: Terminal,
-    title: 'SDKs & Libraries',
-    description: 'Official SDKs for multiple programming languages',
+    icon: Bot,
+    title: 'What The Agent Does',
+    description: 'The AI agent reads the same numbers you do and explains in plain language what changed and why',
     topics: [
-      'JavaScript/TypeScript',
-      'Python',
-      'PHP',
-      'Ruby'
+      'Daily written read-out',
+      'Cites the figures behind each claim',
+      'Flags what is worth a closer look',
+      'Does not move budget or place ads'
     ],
-    link: '#sdks'
+    link: '#agent'
   },
   {
-    icon: Zap,
-    title: 'Best Practices',
-    description: 'Expert tips and recommendations for optimal performance',
+    icon: AlertTriangle,
+    title: 'Weekly Anomaly Checks',
+    description: 'The quiet failures that drain budget for weeks before anyone notices them in a monthly report',
     topics: [
-      'Conversation Design',
-      'Performance Optimization',
-      'Security Guidelines',
-      'Testing Strategies'
+      'Creative fatigue and frequency creep',
+      'Double-firing and broken pixels',
+      'Budget drift between campaigns',
+      'Feed, tracking and consent breakages'
     ],
-    link: '#best-practices'
+    link: '#anomalies'
   },
   {
-    icon: Book,
-    title: 'Tutorials',
-    description: 'Hands-on tutorials for common use cases and scenarios',
+    icon: Scale,
+    title: 'Reported vs Incremental',
+    description: 'Platform-reported ROAS and real ROAS are different numbers. We report both and show the gap',
     topics: [
-      'Building a Support Bot',
-      'Lead Generation Setup',
-      'Appointment Scheduling',
-      'Analytics Dashboard'
+      'Why platforms over-claim credit',
+      'The typical 30-40% gap',
+      'Holdout-adjusted ROAS',
+      'What to change once you know'
     ],
-    link: '#tutorials'
+    link: '#reported-vs-incremental'
   }
 ];
 
 const codeExamples = [
   {
-    title: 'JavaScript Integration',
-    language: 'javascript',
-    code: `// Initialize G-marge AI Chatbot
-const gmarge = new GmargeAI({
-  apiKey: 'YOUR_API_KEY',
-  botId: 'your-bot-id'
-});
+    title: 'Geo Holdout Test Design',
+    language: 'text',
+    code: `Test        Meta Ads geo holdout
+Duration    4 weeks live, plus a 2-week post-period
 
-// Deploy chatbot on your website
-gmarge.init({
-  container: '#chatbot-container',
-  theme: 'light',
-  position: 'bottom-right'
-});
+Treatment   Half of regions, spend left unchanged
+Holdout     Half of regions, Meta spend paused
 
-// Listen to chatbot events
-gmarge.on('message', (data) => {
-  console.log('User message:', data.message);
-});`
+Matched on  pre-period revenue, order volume,
+            seasonality, share of new customers
+
+Outcome     total Shopify revenue in each group,
+            not platform-attributed revenue
+
+Read-out    actual revenue in treatment regions
+            against what the matched holdout regions
+            say would have happened anyway`
   },
   {
-    title: 'Python API Call',
-    language: 'python',
-    code: `import gmarge
+    title: 'Reported vs Incremental ROAS',
+    language: 'text',
+    code: `Worked example, illustrative indexed figures
 
-# Initialize client
-client = gmarge.Client(api_key="YOUR_API_KEY")
+Meta Ads, last 30 days
+  Spend                        100
+  Platform-reported revenue    400
+  Platform-reported ROAS       4.0x
 
-# Send a message
-response = client.chat.send(
-    bot_id="your-bot-id",
-    message="Hello!",
-    user_id="user123"
-)
+Holdout read-out
+  Incremental revenue          260
+  Incremental ROAS             2.6x
 
-print(response.text)
-print(f"Confidence: {response.confidence}")`
+  Gap to reported              35%
+  Typical range we see         30-40%
+
+The difference is revenue the platform claimed
+that would have arrived without the ad spend:
+returning customers, organic search, direct.`
   },
   {
-    title: 'REST API Example',
-    language: 'bash',
-    code: `curl -X POST https://api.gmarge.com/v1/chat \\
-  -H "Authorization: Bearer YOUR_API_KEY" \\
-  -H "Content-Type: application/json" \\
-  -d '{
-    "bot_id": "your-bot-id",
-    "message": "Hello!",
-    "user_id": "user123"
-  }'`
+    title: 'Weekly Anomaly Read-out',
+    language: 'text',
+    code: `Weekly checks, three flags raised
+
+[high]    Purchase pixel firing twice on the
+          checkout page since the theme update.
+          Platform conversions over-counted until
+          it is fixed. Dashboard uses Shopify.
+
+[high]    Creative fatigue on the lead prospecting
+          video. Frequency climbing and cost per
+          purchase rising for a second week.
+
+[medium]  Budget drift. Planned prospecting spend
+          has been sitting in retargeting since the
+          last campaign edit.`
   }
 ];
 
 const quickLinks = [
-  { title: 'API Authentication', path: '#auth' },
-  { title: 'Webhook Setup', path: '#webhooks' },
-  { title: 'Error Handling', path: '#errors' },
-  { title: 'Rate Limits', path: '#rate-limits' },
-  { title: 'Changelog', path: '#changelog' },
-  { title: 'Migration Guide', path: '#migration' }
+  { title: 'How we define a conversion', path: '#definitions' },
+  { title: 'Holdout test checklist', path: '#holdout-checklist' },
+  { title: 'Metric definitions', path: '#metrics' },
+  { title: 'Limits of the agent', path: '#agent-limits' },
+  { title: 'Data lag and refresh times', path: '#refresh' },
+  { title: 'Deep-dive add-ons', path: '#add-ons' }
 ];
 
 export default function DocumentationPage() {
@@ -175,29 +182,29 @@ export default function DocumentationPage() {
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#E8F0FF] border border-[#BFC0C2] mb-6"
                 whileHover={{ scale: 1.05 }}
               >
-                <Book className="w-5 h-5 text-[#002B6B]" />
-                <span className="text-sm font-medium text-black">Developer Resources</span>
+                <BookOpen className="w-5 h-5 text-[#002B6B]" />
+                <span className="text-sm font-medium text-black">Methodology</span>
               </motion.div>
 
               <h1 className="text-5xl sm:text-6xl font-bold mb-6 text-black">
-                <TextReveal text="Complete" delay={0.2} />
+                <TextReveal text="How We" delay={0.2} />
                 <br />
                 <span className="text-[#002B6B]">
-                  <TextReveal text="Documentation" delay={0.4} />
+                  <TextReveal text="Measure" delay={0.4} />
                 </span>
               </h1>
 
               <p className="text-xl text-black mb-8 leading-relaxed">
-                Everything you need to integrate, customize, and optimize G-marge AI solutions. 
-                From quick start guides to advanced API references.
+                The methods behind the dashboard, the holdout tests and the weekly read-outs.
+                Written so you can check our working rather than take the numbers on trust.
               </p>
 
               <div className="flex flex-wrap gap-4">
                 <MagneticButton onClick={() => navigate('contact')}>
-                  Get API Access
+                  Book a Walkthrough
                 </MagneticButton>
-                <MagneticButton onClick={() => window.open('#api-reference', '_self')} variant="secondary">
-                  View API Docs
+                <MagneticButton onClick={() => window.open('#data-foundations', '_self')} variant="secondary">
+                  Start With The Data
                 </MagneticButton>
               </div>
             </motion.div>
@@ -211,7 +218,7 @@ export default function DocumentationPage() {
               <div className="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-[#BFC0C2]">
                 <ImageWithFallback
                   src="https://images.unsplash.com/photo-1649451844931-57e22fc82de3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0ZWNobmljYWwlMjBkb2N1bWVudGF0aW9uJTIwY29kaW5nfGVufDF8fHx8MTc2Njc3MjQwMHww&ixlib=rb-4.1.0&q=80&w=1080"
-                  alt="Technical Documentation"
+                  alt="Marketing measurement methodology"
                   className="w-full h-96 object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#002B6B]/80 via-[#002B6B]/20 to-transparent" />
@@ -232,10 +239,10 @@ export default function DocumentationPage() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-4xl sm:text-5xl font-bold mb-6 text-black">
-              Documentation <span className="text-[#002B6B]">Hub</span>
+              The <span className="text-[#002B6B]">Method</span>
             </h2>
             <p className="text-xl text-black max-w-3xl mx-auto">
-              Comprehensive guides and references for developers
+              Six parts, from raw order data to the decision you make on Monday
             </p>
           </motion.div>
 
@@ -297,10 +304,10 @@ export default function DocumentationPage() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-4xl sm:text-5xl font-bold mb-6 text-black">
-              Code <span className="text-[#002B6B]">Examples</span>
+              Worked <span className="text-[#002B6B]">Examples</span>
             </h2>
             <p className="text-xl text-black max-w-3xl mx-auto">
-              Ready-to-use code snippets to get you started quickly
+              What a test design, a ROAS reconciliation and a weekly flag actually look like
             </p>
           </motion.div>
 
@@ -316,7 +323,7 @@ export default function DocumentationPage() {
               >
                 <div className="bg-gray-100 px-6 py-4 flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <Code className="w-5 h-5 text-[#002B6B]" />
+                    <Terminal className="w-5 h-5 text-[#002B6B]" />
                     <h3 className="font-bold text-black">{example.title}</h3>
                   </div>
                   <button
@@ -326,7 +333,7 @@ export default function DocumentationPage() {
                     {copiedIndex === index ? (
                       <>
                         <CheckCircle2 className="w-4 h-4 text-[#002B6B]" />
-                        <span className="text-sm text-[#002B6B]">Copied!</span>
+                        <span className="text-sm text-[#002B6B]">Copied</span>
                       </>
                     ) : (
                       <>
@@ -358,7 +365,7 @@ export default function DocumentationPage() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-4xl sm:text-5xl font-bold mb-6 text-black">
-              Quick <span className="text-[#002B6B]">Links</span>
+              Common <span className="text-[#002B6B]">Questions</span>
             </h2>
           </motion.div>
 
@@ -399,13 +406,13 @@ export default function DocumentationPage() {
             transition={{ duration: 0.8 }}
           >
             <h2 className="text-4xl sm:text-5xl font-bold mb-6 text-white">
-              Need Help Getting Started?
+              Want This Run On Your Numbers?
             </h2>
             <p className="text-xl text-white/90 mb-8">
-              Our developer support team is ready to help you integrate G-marge AI
+              We will show you where your reported performance and your real performance part company
             </p>
             <MagneticButton onClick={() => navigate('contact')} variant="secondary">
-              Contact Developer Support
+              Talk To Us
             </MagneticButton>
           </motion.div>
         </div>

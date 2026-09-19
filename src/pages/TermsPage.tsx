@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { FileText, Scale, AlertTriangle, CheckCircle2, Users, Shield } from 'lucide-react';
+import { FileText, Scale, AlertTriangle, CheckCircle2, Database, Shield } from 'lucide-react';
 import { FloatingShapes } from '../components/FloatingShapes';
 import { ParticleField } from '../components/ParticleField';
 import { TextReveal } from '../components/TextReveal';
@@ -10,23 +10,23 @@ import { ImageWithFallback } from '../components/figma/ImageWithFallback';
 const termsHighlights = [
   {
     icon: FileText,
-    title: 'Clear Terms',
-    description: 'Straightforward and easy-to-understand service agreements and obligations.'
+    title: 'Scope in Writing',
+    description: 'Each engagement is set out in a statement of work that lists what we will deliver and when.'
   },
   {
     icon: Scale,
-    title: 'Fair Usage',
-    description: 'Balanced policies that protect both our business and your interests.'
+    title: 'Retainer and Add-Ons',
+    description: 'A monthly retainer covers the core work. Deep dives are scoped and priced per project.'
   },
   {
-    icon: Users,
-    title: 'User Rights',
-    description: 'Your rights and responsibilities when using our AI solutions.'
+    icon: Database,
+    title: 'You Keep the Dashboard',
+    description: 'Dashboards, models and reports built for you are yours, along with the data behind them.'
   },
   {
     icon: Shield,
-    title: 'Protection',
-    description: 'Legal protections and limitations for all parties involved.'
+    title: 'Clear Limits',
+    description: 'What we measure, what we cannot promise, and how liability is capped.'
   }
 ];
 
@@ -59,17 +59,21 @@ export default function TermsPage() {
                 <TextReveal text="Terms of" delay={0.2} />
                 <br />
                 <span className="text-[#002B6B]">
-                  <TextReveal text="Service" delay={0.4} />
+                  <TextReveal text="Engagement" delay={0.4} />
                 </span>
               </h1>
 
               <p className="text-xl text-black mb-8 leading-relaxed">
-                These terms govern your use of G-marge's AI-powered business solutions. 
-                Please read them carefully to understand your rights and obligations.
+                These terms cover consulting engagements with G-marge, a marketing measurement consultancy for
+                direct-to-consumer e-commerce brands, and your use of this website.
               </p>
 
               <p className="text-sm text-gray-600 mb-8">
-                Last Updated: December 28, 2025
+                Draft pending legal review. These terms have not been reviewed by a lawyer and will change before they are final.
+              </p>
+
+              <p className="text-sm text-gray-600 mb-8">
+                Effective date: [Effective date to be confirmed]
               </p>
             </motion.div>
 
@@ -126,17 +130,17 @@ export default function TermsPage() {
               viewport={{ once: true }}
               className="mb-12"
             >
-              <h2 className="text-3xl font-bold mb-6 text-black">1. Acceptance of Terms</h2>
+              <h2 className="text-3xl font-bold mb-6 text-black">1. Agreement and Scope</h2>
               <p className="text-black mb-4 leading-relaxed">
-                By accessing or using G-marge's services, you agree to be bound by these Terms of Service. 
-                If you do not agree to these terms, please do not use our services.
+                These terms apply when you engage G-marge for measurement consulting and when you use this website. Where a
+                signed statement of work says something different, that document takes priority for that engagement.
               </p>
               <ul className="space-y-3 mb-6">
                 {[
-                  'You must be at least 18 years old to use our services',
-                  'You agree to provide accurate and complete information',
-                  'You are responsible for maintaining the security of your account',
-                  'You accept all risks associated with using our AI solutions'
+                  'The person accepting these terms confirms they can bind their company',
+                  'Each engagement is defined by a statement of work listing deliverables, timing and fees',
+                  'Work outside that statement of work is quoted and agreed in writing before it starts',
+                  'These terms apply to every engagement unless we agree otherwise in writing'
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3 text-black">
                     <CheckCircle2 className="w-5 h-5 text-[#002B6B] flex-shrink-0 mt-1" />
@@ -153,17 +157,17 @@ export default function TermsPage() {
               viewport={{ once: true }}
               className="mb-12"
             >
-              <h2 className="text-3xl font-bold mb-6 text-black">2. Services Provided</h2>
+              <h2 className="text-3xl font-bold mb-6 text-black">2. Services We Provide</h2>
               <p className="text-black mb-4 leading-relaxed">
-                G-marge provides AI-powered business solutions, including but not limited to:
+                We provide marketing measurement consulting. A core engagement usually includes:
               </p>
               <ul className="space-y-3 mb-6">
                 {[
-                  'Custom AI chatbots for customer service and support',
-                  'Automated appointment scheduling and management',
-                  'Business analytics and reporting tools',
-                  'Integration with existing business systems',
-                  'Training and support for AI implementation'
+                  'A live dashboard, built in Streamlit, pulling from Shopify, Meta Ads and GA4 and refreshed daily',
+                  'An AI agent that reads the dashboard and explains what changed and the likely reasons',
+                  'Incrementality testing, including geo holdouts and matched-market tests',
+                  'Deep-dive add-ons: campaign evaluation, segmentation modelling and media mix modelling',
+                  'Working sessions to walk through the results and agree what to do next'
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3 text-black">
                     <CheckCircle2 className="w-5 h-5 text-[#002B6B] flex-shrink-0 mt-1" />
@@ -180,18 +184,18 @@ export default function TermsPage() {
               viewport={{ once: true }}
               className="mb-12"
             >
-              <h2 className="text-3xl font-bold mb-6 text-black">3. User Responsibilities</h2>
+              <h2 className="text-3xl font-bold mb-6 text-black">3. Your Responsibilities</h2>
               <p className="text-black mb-4 leading-relaxed">
-                As a user of our services, you agree to:
+                The work depends on access and information from you. You agree to:
               </p>
               <ul className="space-y-3 mb-6">
                 {[
-                  'Use our services only for lawful purposes',
-                  'Not attempt to gain unauthorized access to our systems',
-                  'Not interfere with or disrupt our services',
-                  'Not use our services to transmit harmful or malicious content',
-                  'Comply with all applicable laws and regulations',
-                  'Respect intellectual property rights'
+                  'Grant read access to the ad and commerce platforms in scope and keep it in place during the engagement',
+                  'Confirm you are entitled to grant that access and to share the data it contains',
+                  'Tell us about things that move the numbers: promotions, site changes, tracking changes, stock issues',
+                  'Check that any cost, margin or offline data you send us is accurate and complete',
+                  'Name someone on your side who can answer questions and approve tests',
+                  'Accept that holdout tests involve deliberately withholding spend from part of your audience'
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3 text-black">
                     <AlertTriangle className="w-5 h-5 text-[#002B6B] flex-shrink-0 mt-1" />
@@ -208,18 +212,18 @@ export default function TermsPage() {
               viewport={{ once: true }}
               className="mb-12"
             >
-              <h2 className="text-3xl font-bold mb-6 text-black">4. Payment Terms</h2>
+              <h2 className="text-3xl font-bold mb-6 text-black">4. Fees, Retainer and Add-Ons</h2>
               <p className="text-black mb-4 leading-relaxed">
-                Payment terms for our services:
+                Fees are set in the statement of work. Unless it says otherwise:
               </p>
               <ul className="space-y-3 mb-6">
                 {[
-                  'Fees are charged based on your selected pricing plan',
-                  'All fees are exclusive of applicable taxes',
-                  'Payment is due in advance on a monthly or annual basis',
-                  'Refunds are provided within 30 days of initial purchase',
-                  'We reserve the right to modify pricing with 30 days notice',
-                  'Failure to pay may result in service suspension'
+                  'The core retainer is between $3,500 and $5,000 per month, depending on scope',
+                  'Deep-dive add-ons are scoped and quoted per project before that work starts',
+                  'Invoices are issued monthly in advance and are due within [Payment terms to be confirmed]',
+                  'Fees exclude sales tax, VAT or equivalent, which is added where it applies',
+                  'Third-party costs you ask us to buy, such as data or hosting, are passed through at cost',
+                  'We may pause work on overdue invoices after giving written notice'
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3 text-black">
                     <CheckCircle2 className="w-5 h-5 text-[#002B6B] flex-shrink-0 mt-1" />
@@ -236,18 +240,17 @@ export default function TermsPage() {
               viewport={{ once: true }}
               className="mb-12"
             >
-              <h2 className="text-3xl font-bold mb-6 text-black">5. Intellectual Property</h2>
+              <h2 className="text-3xl font-bold mb-6 text-black">5. Intellectual Property and Confidentiality</h2>
               <p className="text-black mb-4 leading-relaxed">
-                All content, features, and functionality of our services are owned by G-marge and protected by copyright, 
-                trademark, and other intellectual property laws.
+                You keep what we build for you. We keep the general methods and tooling we bring to every engagement.
               </p>
               <ul className="space-y-3 mb-6">
                 {[
-                  'You receive a limited license to use our services',
-                  'You may not copy, modify, or distribute our software',
-                  'Custom solutions created for you remain your property',
-                  'We retain all rights to our core technology and platform',
-                  'You grant us license to use your feedback for improvements'
+                  'Dashboards, models, test designs and reports built for you are yours once the related fees are paid',
+                  'Your platform data, and the data held in your dashboard, remain yours throughout',
+                  'We keep our general methods, know-how, code libraries, templates and reusable tooling',
+                  'Where reusable tooling sits inside your deliverables, you get a perpetual licence to keep using it',
+                  'Each side keeps the other confidential information private and uses it only for the engagement'
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3 text-black">
                     <Shield className="w-5 h-5 text-[#002B6B] flex-shrink-0 mt-1" />
@@ -264,17 +267,17 @@ export default function TermsPage() {
               viewport={{ once: true }}
               className="mb-12"
             >
-              <h2 className="text-3xl font-bold mb-6 text-black">6. Limitation of Liability</h2>
+              <h2 className="text-3xl font-bold mb-6 text-black">6. No Guaranteed Results and Liability</h2>
               <p className="text-black mb-4 leading-relaxed">
-                To the maximum extent permitted by law:
+                Measurement work is meant to improve the decisions you make. It does not guarantee a commercial outcome.
               </p>
               <ul className="space-y-3 mb-6">
                 {[
-                  'Our services are provided "as is" without warranties',
-                  'We are not liable for indirect or consequential damages',
-                  'Our total liability is limited to fees paid in the last 12 months',
-                  'We do not guarantee uninterrupted or error-free service',
-                  'You are responsible for backing up your data'
+                  'We do not promise any specific revenue, ROAS, growth rate or cost saving',
+                  'Test and model results carry uncertainty, which we report alongside the numbers',
+                  'We depend on third-party platforms and cannot guarantee their data is complete or available',
+                  'Neither side is liable for indirect or consequential loss, or for lost profits',
+                  'Our total liability is capped at the fees paid in the three months before the claim'
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3 text-black">
                     <AlertTriangle className="w-5 h-5 text-[#002B6B] flex-shrink-0 mt-1" />
@@ -291,18 +294,18 @@ export default function TermsPage() {
               viewport={{ once: true }}
               className="mb-12"
             >
-              <h2 className="text-3xl font-bold mb-6 text-black">7. Termination</h2>
+              <h2 className="text-3xl font-bold mb-6 text-black">7. Term, Minimum and Notice</h2>
               <p className="text-black mb-4 leading-relaxed">
-                Either party may terminate the service agreement:
+                Engagements run monthly after an initial minimum term:
               </p>
               <ul className="space-y-3 mb-6">
                 {[
-                  'You may cancel your subscription at any time',
-                  'We may suspend or terminate accounts for violations',
-                  '30 days written notice required for termination',
-                  'All fees paid are non-refundable upon termination',
-                  'We will provide data export upon reasonable request',
-                  'Certain provisions survive termination'
+                  'The initial term is three months from the start date in the statement of work',
+                  'After the initial term the engagement continues month to month',
+                  'Either side may end it with 30 days written notice',
+                  'Fees for work done and for the notice period remain payable',
+                  'Either side may end it sooner for a material breach not fixed within 30 days of notice',
+                  'On exit we hand over the dashboard and its data and remove our platform access'
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3 text-black">
                     <CheckCircle2 className="w-5 h-5 text-[#002B6B] flex-shrink-0 mt-1" />
@@ -319,10 +322,13 @@ export default function TermsPage() {
               viewport={{ once: true }}
               className="mb-12"
             >
-              <h2 className="text-3xl font-bold mb-6 text-black">8. Changes to Terms</h2>
+              <h2 className="text-3xl font-bold mb-6 text-black">8. Governing Law and Changes</h2>
               <p className="text-black mb-4 leading-relaxed">
-                We reserve the right to modify these terms at any time. We will notify you of material changes 
-                via email or through our service. Your continued use after changes constitutes acceptance.
+                These terms are governed by the laws of [Jurisdiction to be confirmed], and its courts have exclusive
+                jurisdiction over any dispute. We may update these terms; the version that applies
+                to an engagement is the one published here when its statement of work is signed, and we will tell you in
+                writing before a change affects work already under way. Contracting entity and registration details:
+                [Company registration details to be confirmed].
               </p>
             </motion.div>
           </div>
@@ -346,10 +352,10 @@ export default function TermsPage() {
             transition={{ duration: 0.8 }}
           >
             <h2 className="text-4xl sm:text-5xl font-bold mb-6 text-white">
-              Ready to Get Started?
+              Questions About These Terms?
             </h2>
             <p className="text-xl text-white/90 mb-8">
-              Join hundreds of businesses transforming their operations with AI
+              We walk through scope, fees and notice periods before anything is signed
             </p>
             <MagneticButton onClick={() => navigate('contact')} variant="secondary">
               Contact Us Today

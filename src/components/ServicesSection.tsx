@@ -1,45 +1,36 @@
 import { motion, AnimatePresence } from 'motion/react';
-import { Code2, Package, Zap, Brain, ChevronDown, ChevronUp, X } from 'lucide-react';
+import { Search, Activity, Target, ChevronDown, ChevronUp, X } from 'lucide-react';
 import { useState } from 'react';
 import { useRouter } from './Router';
 import { Card3D } from './Card3D';
 
 const services = [
   {
-    icon: Code2,
-    title: 'Custom Development',
-    description: 'Tailored AI solutions built to your exact specifications',
-    features: ['Custom Models', 'API Integration', 'Scalable Architecture', 'Ongoing Support'],
+    icon: Search,
+    title: 'See the Truth',
+    description: 'Platform ROAS vs. real incrementality — the gap costs you money every month',
+    features: ['Reported vs. real ROAS', 'Incrementality testing', 'Holdout design', 'Channel overlap analysis'],
     color: 'from-blue-700 to-indigo-600',
-    detailedDescription: 'Our custom development service provides end-to-end AI solutions tailored specifically to your business needs. We work closely with your team to understand your unique challenges and build intelligent systems that seamlessly integrate with your existing infrastructure. From natural language processing to machine learning models, we deliver production-ready solutions that scale with your business. Our expert developers leverage cutting-edge technologies and best practices to ensure your AI implementation is robust, maintainable, and future-proof. We provide comprehensive documentation, training, and ongoing support to ensure your team can effectively utilize and maintain the solutions we build together.',
-    benefits: ['Fully customized to your workflow', 'Seamless integration with existing systems', 'Enterprise-grade security and compliance', 'Dedicated development team', 'Flexible engagement models'],
+    detailedDescription: 'Every ad platform grades its own homework. Meta claims credit for a purchase it merely touched. Google claims the same purchase. Your GA4 last-click model tells a third story. Add them up and your platforms report more revenue than your Shopify account ever received. We close that gap with incrementality measurement: geo holdouts, matched-market tests, and conversion-lift studies that answer one question — what would have happened if we had not run this campaign? A typical first engagement finds reported ROAS running 30-40% above reality. Meta reports 4:1; the honest number is 2.5:1. That is not a reason to stop spending. It is the number you need before you decide where the next dollar goes.',
+    benefits: ['Reported vs. incremental ROAS, side by side', 'Holdout and geo-test design that fits your spend', 'Cross-channel overlap and double-counting exposed', 'A defensible number for your board deck', 'Test results you can rerun each quarter'],
   },
   {
-    icon: Package,
-    title: 'Pre-built Solutions',
-    description: 'Ready-to-deploy AI agents for common use cases',
-    features: ['Quick Deployment', 'Proven Results', 'Easy Integration', 'Cost Effective'],
+    icon: Activity,
+    title: 'Live Monitoring',
+    description: 'Your dashboard updates automatically — and the AI agent tells you what changed and why',
+    features: ['Always-on dashboard', 'AI-written explanations', 'Weekly anomaly detection', 'Shopify + Meta + GA4'],
     color: 'from-indigo-600 to-blue-500',
-    detailedDescription: 'Accelerate your AI journey with our library of pre-built, production-tested solutions designed for common business scenarios. These ready-to-deploy agents have been refined through real-world implementations across various industries, ensuring reliability and effectiveness from day one. Whether you need customer service automation, document processing, appointment scheduling, or intelligent chatbots, our pre-built solutions can be deployed in days rather than months. Each solution comes with proven ROI metrics, comprehensive documentation, and easy integration guides. We handle the complex AI infrastructure so you can focus on getting immediate business value without the lengthy development cycles.',
-    benefits: ['Rapid time-to-market (deploy in days)', 'Proven track record with existing clients', 'Lower upfront investment', 'Regular updates and improvements', 'Easy customization options'],
+    detailedDescription: 'A static monthly deck tells you what went wrong three weeks after it went wrong. Your dashboard pulls live from Shopify, Meta Ads, and GA4, so the numbers on screen are the numbers as of this morning. On top of it sits an AI agent that reads the same data you do and writes the explanation in plain language: which campaign moved, how much of the change it accounts for, whether the shift is real or inside normal weekly variance. It flags anomalies before they compound — a creative fatiguing, a pixel firing twice, a prospecting campaign quietly eating the retargeting budget. You get the alert on Tuesday instead of finding it in the month-end review.',
+    benefits: ['Live data, not a month-old snapshot', 'Plain-language explanation of every movement', 'Anomalies flagged the week they start', 'No dashboard-building work for your team', 'Built on your own data, in your own stack'],
   },
   {
-    icon: Zap,
-    title: 'Consulting & Strategy',
-    description: 'Expert guidance for your AI transformation journey',
-    features: ['Strategic Planning', 'Technical Consulting', 'Training Programs', 'Best Practices'],
+    icon: Target,
+    title: 'Actionable Insights',
+    description: 'Not just data — a clear recommendation for what to do next',
+    features: ['Budget reallocation', 'Campaign evaluation', 'Segmentation modelling', 'Quarterly deep-dives'],
     color: 'from-blue-600 to-indigo-500',
-    detailedDescription: 'Navigate the complex landscape of AI transformation with expert guidance from our seasoned consultants. We help you identify high-impact AI opportunities within your organization, develop comprehensive implementation roadmaps, and build the internal capabilities needed for long-term success. Our strategic consulting services include AI readiness assessments, use case prioritization, technology stack recommendations, and ROI modeling. We provide hands-on training programs to upskill your team and establish best practices for responsible AI deployment. Whether you\'re just beginning your AI journey or looking to optimize existing initiatives, our consultants bring deep industry expertise and technical knowledge to accelerate your transformation.',
-    benefits: ['Strategic AI roadmap development', 'Risk assessment and mitigation', 'Team training and capability building', 'Vendor selection guidance', 'Change management support'],
-  },
-  {
-    icon: Brain,
-    title: 'Data Science & Analytics',
-    description: 'Advanced data science, analytics, and computer vision solutions',
-    features: ['Data Science', 'Data Analytics', 'Computer Vision', 'Predictive Modeling'],
-    color: 'from-blue-500 to-indigo-700',
-    detailedDescription: 'Unlock the full potential of your data with our comprehensive data science and analytics services. Our team of expert data scientists and ML engineers specializes in extracting actionable insights from complex datasets, building predictive models that drive business decisions, and implementing cutting-edge computer vision solutions for visual data analysis. We handle everything from data collection and cleaning to advanced statistical modeling and deep learning implementations. Our computer vision expertise includes object detection, image classification, facial recognition, and automated quality inspection systems. We transform raw data into strategic assets that give you a competitive edge through data-driven decision making and intelligent automation.',
-    benefits: ['Advanced predictive analytics', 'Custom computer vision models', 'Real-time data processing', 'Interactive dashboards and reporting', 'Automated insight generation'],
+    detailedDescription: 'Most analytics products stop at the chart and leave the decision to you. We do not. Every finding comes with a recommendation, the size of the expected effect, and the confidence behind it — move this much budget from prospecting to retargeting, pause this creative, raise the bid on this segment. Periodic deep-dives go further: full campaign evaluation, incrementality tests designed around your seasonality, and customer segmentation models that separate the buyers worth reacquiring from the ones who were always going to buy anyway. You make the call. We make sure the call is an informed one.',
+    benefits: ['Specific budget moves, with expected impact', 'Campaign evaluation against incremental return', 'Segmentation built on your own purchase data', 'Quarterly deep-dives on the questions that matter', 'Recommendations your team can act on the same day'],
   },
 ];
 
@@ -137,10 +128,10 @@ export function ServicesSection() {
           transition={{ duration: 0.8 }}
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 text-black">
-            Our Services
+            See What's Actually Driving Revenue
           </h2>
           <p className="text-base sm:text-lg lg:text-xl text-black max-w-3xl mx-auto">
-            Comprehensive AI solutions designed to transform your business and drive measurable results
+            Three things every D2C founder needs from their marketing data — and rarely gets from the ad platforms
           </p>
         </motion.div>
 
@@ -157,7 +148,7 @@ export function ServicesSection() {
           )}
         </AnimatePresence>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 max-w-7xl mx-auto overflow-visible">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 max-w-7xl mx-auto overflow-visible">
           {services.map((service, index) => {
             const Icon = service.icon;
             const isExpanded = expandedService === service.title;

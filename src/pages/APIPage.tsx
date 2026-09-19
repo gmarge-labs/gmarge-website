@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { Code, Zap, Lock, Globe, Terminal, Cpu, CheckCircle2, Copy } from 'lucide-react';
+import { Plug, Database, RefreshCw, ShieldCheck, Terminal, Store, CheckCircle2, Copy } from 'lucide-react';
 import { FloatingShapes } from '../components/FloatingShapes';
 import { ParticleField } from '../components/ParticleField';
 import { Card3D } from '../components/Card3D';
@@ -11,110 +11,92 @@ import { useState } from 'react';
 
 const apiFeatures = [
   {
-    icon: Zap,
-    title: 'RESTful API',
-    description: 'Simple, intuitive REST API with JSON responses. Easy to integrate with any platform or programming language.',
-    benefits: ['HTTP/HTTPS Support', 'JSON Responses', 'Predictable URLs', 'Standard HTTP Verbs']
+    icon: Plug,
+    title: 'Platforms We Connect',
+    description: 'Shopify, Meta Ads and GA4 come as standard. Anything else is added during setup if you run on it.',
+    benefits: ['Shopify', 'Meta Ads', 'GA4', 'On request: Google Ads, TikTok, Klaviyo, Amazon Ads']
   },
   {
-    icon: Lock,
-    title: 'Secure Authentication',
-    description: 'Industry-standard OAuth 2.0 and API key authentication to keep your data secure.',
-    benefits: ['OAuth 2.0', 'API Keys', 'Rate Limiting', 'IP Whitelisting']
+    icon: Database,
+    title: 'What We Pull',
+    description: 'Order-level sales, ad spend and delivery, and site behaviour. Nothing beyond what is needed to tie an order to a channel.',
+    benefits: ['Orders, refunds and discounts', 'Spend, impressions and clicks', 'Sessions and landing pages', 'No payment or card details']
   },
   {
-    icon: Globe,
-    title: 'Global CDN',
-    description: 'Distributed across multiple regions for low latency and high availability worldwide.',
-    benefits: ['99.9% Uptime', 'Global Coverage', 'Auto-scaling', 'DDoS Protection']
+    icon: RefreshCw,
+    title: 'How Often It Refreshes',
+    description: 'The dashboard updates every morning. Anomaly checks run weekly, and holdout tests read out on their own schedule.',
+    benefits: ['Daily automated pull', 'Overnight refresh window', 'Weekly anomaly checks', 'Platform lag shown on screen']
   },
   {
-    icon: Cpu,
-    title: 'Webhooks',
-    description: 'Real-time event notifications to your server for immediate updates and automation.',
-    benefits: ['Real-time Events', 'Custom Endpoints', 'Retry Logic', 'Event Filtering']
+    icon: ShieldCheck,
+    title: 'Storage And Exit',
+    description: 'Your data sits in a warehouse we run for the engagement, hosted in the UK or EU. When the work ends, it goes.',
+    benefits: ['UK or EU hosted warehouse', 'Read-only access wherever possible', 'Deleted within 30 days of exit', 'Full export handed over first']
   }
 ];
 
 const endpoints = [
   {
-    method: 'POST',
-    path: '/v1/chat',
-    description: 'Send a message to the chatbot',
+    method: 'DAILY',
+    path: 'shopify / orders, refunds, customers',
+    description: 'The revenue source of truth for every chart',
     color: 'bg-green-500'
   },
   {
-    method: 'GET',
-    path: '/v1/conversations',
-    description: 'Retrieve conversation history',
+    method: 'DAILY',
+    path: 'meta-ads / spend, delivery, attributed sales',
+    description: 'Cost side, plus what the platform claims it caused',
     color: 'bg-blue-500'
   },
   {
-    method: 'POST',
-    path: '/v1/bots',
-    description: 'Create a new chatbot',
+    method: 'DAILY',
+    path: 'ga4 / sessions, channels, landing pages',
+    description: 'Site behaviour and channel grouping',
     color: 'bg-green-500'
   },
   {
-    method: 'PUT',
-    path: '/v1/bots/{id}',
-    description: 'Update chatbot configuration',
+    method: 'ON REQUEST',
+    path: 'google-ads, tiktok-ads / spend, delivery',
+    description: 'Added at setup if you run spend there',
     color: 'bg-yellow-500'
   },
   {
-    method: 'DELETE',
-    path: '/v1/bots/{id}',
-    description: 'Delete a chatbot',
+    method: 'ON REQUEST',
+    path: 'klaviyo, amazon-ads / sends, spend, sales',
+    description: 'Email and SMS, and Amazon ad performance',
     color: 'bg-red-500'
   },
   {
-    method: 'GET',
-    path: '/v1/analytics',
-    description: 'Get chatbot analytics data',
+    method: 'WEEKLY',
+    path: 'holdout tests / geo-level spend and revenue',
+    description: 'Region-level data behind incrementality read-outs',
     color: 'bg-blue-500'
   }
 ];
 
-const codeExample = `// Initialize G-marge API Client
-const axios = require('axios');
+const codeExample = `Access we ask for at setup, read-only where the
+platform allows it.
 
-const config = {
-  headers: {
-    'Authorization': 'Bearer YOUR_API_KEY',
-    'Content-Type': 'application/json'
-  }
-};
+Shopify     Staff account or custom app with read
+            access to orders, customers and products
 
-// Send a message
-async function sendMessage() {
-  try {
-    const response = await axios.post(
-      'https://api.gmarge.com/v1/chat',
-      {
-        bot_id: 'your-bot-id',
-        message: 'Hello!',
-        user_id: 'user123',
-        context: {
-          name: 'John Doe',
-          email: 'john@example.com'
-        }
-      },
-      config
-    );
-    
-    console.log(response.data);
-    // {
-    //   "id": "msg_123",
-    //   "response": "Hi! How can I help you?",
-    //   "confidence": 0.95,
-    //   "timestamp": "2024-12-26T10:30:00Z"
-    // }
-  } catch (error) {
-    console.error('Error:', error.response.data);
-  }
-}
+Meta Ads    Partner access to the ad account at
+            Analyst level. No page, no billing
 
-sendMessage();`;
+GA4         Viewer access to the property
+
+Optional    Google Ads, TikTok Ads, Klaviyo,
+            Amazon Ads on the same read-only pattern
+
+Never       Card details, payment methods, admin
+            rights, or the ability to spend money
+            on your behalf
+
+Leaving     Revoke access whenever you want. We hand
+            over a full export and delete the
+            warehouse within 30 days of the final
+            invoice`;
 
 export default function APIPage() {
   const { navigate } = useRouter();
@@ -144,29 +126,29 @@ export default function APIPage() {
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#E8F0FF] border border-[#BFC0C2] mb-6"
                 whileHover={{ scale: 1.05 }}
               >
-                <Code className="w-5 h-5 text-[#002B6B]" />
-                <span className="text-sm font-medium text-black">Developer API</span>
+                <Store className="w-5 h-5 text-[#002B6B]" />
+                <span className="text-sm font-medium text-black">Integrations &amp; Data</span>
               </motion.div>
 
               <h1 className="text-5xl sm:text-6xl font-bold mb-6 text-black">
-                <TextReveal text="Build With" delay={0.2} />
+                <TextReveal text="Connected To" delay={0.2} />
                 <br />
                 <span className="text-[#002B6B]">
-                  <TextReveal text="G-marge API" delay={0.4} />
+                  <TextReveal text="Your Stack" delay={0.4} />
                 </span>
               </h1>
 
               <p className="text-xl text-black mb-8 leading-relaxed">
-                Powerful, flexible API to integrate AI capabilities into your applications. 
-                RESTful design, comprehensive documentation, and world-class support.
+                We read from the tools you already run on. Shopify, Meta Ads and GA4 as standard,
+                pulled daily into one place, with read-only access and a clear exit.
               </p>
 
               <div className="flex flex-wrap gap-4">
                 <MagneticButton onClick={() => navigate('contact')}>
-                  Get API Key
+                  Check Your Setup
                 </MagneticButton>
                 <MagneticButton onClick={() => navigate('documentation')} variant="secondary">
-                  View Docs
+                  Read The Methodology
                 </MagneticButton>
               </div>
             </motion.div>
@@ -180,7 +162,7 @@ export default function APIPage() {
               <div className="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-[#BFC0C2]">
                 <ImageWithFallback
                   src="https://images.unsplash.com/photo-1760952851538-17a59f691efe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhcGklMjBpbnRlZ3JhdGlvbiUyMGRldmVsb3BtZW50fGVufDF8fHx8MTc2Njc3MjQwMHww&ixlib=rb-4.1.0&q=80&w=1080"
-                  alt="API Integration"
+                  alt="Connected marketing and e-commerce data sources"
                   className="w-full h-96 object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#002B6B]/80 via-[#002B6B]/20 to-transparent" />
@@ -201,10 +183,10 @@ export default function APIPage() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-4xl sm:text-5xl font-bold mb-6 text-black">
-              API <span className="text-[#002B6B]">Features</span>
+              What We <span className="text-[#002B6B]">Connect</span>
             </h2>
             <p className="text-xl text-black max-w-3xl mx-auto">
-              Everything you need to build powerful integrations
+              The data behind the dashboard, and the rules we hold ourselves to around it
             </p>
           </motion.div>
 
@@ -261,10 +243,10 @@ export default function APIPage() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-4xl sm:text-5xl font-bold mb-6 text-black">
-              API <span className="text-[#002B6B]">Endpoints</span>
+              Sources And <span className="text-[#002B6B]">Cadence</span>
             </h2>
             <p className="text-xl text-black max-w-3xl mx-auto">
-              Core endpoints for chatbot interaction and management
+              What we pull from each platform, and how often it lands in the dashboard
             </p>
           </motion.div>
 
@@ -304,7 +286,7 @@ export default function APIPage() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-4xl sm:text-5xl font-bold mb-6 text-black">
-              Quick <span className="text-[#002B6B]">Start Example</span>
+              Access <span className="text-[#002B6B]">We Need</span>
             </h2>
           </motion.div>
 
@@ -318,7 +300,7 @@ export default function APIPage() {
             <div className="bg-gray-100 px-6 py-4 flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <Terminal className="w-5 h-5 text-[#002B6B]" />
-                <h3 className="font-bold text-black">Example: Send Message via API</h3>
+                <h3 className="font-bold text-black">What we ask for, and what we never ask for</h3>
               </div>
               <button
                 onClick={copyCode}
@@ -327,7 +309,7 @@ export default function APIPage() {
                 {copied ? (
                   <>
                     <CheckCircle2 className="w-4 h-4 text-[#002B6B]" />
-                    <span className="text-sm text-[#002B6B]">Copied!</span>
+                    <span className="text-sm text-[#002B6B]">Copied</span>
                   </>
                 ) : (
                   <>
@@ -363,17 +345,17 @@ export default function APIPage() {
             transition={{ duration: 0.8 }}
           >
             <h2 className="text-4xl sm:text-5xl font-bold mb-6 text-white">
-              Ready to Start Building?
+              Not Sure What You Can Connect?
             </h2>
             <p className="text-xl text-white/90 mb-8">
-              Get your API key and start integrating AI into your applications today
+              Send us the tools you run on and we will tell you what we can read, what we cannot, and how long setup takes
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <MagneticButton onClick={() => navigate('contact')} variant="secondary">
-                Get API Access
+                Talk To Us
               </MagneticButton>
               <MagneticButton onClick={() => navigate('documentation')} variant="outline">
-                Read Documentation
+                Read The Methodology
               </MagneticButton>
             </div>
           </motion.div>

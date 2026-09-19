@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from 'motion/react';
-import { Building2, X, CheckCircle, ArrowRight } from 'lucide-react';
+import { Gauge, X, CheckCircle, ArrowRight } from 'lucide-react';
+import { BOOKING_URL } from '../config/links';
 import { FloatingShapes } from '../components/FloatingShapes';
 import { ParticleField } from '../components/ParticleField';
 import { Card3D } from '../components/Card3D';
@@ -11,32 +12,34 @@ import { useState } from 'react';
 
 const solutions = [
   {
-    icon: Building2,
-    title: 'Custom Small Business Solutions',
-    description: 'Personalized AI systems designed specifically for small businesses across all industries',
-    features: ['24/7 Customer Service', 'Booking & Scheduling', 'Inventory Management', 'Payment Processing', 'Customer Analytics', 'Multi-Channel Support'],
+    icon: Gauge,
+    title: 'The Measurement Engagement',
+    description: 'One live dashboard, one AI agent, and a standing answer to the question of what your marketing spend is actually doing',
+    features: ['Shopify Orders', 'Meta Ads Spend', 'GA4 Behaviour', 'Incremental ROAS', 'Anomaly Alerts', 'Monthly Review'],
     color: 'from-[#002B6B] to-[#004B9B]',
-    stats: { roi: '18.5x', time: '68%', accuracy: '99%' },
+    stats: { roi: '35%', time: '~2 wks', accuracy: 'Daily' },
     image: 'https://images.unsplash.com/photo-1762341114881-669da93fef88?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBidXNpbmVzcyUyMHRlY2hub2xvZ3klMjBtb2Rlcm58ZW58MXx8fHwxNzY2OTM0NTY1fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    fullDescription: 'Every small business is unique, and so are our AI solutions. We specialize in creating custom AI assistants tailored to your specific industry, workflow, and business goals. Whether you run a cleaning company, restaurant, hair salon, carpentry business, retail store, coffee shop, photography studio, or any other small business, we build intelligent solutions that integrate seamlessly into your operations and grow with you. Our AI solutions handle everything from customer interactions and appointment scheduling to inventory tracking and payment processing - all available 24/7 to help you capture more business and serve your customers better. Featured success story: Sparkleville Cleaning Company achieved an 18.5x ROI with our custom chatbot, increasing bookings by 85% while reducing response times from hours to seconds.',
+    fullDescription: 'Most D2C brands are running on numbers that three different systems disagree about. Meta claims credit for an order. Google claims the same order. GA4 last-click tells a third story, and the sum of platform-reported revenue exceeds what Shopify actually banked. Decisions get made anyway, because the alternative is making no decision at all. This engagement replaces that with one reconciled view. We connect your order data, ad spend and site analytics into a live Streamlit dashboard, put an AI agent on top that reads it daily and writes the explanation in plain language, and run incrementality tests alongside it to establish what your spend is genuinely causing rather than merely witnessing. In a typical engagement, real ROAS lands 30-40% below what the platforms report. Knowing that number does not mean spending less. It means spending the same money where it actually works.',
     useCases: [
-      'G-marge Cleaning Services System : 24/7 booking automation, instant quote generation based on service type and area, customer inquiry handling, service customization, special request management, appointment scheduling, and automated follow-ups - proven 18.5x ROI and 85% booking increase',
-      'G-marge Customised Tailoring System: 24/7 booking automation, instant quote generation based on fabric type and garment style, custom measurement collection, fitting appointment coordination, alteration request management, fabric selection guidance, automated progress updates, customer preference preservation, and premium service upselling - proven ROI increase with 85%+ booking growth',
-      'G-marge Corporate Wears for US/Europe: Instant bulk order quote generation, size matrix management with employee profile integration, multi-location order consolidation, customization options, bulk order tracking and inventory coordination, employee reorder self-service portal, seasonal renewal automation, contract management, compliance documentation, and regional delivery scheduling - streamlines enterprise apparel operations with reduced administrative overhead and improved employee satisfaction',
+      'Week 1 — Connect and reconcile: we wire up Shopify, Meta Ads and GA4, then reconcile platform-reported revenue against your actual orders. This step alone usually surfaces double-counting, a mis-firing pixel, or a channel taking credit for demand it never created.',
+      'Week 2 — Dashboard and agent go live: the Streamlit dashboard is built around the questions you actually ask, not a generic template. The AI agent layer goes on once the underlying numbers are trustworthy, never before. You get access for your whole team.',
+      'Month 2 onward — Incrementality testing: we design a geo holdout or matched-market test sized to your spend and seasonality, run it cleanly for six weeks, and give you a defensible incremental ROAS per channel that you can take to a board meeting.',
+      'Ongoing — Weekly anomaly detection: creative fatigue, a prospecting campaign quietly eating retargeting budget, a tracking change on the site. You get the alert on Tuesday instead of finding it in the month-end review.',
+      'Quarterly — Deep-dive studies: customer segmentation, campaign evaluation against incremental return, media mix modelling for larger spends. Scoped as the dashboard raises questions it cannot answer on its own.',
     ],
     benefits: [
-      'Get a solution built specifically for YOUR business type and workflow',
-      'Serve customers 24/7 without hiring additional staff or answering late-night calls',
-      'Never miss a booking or inquiry - capture business even when you\'re closed',
-      'Reduce operational costs by automating repetitive administrative tasks',
-      'Scale your business capacity without proportional increases in labor costs',
-      'Improve customer satisfaction with instant responses and zero wait times',
-      'Free up your time to focus on what you do best - your craft and growing your business',
-      'Integrate with your existing tools: POS systems, booking software, payment processors, and more',
-      'Gain valuable insights from customer data and interaction patterns',
-      'Provide consistent, professional service every time - no more miscommunications or missed details'
+      'One reconciled number instead of three systems disagreeing',
+      'See reported and incremental ROAS side by side, per channel',
+      'Plain-language explanation of every movement, written daily',
+      'Anomalies flagged the week they start, not a month later',
+      'Budget decisions backed by a holdout test rather than platform attribution',
+      'No dashboard-building or maintenance work for your team',
+      'Defensible figures for board and investor conversations',
+      'Runs on your own data, in your own stack — you keep it if we part ways',
+      'Segmentation built on your actual purchase history, not industry benchmarks',
+      'Honest advice about when a finding is too small to act on',
     ],
-    technologies: ['Natural Language Processing', 'Machine Learning', 'Custom API Integration', 'Cloud Infrastructure', 'SMS/Email Automation', 'Payment Gateway Integration', 'CRM Connectivity', 'Analytics Dashboard']
+    technologies: ['Streamlit', 'Python', 'Shopify API', 'Meta Marketing API', 'GA4 / BigQuery', 'Geo Holdout Design', 'Bayesian MMM', 'LLM Agent Layer']
   },
 ];
 
@@ -58,13 +61,13 @@ export function SolutionsPage() {
             transition={{ duration: 0.8 }}
           >
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4">
-              Industry{' '}
+              How It{' '}
               <span className="bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">
-                Products
+                Works
               </span>
             </h1>
             <p className="text-lg sm:text-xl text-blue-200 max-w-3xl mx-auto">
-              Tailored AI solutions designed for your industry's unique challenges and opportunities
+              From three conflicting dashboards to one number you can defend — here is what the engagement actually involves
             </p>
           </motion.div>
         </div>
@@ -113,13 +116,13 @@ export function SolutionsPage() {
                           <div className={`text-3xl font-bold bg-gradient-to-r ${solution.color} bg-clip-text text-transparent`}>
                             {solution.stats.roi}
                           </div>
-                          <div className="text-xs text-gray-600 mt-1">ROI</div>
+                          <div className="text-xs text-gray-600 mt-1">ROAS Gap</div>
                         </div>
                         <div className="text-center">
                           <div className={`text-3xl font-bold bg-gradient-to-r ${solution.color} bg-clip-text text-transparent`}>
                             {solution.stats.accuracy}
                           </div>
-                          <div className="text-xs text-gray-600 mt-1">Accuracy</div>
+                          <div className="text-xs text-gray-600 mt-1">Refresh</div>
                         </div>
                       </div>
                     </div>
@@ -162,11 +165,11 @@ export function SolutionsPage() {
 
                     {/* Industry Solutions */}
                     <div className="mb-10">
-                      <h4 className="text-2xl font-bold mb-6 text-gray-900">Industry Products</h4>
+                      <h4 className="text-2xl font-bold mb-6 text-gray-900">What Happens, Week by Week</h4>
                       <div className="grid sm:grid-cols-2 gap-4">
                         {solution.useCases.map((useCase, i) => {
                           const [title, description] = useCase.split(': ');
-                          const isFeatured = title.includes('Sparkleville');
+                          const isFeatured = title.includes('Month 2');
                           
                           return (
                             <motion.div
@@ -229,22 +232,22 @@ export function SolutionsPage() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-4xl font-bold mb-4">
-              Our{' '}
+              The{' '}
               <span className="bg-gradient-to-r from-blue-800 to-indigo-600 bg-clip-text text-transparent">
                 Process
               </span>
             </h2>
             <p className="text-xl text-black">
-              A proven methodology for successful AI implementation
+              Four steps, about two weeks to live, then it runs
             </p>
           </motion.div>
 
           <div className="grid md:grid-cols-4 gap-8">
             {[
-              { step: '01', title: 'Discovery', description: 'Understand your challenges and goals' },
-              { step: '02', title: 'Design', description: 'Architect the perfect solution' },
-              { step: '03', title: 'Deploy', description: 'Implement and integrate seamlessly' },
-              { step: '04', title: 'Deliver', description: 'Ongoing support and optimization' },
+              { step: '01', title: 'Connect', description: 'Wire up Shopify, Meta Ads and GA4' },
+              { step: '02', title: 'Reconcile', description: 'Find where the platforms disagree' },
+              { step: '03', title: 'Interpret', description: 'Dashboard and AI agent go live' },
+              { step: '04', title: 'Test', description: 'Holdouts turn reported into real' },
             ].map((item, i) => (
               <motion.div
                 key={item.step}
@@ -285,19 +288,25 @@ export function SolutionsPage() {
             transition={{ duration: 0.8 }}
           >
             <h2 className="text-5xl font-bold text-white mb-6">
-              Find the Perfect Solution
+              See Where Your Gap Is
             </h2>
             <p className="text-xl text-blue-200 mb-8">
-              Let's identify which solution best fits your industry and business needs
+              Thirty minutes on your current reporting setup, and an honest read on whether this is worth doing at your spend level
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <motion.button
                 className="px-8 py-4 rounded-full bg-white text-blue-900 font-semibold"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => navigate('contact')}
+                onClick={() => {
+                  if (BOOKING_URL) {
+                    window.open(BOOKING_URL, '_blank', 'noopener,noreferrer');
+                  } else {
+                    navigate('contact');
+                  }
+                }}
               >
-                Schedule Consultation
+                Book a Discovery Call
               </motion.button>
               <motion.button
                 className="px-8 py-4 rounded-full border-2 border-white text-white font-semibold"
@@ -305,7 +314,7 @@ export function SolutionsPage() {
                 whileTap={{ scale: 0.95 }}
                 onClick={() => navigate('services')}
               >
-                View Services
+                What We Do
               </motion.button>
             </div>
           </motion.div>
@@ -360,15 +369,15 @@ export function SolutionsPage() {
                 <div className="grid grid-cols-3 gap-4 mt-6">
                   <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center">
                     <div className="text-3xl font-bold text-white">{selectedSolution.stats.roi}</div>
-                    <div className="text-white/80 text-sm">Average ROI</div>
+                    <div className="text-white/80 text-sm">Typical ROAS Gap</div>
                   </div>
                   <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center">
                     <div className="text-3xl font-bold text-white">{selectedSolution.stats.time}</div>
-                    <div className="text-white/80 text-sm">Time Saved</div>
+                    <div className="text-white/80 text-sm">Time to Live</div>
                   </div>
                   <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center">
                     <div className="text-3xl font-bold text-white">{selectedSolution.stats.accuracy}</div>
-                    <div className="text-white/80 text-sm">Accuracy Rate</div>
+                    <div className="text-white/80 text-sm">Data Refresh</div>
                   </div>
                 </div>
               </div>
@@ -402,7 +411,7 @@ export function SolutionsPage() {
                   <div>
                     <h3 className="text-xl font-bold mb-4 text-black flex items-center gap-2">
                       <CheckCircle className={`w-6 h-6 bg-gradient-to-r ${selectedSolution.color} bg-clip-text text-transparent`} />
-                      Real-World Use Cases
+                      What Happens, Week by Week
                     </h3>
                     <ul className="space-y-3">
                       {selectedSolution.useCases.map((useCase, i) => (

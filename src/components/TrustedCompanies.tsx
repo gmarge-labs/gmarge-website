@@ -2,7 +2,7 @@ import { motion } from 'motion/react';
 import { useEffect, useState } from 'react';
 
 const companies = [
-  'TechCorp', 'InnovateLab', 'DataFlow', 'CloudSync', 
+  'Shopify', 'Meta Ads', 'GA4', 'Klaviyo', 
   'AIVentures', 'SmartSolutions', 'FutureWorks', 'QuantumLeap'
 ];
 
@@ -26,7 +26,7 @@ export function TrustedCompanies() {
             Trusted by Industry Leaders
           </h2>
           <p className="text-xl text-black">
-            Join 150+ companies transforming their business with AI
+            One reconciled view across the platforms you already run
           </p>
         </motion.div>
 

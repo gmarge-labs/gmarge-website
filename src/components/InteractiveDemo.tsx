@@ -1,34 +1,35 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { MessageSquare, Zap, TrendingUp, Send } from 'lucide-react';
+import { MessageSquare, LayoutDashboard, Bot, Plug, Bell, TrendingUp, Send } from 'lucide-react';
+import { DEMO_SECTION_ID } from '../config/links';
 import { useState, useEffect } from 'react';
 
 const messages = [
-  { role: 'user', text: 'Analyze our Q4 sales data' },
-  { role: 'ai', text: 'I\'ve analyzed your Q4 data. Revenue is up 23% compared to Q3...' },
-  { role: 'user', text: 'Show me the top performing regions' },
-  { role: 'ai', text: 'Here are your top 3 regions with detailed breakdowns...' },
+  { role: 'user', text: 'Why did ROAS drop last week?' },
+  { role: 'ai', text: 'Blended ROAS fell from 4.1 to 3.2. About 60% of that is one Meta prospecting campaign whose CPM rose 38% after a creative refresh on the 9th.' },
+  { role: 'user', text: 'Is that real, or just noise?' },
+  { role: 'ai', text: 'Real. It sits outside the last 12 weeks of normal variance. Your geo holdout shows incremental ROAS held at 2.4 — so the reported drop overstates the actual damage.' },
 ];
 
 const features = [
   {
-    icon: Zap,
-    title: 'Lightning Fast',
-    description: 'Process requests in milliseconds with our optimized AI infrastructure',
+    icon: LayoutDashboard,
+    title: 'Live Dashboard Monitoring',
+    description: 'Your Streamlit dashboard refreshes on its own. The number you see is the number as of this morning, not last month.',
   },
   {
-    icon: TrendingUp,
-    title: 'Highly Accurate',
-    description: 'Industry-leading accuracy rates powered by advanced machine learning',
+    icon: Bot,
+    title: 'AI Agent Interpretation',
+    description: 'An agent reads the same data you do and writes the explanation in plain language — what moved, by how much, and why.',
   },
   {
-    icon: Zap,
-    title: 'Secure & Private',
-    description: 'Enterprise-grade security with end-to-end encryption',
+    icon: Plug,
+    title: 'Shopify + Meta Ads + GA4',
+    description: 'Orders, ad spend, and site behaviour in one place, reconciled against each other instead of three conflicting tabs.',
   },
   {
-    icon: TrendingUp,
-    title: 'Actionable Insights',
-    description: 'Get data-driven recommendations that drive real business value',
+    icon: Bell,
+    title: 'Weekly Anomaly Detection',
+    description: 'Creative fatigue, double-firing pixels, budget drifting to the wrong campaign — flagged the week it starts.',
   },
 ];
 
@@ -36,7 +37,7 @@ export function InteractiveDemo() {
   const [activeDemo, setActiveDemo] = useState(0);
 
   return (
-    <section className="py-16 sm:py-20 lg:py-24 bg-[#E8F0FF]">
+    <section id={DEMO_SECTION_ID} className="py-16 sm:py-20 lg:py-24 bg-[#E8F0FF]">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           className="text-center mb-12 sm:mb-16 lg:mb-20"
@@ -45,10 +46,10 @@ export function InteractiveDemo() {
           viewport={{ once: true }}
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-black">
-            See AI in Action
+            Ask Your Data a Question
           </h2>
           <p className="text-base sm:text-lg lg:text-xl text-black">
-            Experience the power of intelligent automation through interactive demos
+            A live dashboard, plus an AI agent that explains what the numbers are actually saying
           </p>
         </motion.div>
 
@@ -74,7 +75,7 @@ export function InteractiveDemo() {
                   <div className="w-3 h-3 rounded-full bg-[#002B6B]" />
                 </div>
                 <div className="flex-1 text-center text-black text-sm">
-                  G-marge AI Assistant
+                  Live Dashboard — AI Agent
                 </div>
               </div>
 
@@ -137,7 +138,7 @@ export function InteractiveDemo() {
                   <MessageSquare className="w-5 h-5 text-black" />
                   <input
                     type="text"
-                    placeholder="Ask me anything..."
+                    placeholder="Ask about any metric, campaign, or channel..."
                     className="flex-1 bg-transparent text-black outline-none placeholder-black"
                     disabled
                   />
@@ -167,8 +168,8 @@ export function InteractiveDemo() {
               <div className="flex items-center gap-3">
                 <TrendingUp className="w-6 h-6 text-[#002B6B]" />
                 <div>
-                  <div className="text-sm text-black">Performance</div>
-                  <div className="text-2xl font-bold text-[#002B6B]">+156%</div>
+                  <div className="text-sm text-black">Reported vs. Real ROAS</div>
+                  <div className="text-2xl font-bold text-[#002B6B]">4:1 → 2.5:1</div>
                 </div>
               </div>
             </motion.div>

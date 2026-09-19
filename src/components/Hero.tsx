@@ -7,6 +7,7 @@ import { Globe3D } from './Globe3D';
 import { AINeuron } from './AINeuron';
 import { useRouter } from './Router';
 import { useEffect } from 'react';
+import { BOOKING_URL, DEMO_URL, scrollToDemo } from '../config/links';
 
 export function Hero() {
   const { navigate } = useRouter();
@@ -60,11 +61,10 @@ export function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              We Create{' '}
+              Your marketing metrics are{' '}
               <span className="text-[#002B6B]">
-                Intelligent
+                lying to you
               </span>
-              {' '}AI Agents
             </motion.h1>
           </motion.div>
 
@@ -74,7 +74,8 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            Transform your business with cutting-edge AI solutions. From development to deployment, we build intelligent agents that deliver real results.
+            <span className="font-semibold">Here's what's actually happening—live.</span>{' '}
+            Live dashboards + AI-interpreted insights for D2C e-commerce brands.
           </motion.p>
 
           <motion.div
@@ -87,7 +88,13 @@ export function Hero() {
               className="px-6 sm:px-8 py-3 sm:py-4 rounded-full bg-[#002B6B] text-white relative overflow-hidden hover:bg-[#002B6B] transition-colors text-center"
               whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(0, 43, 107, 0.5)' }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => navigate('contact')}
+              onClick={() => {
+                if (BOOKING_URL) {
+                  window.open(BOOKING_URL, '_blank', 'noopener,noreferrer');
+                } else {
+                  navigate('contact');
+                }
+              }}
             >
               <motion.div
                 className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-800"
@@ -95,7 +102,22 @@ export function Hero() {
                 whileHover={{ x: 0 }}
                 transition={{ duration: 0.3 }}
               />
-              <span className="relative z-10">Get Started</span>
+              <span className="relative z-10">Book a Discovery Call</span>
+            </MagneticButton>
+
+            <MagneticButton
+              className="px-6 sm:px-8 py-3 sm:py-4 rounded-full border-2 border-[#002B6B] text-[#002B6B] hover:bg-[#002B6B] hover:text-white transition-colors text-center"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => {
+                if (DEMO_URL) {
+                  window.open(DEMO_URL, '_blank', 'noopener,noreferrer');
+                } else {
+                  scrollToDemo();
+                }
+              }}
+            >
+              <span className="relative z-10">See a Demo</span>
             </MagneticButton>
           </motion.div>
         </div>
