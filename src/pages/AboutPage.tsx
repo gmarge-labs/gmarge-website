@@ -319,8 +319,8 @@ export function AboutPage() {
                   transition={{ duration: 0.4 }}
                 >
                   <ImageWithFallback
-                    src="https://backend.coreops.ai/wp-content/uploads/2025/06/AI-Services-Banner-Dsktp-1.png"
-                    alt="Data Scientists at work"
+                    src="https://images.unsplash.com/photo-1543286386-713bdd548da4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+                    alt="A line chart plotted by hand on graph paper"
                     className="w-full h-80 object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#002B6B]/60 to-transparent" />
@@ -421,8 +421,8 @@ export function AboutPage() {
                   transition={{ duration: 0.4 }}
                 >
                   <ImageWithFallback
-                    src="https://backend.coreops.ai/wp-content/uploads/2025/07/Tax-litigation.png"
-                    alt="AI Researchers working on advanced technologies"
+                    src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+                    alt="A dashboard screen showing traffic and performance charts"
                     className="w-full h-80 object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#002B6B]/60 to-transparent" />
@@ -445,8 +445,8 @@ export function AboutPage() {
                   transition={{ duration: 0.4 }}
                 >
                   <ImageWithFallback
-                    src="https://backend.coreops.ai/wp-content/uploads/2025/07/Blog-1-Unveiling-CoreOps-Ai.png"
-                    alt="Software Developers building scalable solutions"
+                    src="https://images.unsplash.com/photo-1551434678-e076c223a692?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+                    alt="Two people working at desktop monitors"
                     className="w-full h-80 object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#002B6B]/60 to-transparent" />
