@@ -1,9 +1,29 @@
 import { motion, useMotionValue, useSpring } from 'motion/react';
 import { ReactNode, useRef, MouseEvent as ReactMouseEvent, RefObject } from 'react';
 
+/**
+ * Call sites have always passed a `variant`, but the component never declared
+ * or used it, so any button relying on it for styling rendered as bare text:
+ * both /pricing tier CTAs and the /features hero CTA among them. The variants
+ * below reuse the class vocabulary of the site's hand-styled buttons.
+ *
+ * A call site that passes its own className and no variant keeps exactly the
+ * styling it had, so the buttons that were already correct do not move.
+ */
+const VARIANTS = {
+  primary: 'px-8 py-4 rounded-full bg-[#002B6B] text-white font-semibold transition-colors',
+  secondary:
+    'px-8 py-4 rounded-full bg-white text-[#002B6B] font-semibold border-2 border-[#002B6B] transition-colors',
+  // Both outline call sites sit in the dark navy CTA bands at the foot of a
+  // page, where a navy outline is navy-on-navy. White reads there.
+  outline:
+    'px-8 py-4 rounded-full border-2 border-white text-white font-semibold transition-colors',
+} as const;
+
 interface MagneticButtonProps {
   children: ReactNode;
   className?: string;
+  variant?: keyof typeof VARIANTS;
   onClick?: () => void;
   /** When set the button renders as a real anchor instead of a <button>. */
   href?: string;
@@ -11,7 +31,9 @@ interface MagneticButtonProps {
   rel?: string;
 }
 
-export function MagneticButton({ children, className = '', onClick, href, target, rel }: MagneticButtonProps) {
+export function MagneticButton({ children, className = '', variant, onClick, href, target, rel }: MagneticButtonProps) {
+  const base = variant ? VARIANTS[variant] : className ? '' : VARIANTS.primary;
+  const classes = [base, className].filter(Boolean).join(' ');
   const buttonRef = useRef<HTMLElement>(null);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -47,7 +69,7 @@ export function MagneticButton({ children, className = '', onClick, href, target
         href={href}
         target={target}
         rel={rel}
-        className={className}
+        className={classes}
         style={{ x: springX, y: springY, display: 'inline-block', textAlign: 'center' }}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
@@ -62,7 +84,7 @@ export function MagneticButton({ children, className = '', onClick, href, target
   return (
     <motion.button
       ref={buttonRef as RefObject<HTMLButtonElement>}
-      className={className}
+      className={classes}
       style={{ x: springX, y: springY }}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
