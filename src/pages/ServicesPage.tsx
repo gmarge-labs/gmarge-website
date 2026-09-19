@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from 'motion/react';
 import { LineChart, FlaskConical, Users2, Zap, Database, TrendingUp, Award, Users } from 'lucide-react';
-import { BOOKING_URL } from '../config/links';
+import { bookingCtaProps, BOOKING_IS_EXTERNAL, BOOKING_ANCHOR_STYLE } from '../config/links';
 import { FloatingShapes } from '../components/FloatingShapes';
 import { ParticleField } from '../components/ParticleField';
 import { useRouter } from '../components/Router';
@@ -62,6 +62,9 @@ const additionalServices = [
 
 export function ServicesPage() {
   const { navigate } = useRouter();
+  // Real anchor when a booking URL is configured, so popup blockers cannot
+  // swallow the click; plain button routing to /contact otherwise.
+  const BookingCta = BOOKING_IS_EXTERNAL ? motion.a : motion.button;
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
@@ -142,20 +145,15 @@ export function ServicesPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.5 }}
             >
-              <motion.button
+              <BookingCta
                 className="px-8 sm:px-10 py-3 sm:py-4 rounded-full bg-[#002B6B] text-white font-semibold shadow-lg hover:bg-[#002B6B] transition-all"
+                style={BOOKING_IS_EXTERNAL ? BOOKING_ANCHOR_STYLE : undefined}
                 whileHover={{ scale: 1.05, boxShadow: '0 20px 40px rgba(0, 43, 107, 0.3)' }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => {
-                  if (BOOKING_URL) {
-                    window.open(BOOKING_URL, '_blank', 'noopener,noreferrer');
-                  } else {
-                    navigate('contact');
-                  }
-                }}
+                {...bookingCtaProps(navigate)}
               >
                 Book a Discovery Call
-              </motion.button>
+              </BookingCta>
               <motion.button
                 className="px-8 sm:px-10 py-3 sm:py-4 rounded-full bg-white text-[#002B6B] font-semibold border-2 border-[#002B6B] hover:bg-[#002B6B] hover:text-white transition-all"
                 whileHover={{ scale: 1.05 }}
@@ -242,20 +240,15 @@ export function ServicesPage() {
                         </div>
                         
                         {/* CTA Button */}
-                        <motion.button
+                        <BookingCta
                           className="px-8 py-4 rounded-full bg-[#002B6B] text-white font-semibold hover:bg-[#002B6B] transition-colors"
+                          style={BOOKING_IS_EXTERNAL ? BOOKING_ANCHOR_STYLE : undefined}
                           whileHover={{ scale: 1.05, boxShadow: '0 10px 30px rgba(0, 43, 107, 0.3)' }}
                           whileTap={{ scale: 0.95 }}
-                          onClick={() => {
-                            if (BOOKING_URL) {
-                              window.open(BOOKING_URL, '_blank', 'noopener,noreferrer');
-                            } else {
-                              navigate('contact');
-                            }
-                          }}
+                          {...bookingCtaProps(navigate)}
                         >
                           Book a Discovery Call
-                        </motion.button>
+                        </BookingCta>
                       </motion.div>
                     </motion.div>
                     
@@ -364,20 +357,15 @@ export function ServicesPage() {
               Thirty minutes, no deck. We look at your current reporting and tell you where the gap probably is.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
-              <motion.button
+              <BookingCta
                 className="px-8 py-4 rounded-full bg-white text-[#002B6B] font-semibold hover:bg-[#E8F0FF] transition-colors"
+                style={BOOKING_IS_EXTERNAL ? BOOKING_ANCHOR_STYLE : undefined}
                 whileHover={{ scale: 1.05, boxShadow: '0 10px 30px rgba(255, 255, 255, 0.2)' }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => {
-                  if (BOOKING_URL) {
-                    window.open(BOOKING_URL, '_blank', 'noopener,noreferrer');
-                  } else {
-                    navigate('contact');
-                  }
-                }}
+                {...bookingCtaProps(navigate)}
               >
                 Book a Discovery Call
-              </motion.button>
+              </BookingCta>
               <motion.button
                 className="px-8 py-4 rounded-full border-2 border-white text-white font-semibold hover:bg-white/10 transition-colors"
                 whileHover={{ scale: 1.05 }}

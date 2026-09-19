@@ -1,6 +1,6 @@
 import { motion } from 'motion/react';
 import { Target, Users, Award, Rocket, Heart, Globe } from 'lucide-react';
-import { BOOKING_URL } from '../config/links';
+import { bookingCtaProps, BOOKING_IS_EXTERNAL, BOOKING_ANCHOR_STYLE } from '../config/links';
 import { FloatingShapes } from '../components/FloatingShapes';
 import { ParticleField } from '../components/ParticleField';
 import { Marquee } from '../components/Marquee';
@@ -53,6 +53,9 @@ const values = [
 
 export function AboutPage() {
   const { navigate } = useRouter();
+  // Real anchor when a booking URL is configured, so popup blockers cannot
+  // swallow the click; plain button routing to /contact otherwise.
+  const BookingCta = BOOKING_IS_EXTERNAL ? motion.a : motion.button;
 
   return (
     <div className="min-h-screen">
@@ -509,20 +512,15 @@ export function AboutPage() {
               Thirty minutes on your current reporting, and an honest read on whether this is worth doing at your spend level
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
-              <motion.button
+              <BookingCta
                 className="px-8 py-4 rounded-full bg-[#002B6B] text-white font-semibold hover:bg-[#002B6B] transition-colors"
+                style={BOOKING_IS_EXTERNAL ? BOOKING_ANCHOR_STYLE : undefined}
                 whileHover={{ scale: 1.05, boxShadow: '0 10px 30px rgba(0, 43, 107, 0.2)' }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => {
-                  if (BOOKING_URL) {
-                    window.open(BOOKING_URL, '_blank', 'noopener,noreferrer');
-                  } else {
-                    navigate('contact');
-                  }
-                }}
+                {...bookingCtaProps(navigate)}
               >
                 Book a Discovery Call
-              </motion.button>
+              </BookingCta>
               <motion.button
                 className="px-8 py-4 rounded-full border-2 border-[#002B6B] text-[#002B6B] font-semibold hover:bg-[#E8F0FF] transition-colors"
                 whileHover={{ scale: 1.05 }}

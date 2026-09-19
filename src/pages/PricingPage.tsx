@@ -1,6 +1,6 @@
 import { motion } from 'motion/react';
 import { Check, X, Zap, ArrowRight, Activity, Layers, Shield, Crown } from 'lucide-react';
-import { BOOKING_URL } from '../config/links';
+import { bookingCtaProps } from '../config/links';
 import { FloatingShapes } from '../components/FloatingShapes';
 import { ParticleField } from '../components/ParticleField';
 import { Card3D } from '../components/Card3D';
@@ -209,13 +209,7 @@ export default function PricingPage() {
                       </ul>
 
                       <MagneticButton
-                        onClick={() => {
-                          if (BOOKING_URL) {
-                            window.open(BOOKING_URL, '_blank', 'noopener,noreferrer');
-                          } else {
-                            navigate('contact');
-                          }
-                        }}
+                        {...bookingCtaProps(navigate)}
                         variant={tier.popular ? 'primary' : 'secondary'}
                         className="w-full"
                       >
@@ -350,13 +344,7 @@ export default function PricingPage() {
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <MagneticButton
-                onClick={() => {
-                  if (BOOKING_URL) {
-                    window.open(BOOKING_URL, '_blank', 'noopener,noreferrer');
-                  } else {
-                    navigate('contact');
-                  }
-                }}
+                {...bookingCtaProps(navigate)}
                 variant="secondary"
               >
                 Book a Discovery Call

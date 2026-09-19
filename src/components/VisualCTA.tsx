@@ -1,12 +1,15 @@
 import { motion } from 'motion/react';
 import { ArrowRight, CheckCircle, Zap, Shield, TrendingUp } from 'lucide-react';
 import { useRouter } from './Router';
-import { BOOKING_URL, DEMO_URL, scrollToDemo } from '../config/links';
+import { DEMO_URL, scrollToDemo, bookingCtaProps, BOOKING_IS_EXTERNAL, BOOKING_ANCHOR_STYLE } from '../config/links';
 import { Globe3D } from './Globe3D';
 import { LiquidBlob } from './LiquidBlob';
 
 export function VisualCTA() {
   const { navigate } = useRouter();
+  // Real anchor when a booking URL is configured, so popup blockers cannot
+  // swallow the click; plain button routing to /contact otherwise.
+  const BookingCta = BOOKING_IS_EXTERNAL ? motion.a : motion.button;
 
   return (
     <section className="relative py-20 sm:py-24 lg:py-28 bg-[#002B6B] overflow-hidden">
@@ -72,17 +75,12 @@ export function VisualCTA() {
             </p>
 
             <div className="flex flex-wrap gap-4">
-              <motion.button
+              <BookingCta
                 className="group relative px-8 py-4 rounded-full bg-white text-[#002B6B] font-semibold overflow-hidden"
+                style={BOOKING_IS_EXTERNAL ? BOOKING_ANCHOR_STYLE : undefined}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => {
-                  if (BOOKING_URL) {
-                    window.open(BOOKING_URL, '_blank', 'noopener,noreferrer');
-                  } else {
-                    navigate('contact');
-                  }
-                }}
+                {...bookingCtaProps(navigate)}
               >
                 <motion.div
                   className="absolute inset-0 bg-gradient-to-r from-[#002B6B] to-[#004B9B]"
@@ -91,7 +89,7 @@ export function VisualCTA() {
                   transition={{ duration: 0.3 }}
                 />
                 <span className="relative z-10 group-hover:text-white transition-colors">Book a Discovery Call</span>
-              </motion.button>
+              </BookingCta>
 
               <motion.button
                 className="px-8 py-4 rounded-full border-2 border-white text-white font-semibold hover:bg-white hover:text-[#002B6B] transition-all"

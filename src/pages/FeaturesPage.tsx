@@ -1,6 +1,6 @@
 import { motion } from 'motion/react';
 import { Brain, Bot, BarChart3, Zap, Shield, Plug, Bell, Users, Sparkles, CheckCircle2 } from 'lucide-react';
-import { BOOKING_URL, DEMO_URL, scrollToDemo } from '../config/links';
+import { DEMO_URL, scrollToDemo, bookingCtaProps } from '../config/links';
 import { FloatingShapes } from '../components/FloatingShapes';
 import { ParticleField } from '../components/ParticleField';
 import { Card3D } from '../components/Card3D';
@@ -105,15 +105,7 @@ export default function FeaturesPage() {
               </p>
 
               <div className="flex flex-wrap gap-4">
-                <MagneticButton
-                  onClick={() => {
-                    if (BOOKING_URL) {
-                      window.open(BOOKING_URL, '_blank', 'noopener,noreferrer');
-                    } else {
-                      navigate('contact');
-                    }
-                  }}
-                >
+                <MagneticButton {...bookingCtaProps(navigate)}>
                   Book a Discovery Call
                 </MagneticButton>
                 <MagneticButton onClick={() => navigate('solutions')} variant="secondary">

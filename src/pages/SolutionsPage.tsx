@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from 'motion/react';
 import { Gauge, X, CheckCircle, ArrowRight } from 'lucide-react';
-import { BOOKING_URL } from '../config/links';
+import { bookingCtaProps, BOOKING_IS_EXTERNAL, BOOKING_ANCHOR_STYLE } from '../config/links';
 import { FloatingShapes } from '../components/FloatingShapes';
 import { ParticleField } from '../components/ParticleField';
 import { Card3D } from '../components/Card3D';
@@ -45,6 +45,9 @@ const solutions = [
 
 export function SolutionsPage() {
   const { navigate } = useRouter();
+  // Real anchor when a booking URL is configured, so popup blockers cannot
+  // swallow the click; plain button routing to /contact otherwise.
+  const BookingCta = BOOKING_IS_EXTERNAL ? motion.a : motion.button;
   const [selectedSolution, setSelectedSolution] = useState(null);
 
   return (
@@ -294,20 +297,15 @@ export function SolutionsPage() {
               Thirty minutes on your current reporting setup, and an honest read on whether this is worth doing at your spend level
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
-              <motion.button
+              <BookingCta
                 className="px-8 py-4 rounded-full bg-white text-blue-900 font-semibold"
+                style={BOOKING_IS_EXTERNAL ? BOOKING_ANCHOR_STYLE : undefined}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => {
-                  if (BOOKING_URL) {
-                    window.open(BOOKING_URL, '_blank', 'noopener,noreferrer');
-                  } else {
-                    navigate('contact');
-                  }
-                }}
+                {...bookingCtaProps(navigate)}
               >
                 Book a Discovery Call
-              </motion.button>
+              </BookingCta>
               <motion.button
                 className="px-8 py-4 rounded-full border-2 border-white text-white font-semibold"
                 whileHover={{ scale: 1.05, backgroundColor: 'rgba(255, 255, 255, 0.1)' }}

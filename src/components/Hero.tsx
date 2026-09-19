@@ -7,7 +7,7 @@ import { Globe3D } from './Globe3D';
 import { AINeuron } from './AINeuron';
 import { useRouter } from './Router';
 import { useEffect } from 'react';
-import { BOOKING_URL, DEMO_URL, scrollToDemo } from '../config/links';
+import { DEMO_URL, scrollToDemo, bookingCtaProps } from '../config/links';
 
 export function Hero() {
   const { navigate } = useRouter();
@@ -88,13 +88,7 @@ export function Hero() {
               className="px-6 sm:px-8 py-3 sm:py-4 rounded-full bg-[#002B6B] text-white relative overflow-hidden hover:bg-[#002B6B] transition-colors text-center"
               whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(0, 43, 107, 0.5)' }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => {
-                if (BOOKING_URL) {
-                  window.open(BOOKING_URL, '_blank', 'noopener,noreferrer');
-                } else {
-                  navigate('contact');
-                }
-              }}
+              {...bookingCtaProps(navigate)}
             >
               <motion.div
                 className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-800"

@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { Github, Twitter, Linkedin, Mail } from 'lucide-react';
+import { Linkedin, Mail } from 'lucide-react';
 import { useRouter, pathForPage, isModifiedClick, Page } from './Router';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 
@@ -11,10 +11,8 @@ const footerLinks = {
 };
 
 const socialLinks = [
-  { icon: Github, href: '#', label: 'GitHub' },
-  { icon: Twitter, href: '#', label: 'Twitter' },
-  { icon: Linkedin, href: '#', label: 'LinkedIn' },
-  { icon: Mail, href: '#', label: 'Email' },
+  { icon: Linkedin, href: 'https://www.linkedin.com/company/gmarge', label: 'LinkedIn' },
+  { icon: Mail, href: 'mailto:halimabl@gmarge.com', label: 'Email' },
 ];
 
 export function Footer() {
