@@ -142,8 +142,13 @@ export function InteractiveDemo() {
                     className="flex-1 bg-transparent text-black outline-none placeholder-black"
                     disabled
                   />
+                  {/* Part of the static product mock beside it: the input is
+                      disabled and this has no handler. Hiding it from the
+                      accessibility tree is more honest than naming a control
+                      that does nothing. */}
                   <motion.button
-                    aria-label="Send message"
+                    aria-hidden="true"
+                    tabIndex={-1}
                     className="p-2 rounded-lg bg-[#002B6B] text-white hover:bg-[#002B6B] transition-colors"
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
