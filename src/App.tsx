@@ -1,3 +1,4 @@
+import { MotionConfig } from 'motion/react';
 import { RouterProvider, useRouter } from './components/Router';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
@@ -79,8 +80,15 @@ function AppContent() {
 
 export default function App() {
   return (
-    <RouterProvider>
-      <AppContent />
-    </RouterProvider>
+    // The CSS @media block in index.css only reaches CSS animation and
+    // transition; motion/react drives ~260 elements through inline styles it
+    // rewrites each frame, which CSS cannot touch. reducedMotion="user" makes
+    // the library honour the OS setting too, dropping transform and layout
+    // animation while keeping opacity fades.
+    <MotionConfig reducedMotion="user">
+      <RouterProvider>
+        <AppContent />
+      </RouterProvider>
+    </MotionConfig>
   );
 }
