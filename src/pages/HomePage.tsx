@@ -1,7 +1,7 @@
 import { Hero } from '../components/Hero';
 import { ServicesSection } from '../components/ServicesSection';
 import { InteractiveDemo } from '../components/InteractiveDemo';
-import { Testimonials } from '../components/Testimonials';
+import { CaseStudy } from '../components/CaseStudy';
 import { VisualCTA } from '../components/VisualCTA';
 
 export function HomePage() {
@@ -10,7 +10,7 @@ export function HomePage() {
       <Hero />
       <ServicesSection />
       <InteractiveDemo />
-      <Testimonials />
+      <CaseStudy />
       <VisualCTA />
     </>
   );

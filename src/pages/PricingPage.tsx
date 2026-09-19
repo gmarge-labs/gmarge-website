@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
-import { Check, X, Zap, ArrowRight, MessageSquare, BarChart3, Shield, Crown } from 'lucide-react';
+import { Check, X, Zap, ArrowRight, Activity, Layers, Shield, Crown } from 'lucide-react';
+import { BOOKING_URL } from '../config/links';
 import { FloatingShapes } from '../components/FloatingShapes';
 import { ParticleField } from '../components/ParticleField';
 import { Card3D } from '../components/Card3D';
@@ -11,71 +12,71 @@ import { useState } from 'react';
 
 const pricingTiers = [
   {
-    name: 'Starter',
-    icon: MessageSquare,
-    price: 299,
+    name: 'Core Package',
+    icon: Activity,
+    price: '$3,500–5,000',
     period: 'month',
-    description: 'Perfect for small businesses getting started with AI',
+    description: 'Live dashboard + AI agent monitoring, priced on the number of channels and data sources',
     features: [
-      { text: 'Up to 1,000 conversations/month', included: true },
-      { text: 'Basic chatbot integration', included: true },
-      { text: 'Email support', included: true },
-      { text: 'Standard analytics dashboard', included: true },
-      { text: 'Single website integration', included: true },
-      { text: 'Advanced AI models', included: false },
-      { text: 'Custom branding', included: false },
-      { text: 'Priority support', included: false },
-      { text: 'Multi-channel deployment', included: false }
-    ],
-    popular: false,
-    cta: 'Start Free Trial'
-  },
-  {
-    name: 'Professional',
-    icon: BarChart3,
-    price: 799,
-    period: 'month',
-    description: 'For growing businesses ready to scale',
-    features: [
-      { text: 'Up to 5,000 conversations/month', included: true },
-      { text: 'Advanced chatbot customization', included: true },
-      { text: 'Priority email & chat support', included: true },
-      { text: 'Advanced analytics & reporting', included: true },
-      { text: 'Up to 3 website integrations', included: true },
-      { text: 'Advanced AI models (GPT-4)', included: true },
-      { text: 'Custom branding', included: true },
-      { text: 'WhatsApp & SMS integration', included: true },
-      { text: 'API access', included: false }
+      { text: 'Live Streamlit dashboard, refreshed daily', included: true },
+      { text: 'AI agent that explains what changed and why', included: true },
+      { text: 'Shopify, Meta Ads and GA4 connected', included: true },
+      { text: 'Weekly anomaly detection and alerts', included: true },
+      { text: 'Reported vs. incremental ROAS view', included: true },
+      { text: 'Monthly review call with an analyst', included: true },
+      { text: 'Dashboard access for your whole team', included: true },
+      { text: 'Additional ad platforms on request', included: true },
+      { text: 'Deep-dive studies (see add-ons)', included: false }
     ],
     popular: true,
-    cta: 'Start Free Trial'
+    cta: 'Book a Discovery Call'
+  },
+  {
+    name: 'Deep-Dive Add-Ons',
+    icon: Layers,
+    price: 'Per project',
+    period: '',
+    description: 'Periodic studies that run alongside the core package when a specific question needs answering',
+    features: [
+      { text: 'Campaign evaluation and post-mortems', included: true },
+      { text: 'Incrementality testing (geo and matched-market)', included: true },
+      { text: 'Customer segmentation modelling', included: true },
+      { text: 'Media mix modelling for larger spends', included: true },
+      { text: 'Creative and audience performance analysis', included: true },
+      { text: 'Custom data sources and warehouse work', included: true },
+      { text: 'Written findings and recommendations', included: true },
+      { text: 'Quoted after the discovery call', included: true },
+      { text: 'Requires an active core package', included: false }
+    ],
+    popular: false,
+    cta: 'Discuss Scope'
   }
 ];
 
 const faqs = [
   {
-    question: 'What happens after my free trial ends?',
-    answer: 'Your free trial lasts 14 days with full access to your chosen plan. After the trial, you can choose to subscribe or downgrade to our free tier with limited features.'
+    question: 'Why is the core package a range rather than a fixed price?',
+    answer: 'Price moves with the number of data sources and ad platforms we connect, and how much cleanup your existing tracking needs. A brand running Shopify, Meta and GA4 with a healthy pixel sits at the bottom of the range. Add Amazon, TikTok, a subscription platform or a messy attribution setup and it moves up. You get the exact number after the discovery call, before any work starts.'
   },
   {
-    question: 'Can I change my plan later?',
-    answer: 'Absolutely! You can upgrade or downgrade your plan at any time. Changes take effect immediately, and we\'ll prorate any charges or credits.'
+    question: 'How long until the dashboard is live?',
+    answer: 'Usually about two weeks from kickoff. The first week is connecting and reconciling your data sources; the second is building the dashboard around the questions you actually ask. The AI agent layer goes on once the underlying numbers are trustworthy — never before.'
   },
   {
-    question: 'What payment methods do you accept?',
-    answer: 'We accept all major credit cards (Visa, MasterCard, American Express), PayPal, and bank transfers for Enterprise customers.'
+    question: 'Do I need an incrementality test to get value from this?',
+    answer: 'No. The core package on its own gives you a live, reconciled view of what the platforms are reporting, which already surfaces double-counting and channel overlap. Incrementality testing is the add-on that turns that into a real number, and most clients run their first test in the second or third month.'
   },
   {
-    question: 'Is there a setup fee?',
-    answer: 'No setup fees for Starter and Professional plans. Enterprise customers receive personalized onboarding with no additional charges.'
+    question: 'Who owns the dashboard and the data?',
+    answer: 'You do. It runs on your data, and you keep the dashboard and the underlying models if the engagement ends. We do not resell, pool or benchmark your data against other clients.'
   },
   {
-    question: 'What kind of support do you provide?',
-    answer: 'All plans include email support. Professional plans add priority chat support, while Enterprise customers get a dedicated account manager and phone support.'
+    question: 'Is there a minimum commitment?',
+    answer: 'Three months, because the first month is mostly setup and one month of data is not enough to tell signal from noise. After that it is month to month with 30 days notice.'
   },
   {
-    question: 'Can I cancel anytime?',
-    answer: 'Yes, you can cancel your subscription at any time. You\'ll continue to have access until the end of your billing period.'
+    question: 'What if the analysis says my spend is working fine?',
+    answer: 'Then that is the finding, and you get to keep spending with confidence instead of suspicion. We are not paid on how much budget we move. Plenty of engagements end with a smaller set of changes than the client expected — the value is knowing which of your channels are load-bearing.'
   }
 ];
 
@@ -106,26 +107,26 @@ export default function PricingPage() {
               </motion.div>
 
               <h1 className="text-5xl sm:text-6xl font-bold mb-6 text-black">
-                <TextReveal text="Simple Pricing," delay={0.2} />
+                <TextReveal text="One Retainer," delay={0.2} />
                 <br />
                 <span className="text-[#002B6B]">
-                  <TextReveal text="Powerful Results" delay={0.4} />
+                  <TextReveal text="No Surprises" delay={0.4} />
                 </span>
               </h1>
 
               <p className="text-xl text-black mb-8 leading-relaxed">
-                Choose the perfect plan for your business. All plans include a 14-day free trial 
-                with no credit card required. Scale as you grow.
+                A monthly retainer for the live dashboard and AI agent, plus deep-dive studies scoped
+                as you need them. No per-seat fees, no usage meters, no annual lock-in.
               </p>
 
               <div className="flex items-center gap-6 text-black">
                 <div className="flex items-center gap-2">
                   <Check className="w-5 h-5 text-[#002B6B]" />
-                  <span>14-day free trial</span>
+                  <span>Free discovery call</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Check className="w-5 h-5 text-[#002B6B]" />
-                  <span>No credit card required</span>
+                  <span>3-month minimum, then monthly</span>
                 </div>
               </div>
             </motion.div>
@@ -139,7 +140,7 @@ export default function PricingPage() {
               <div className="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-[#BFC0C2]">
                 <ImageWithFallback
                   src="https://images.unsplash.com/photo-1656164631668-8673eab87b84?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxidXNpbmVzcyUyMHByaWNpbmclMjBzdHJhdGVneXxlbnwxfHx8fDE3NjY3NzIzOTl8MA&ixlib=rb-4.1.0&q=80&w=1080"
-                  alt="Pricing Strategy"
+                  alt="Marketing measurement"
                   className="w-full h-96 object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#002B6B]/80 via-[#002B6B]/20 to-transparent" />
@@ -185,7 +186,10 @@ export default function PricingPage() {
                             <span className="text-black">/{tier.period}</span>
                           </div>
                         ) : (
-                          <div className="text-4xl font-bold text-[#002B6B]">{tier.price}</div>
+                          <div className="flex items-baseline gap-2 flex-wrap">
+                            <span className="text-4xl font-bold text-[#002B6B]">{tier.price}</span>
+                            {tier.period && <span className="text-black">/{tier.period}</span>}
+                          </div>
                         )}
                       </div>
 
@@ -205,7 +209,13 @@ export default function PricingPage() {
                       </ul>
 
                       <MagneticButton
-                        onClick={() => navigate('contact')}
+                        onClick={() => {
+                          if (BOOKING_URL) {
+                            window.open(BOOKING_URL, '_blank', 'noopener,noreferrer');
+                          } else {
+                            navigate('contact');
+                          }
+                        }}
                         variant={tier.popular ? 'primary' : 'secondary'}
                         className="w-full"
                       >
@@ -232,19 +242,19 @@ export default function PricingPage() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-4xl sm:text-5xl font-bold mb-6 text-black">
-              Proven <span className="text-[#002B6B]">Return on Investment</span>
+              What the <span className="text-[#002B6B]">Retainer Buys You</span>
             </h2>
             <p className="text-xl text-black max-w-3xl mx-auto">
-              Our clients see measurable results within the first 30 days
+              Typical figures from D2C engagements — your numbers will differ, and we will tell you honestly if they are likely to be smaller
             </p>
           </motion.div>
 
           <div className="grid md:grid-cols-4 gap-8">
             {[
-              { value: '18.5x', label: 'Average ROI' },
-              { value: '67%', label: 'Cost Reduction' },
-              { value: '24/7', label: 'Availability' },
-              { value: '94%', label: 'Customer Satisfaction' }
+              { value: '30-40%', label: 'Typical gap between reported and real ROAS' },
+              { value: '~2 wks', label: 'From kickoff to live dashboard' },
+              { value: 'Daily', label: 'Dashboard refresh and agent read' },
+              { value: 'Weekly', label: 'Anomaly checks on every channel' }
             ].map((stat, index) => (
               <motion.div
                 key={stat.label}
@@ -333,17 +343,26 @@ export default function PricingPage() {
             transition={{ duration: 0.8 }}
           >
             <h2 className="text-4xl sm:text-5xl font-bold mb-6 text-white">
-              Ready to Get Started?
+              Not Sure Which You Need?
             </h2>
             <p className="text-xl text-white/90 mb-8">
-              Start your 14-day free trial today. No credit card required.
+              Book 30 minutes. We will look at your current reporting and tell you what is worth doing first.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
-              <MagneticButton onClick={() => navigate('contact')} variant="secondary">
-                Start Free Trial
+              <MagneticButton
+                onClick={() => {
+                  if (BOOKING_URL) {
+                    window.open(BOOKING_URL, '_blank', 'noopener,noreferrer');
+                  } else {
+                    navigate('contact');
+                  }
+                }}
+                variant="secondary"
+              >
+                Book a Discovery Call
               </MagneticButton>
               <MagneticButton onClick={() => navigate('contact')} variant="outline">
-                Contact Sales
+                Send Us a Question
               </MagneticButton>
             </div>
           </motion.div>

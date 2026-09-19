@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
 import { Target, Users, Award, Rocket, Heart, Globe } from 'lucide-react';
+import { BOOKING_URL } from '../config/links';
 import { FloatingShapes } from '../components/FloatingShapes';
 import { ParticleField } from '../components/ParticleField';
 import { Marquee } from '../components/Marquee';
@@ -14,38 +15,38 @@ import { ImageWithFallback } from '../components/figma/ImageWithFallback';
 const values = [
   {
     icon: Target,
-    title: 'Mission-Driven',
-    description: 'We exist to democratize AI and make it accessible to businesses of all sizes',
+    title: 'Honest Numbers First',
+    description: 'If the incremental number is worse than the reported one, we say so. That is the entire point of hiring us',
     color: 'from-[#002B6B] to-[#004B9B]'
   },
   {
     icon: Users,
-    title: 'Customer-Centric',
-    description: 'Your success is our success. We partner with you every step of the way',
+    title: 'Built for Founders',
+    description: 'Explanations in plain language, not a 40-page deck nobody reads past the summary slide',
     color: 'from-[#004B9B] to-[#002B6B]'
   },
   {
     icon: Award,
-    title: 'Excellence',
-    description: 'We maintain the highest standards in everything we do, from code to customer service',
+    title: 'Measurement Rigour',
+    description: 'Holdouts, power calculations, and confidence intervals — not a dashboard that dresses up attribution as causation',
     color: 'from-[#002B6B] to-[#004B9B]'
   },
   {
     icon: Rocket,
-    title: 'Innovation',
-    description: 'We push boundaries and stay ahead of the curve in AI technology',
+    title: 'Live, Not Retrospective',
+    description: 'A monthly deck tells you what went wrong three weeks after it went wrong. We would rather flag it on Tuesday',
     color: 'from-[#004B9B] to-[#002B6B]'
   },
   {
     icon: Heart,
-    title: 'Ethical AI',
-    description: 'We build responsible AI solutions that respect privacy and promote fairness',
+    title: 'Your Data Stays Yours',
+    description: 'No pooling, no reselling, no benchmarking your performance against other clients. You keep the dashboard',
     color: 'from-[#002B6B] to-[#004B9B]'
   },
   {
     icon: Globe,
-    title: 'Global Impact',
-    description: 'We aim to create positive change that extends beyond business metrics',
+    title: 'Small Enough to Care',
+    description: 'You talk to the analyst doing the work, not an account manager relaying questions to someone you never meet',
     color: 'from-[#004B9B] to-[#002B6B]'
   },
 ];
@@ -86,7 +87,7 @@ export function AboutPage() {
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
                 <Rocket className="w-4 h-4 sm:w-5 sm:h-5 text-[#002B6B]" />
-                <span className="text-xs sm:text-sm font-medium text-black">Innovation-Driven AI Partner</span>
+                <span className="text-xs sm:text-sm font-medium text-black">Retail Media Measurement Background</span>
               </motion.div>
 
               {/* Main Heading */}
@@ -109,7 +110,7 @@ export function AboutPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
               >
-                Building the Future of Intelligent Business Solutions
+                Measurement people who got tired of watching brands optimise toward fiction
               </motion.p>
 
               {/* Story Content */}
@@ -120,10 +121,17 @@ export function AboutPage() {
                 transition={{ duration: 0.8, delay: 0.5 }}
               >
                 <p>
-                  G-marge is a forward-thinking AI development company founded by experienced AI researchers, software engineers, and business strategists. We empower organizations of all sizes to harness the transformative potential of artificial intelligence.
+                  G-marge grew out of eight years of retail media measurement work — incrementality testing,
+                  media mix modelling and campaign evaluation for brands spending across Amazon, Walmart and
+                  the major ad platforms. The same problem came up on every account: the platform-reported
+                  numbers were confidently wrong, and everyone downstream was making decisions on them anyway.
                 </p>
                 <p>
-                  We combine deep technical expertise with innovative thinking to create AI solutions that are powerful, practical, ethical, and designed for real-world impact.
+                  Enterprise brands pay measurement teams to close that gap. D2C brands doing a few hundred
+                  thousand a month usually cannot, so they run on whatever Meta tells them. We built this to
+                  give those brands the same answer at a price that makes sense at their scale: one live
+                  dashboard, an AI agent that reads it daily, and incrementality tests that produce a number
+                  you can actually defend.
                 </p>
               </motion.div>
             </motion.div>
@@ -138,10 +146,10 @@ export function AboutPage() {
               {/* Stats Grid */}
               <div className="grid grid-cols-2 gap-4 sm:gap-6">
                 {[
-                  { value: '100%', label: 'Client Focused', icon: Users },
-                  { value: '24/7', label: 'Support Available', icon: Target },
-                  { value: 'AI-First', label: 'Approach', icon: Rocket },
-                  { value: 'Global', label: 'Reach', icon: Globe },
+                  { value: '8 yrs', label: 'In Retail Media Measurement', icon: Users },
+                  { value: 'D2C', label: 'Who We Build For', icon: Target },
+                  { value: 'Live', label: 'Not Monthly Decks', icon: Rocket },
+                  { value: 'Remote', label: 'US and UK Clients', icon: Globe },
                 ].map((stat, i) => {
                   const Icon = stat.icon;
                   return (
@@ -212,7 +220,7 @@ export function AboutPage() {
               </span>
             </h2>
             <p className="text-xl text-black">
-              The principles that guide everything we do
+              What we will and will not do with your marketing data
             </p>
           </motion.div>
 
@@ -272,21 +280,21 @@ export function AboutPage() {
               transition={{ duration: 0.6 }}
             >
               <Users className="w-5 h-5 text-[#002B6B]" />
-              <span className="text-sm font-medium text-black">World-Class Expertise</span>
+              <span className="text-sm font-medium text-black">The Three Disciplines</span>
             </motion.div>
 
             <h2 className="text-4xl sm:text-5xl font-bold mb-8 text-black">
-              A Team of{' '}
+              This Work Needs{' '}
               <span className="text-[#002B6B]">
-                Data Scientists
+                Measurement Science
               </span>
               ,{' '}<br />
               <span className="text-[#002B6B]">
-                AI Researchers
+                AI Engineering
               </span>
               {' '}and{' '}
               <span className="text-[#002B6B]">
-                Software Developers
+                Data Plumbing
               </span>
             </h2>
           </motion.div>
@@ -322,23 +330,23 @@ export function AboutPage() {
                   whileHover={{ scale: 1.05 }}
                 >
                   <Target className="w-5 h-5 text-[#002B6B]" />
-                  <span className="text-sm font-medium text-black">Data-Driven Insights</span>
+                  <span className="text-sm font-medium text-black">Causal, Not Correlational</span>
                 </motion.div>
                 
                 <h3 className="text-3xl sm:text-4xl font-bold text-black mb-4">
-                  <span className="text-[#002B6B]">Data Scientists</span>
+                  <span className="text-[#002B6B]">Measurement Science</span>
                 </h3>
                 
                 <p className="text-lg text-black leading-relaxed mb-6">
-                  Our data scientists are experienced analysts who transform raw data into actionable business intelligence. Using advanced machine learning algorithms, statistical modeling, and predictive analytics, they uncover patterns and insights that drive strategic decision-making.
+                  Attribution tells you which touchpoint was nearby when someone bought. Measurement tells you whether the ad caused the purchase. The difference is usually 30-40% of your reported ROAS, and closing it takes holdout design, power calculations and an honest treatment of uncertainty — not a prettier dashboard.
                 </p>
                 
                 <ul className="space-y-3">
                   {[
-                    'Machine Learning & AI Model Development',
-                    'Statistical Analysis & Data Visualization',
-                    'Predictive Analytics & Forecasting',
-                    'Business Intelligence & Reporting'
+                    'Geo Holdout & Matched-Market Test Design',
+                    'Incrementality & Conversion Lift Studies',
+                    'Media Mix Modelling (Bayesian)',
+                    'Customer Segmentation & LTV Modelling'
                   ].map((item, i) => (
                     <motion.li
                       key={item}
@@ -370,23 +378,23 @@ export function AboutPage() {
                   whileHover={{ scale: 1.05 }}
                 >
                   <Award className="w-5 h-5 text-[#002B6B]" />
-                  <span className="text-sm font-medium text-black">Cutting-Edge Research</span>
+                  <span className="text-sm font-medium text-black">Agents That Explain</span>
                 </motion.div>
                 
                 <h3 className="text-3xl sm:text-4xl font-bold text-black mb-4">
-                  <span className="text-[#002B6B]">AI Researchers</span>
+                  <span className="text-[#002B6B]">AI Engineering</span>
                 </h3>
                 
                 <p className="text-lg text-black leading-relaxed mb-6">
-                  Our AI researchers are dedicated to exploring and implementing the latest advancements in artificial intelligence. They stay at the forefront of emerging technologies, from natural language processing to computer vision, ensuring our solutions leverage the most innovative approaches available.
+                  A number on a dashboard still needs someone to read it. We build agent workflows that sit on top of your reconciled data and write the interpretation — which campaign moved, how much of the change it explains, and whether it sits inside normal weekly variance or outside it. The agent never guesses at data it cannot see.
                 </p>
                 
                 <ul className="space-y-3">
                   {[
-                    'Natural Language Processing (NLP)',
-                    'Computer Vision & Image Recognition',
-                    'Deep Learning & Neural Networks',
-                    'Conversational AI & Chatbots'
+                    'Agentic Workflows Over Live Data',
+                    'Plain-Language Performance Narratives',
+                    'Anomaly Detection & Alerting',
+                    'Natural-Language Querying of Your Metrics'
                   ].map((item, i) => (
                     <motion.li
                       key={item}
@@ -448,23 +456,23 @@ export function AboutPage() {
                   whileHover={{ scale: 1.05 }}
                 >
                   <Rocket className="w-5 h-5 text-[#002B6B]" />
-                  <span className="text-sm font-medium text-black">Enterprise-Grade Development</span>
+                  <span className="text-sm font-medium text-black">The Unglamorous Part</span>
                 </motion.div>
                 
                 <h3 className="text-3xl sm:text-4xl font-bold text-black mb-4">
-                  <span className="text-[#002B6B]">Software Developers</span>
+                  <span className="text-[#002B6B]">Data Plumbing</span>
                 </h3>
                 
                 <p className="text-lg text-black leading-relaxed mb-6">
-                  Our software developers are skilled engineers who build robust, scalable applications using modern technology stacks and industry best practices. They transform AI concepts into production-ready solutions that are reliable, maintainable, and designed to grow with your business.
+                  None of the above works if the underlying data is wrong. Most engagements start by finding a pixel firing twice, a currency mismatch, or a channel quietly taking credit for organic demand. We connect the sources, reconcile them against your actual orders, and keep the pipeline running so the dashboard stays trustworthy.
                 </p>
                 
                 <ul className="space-y-3">
                   {[
-                    'Full-Stack Web Application Development',
-                    'API Development & System Integration',
-                    'Cloud Infrastructure & DevOps',
-                    'Quality Assurance & Performance Testing'
+                    'Shopify, Meta Ads and GA4 Connectors',
+                    'Revenue Reconciliation Against Orders',
+                    'Tracking & Pixel Audits',
+                    'Streamlit Dashboards and Scheduled Refreshes'
                   ].map((item, i) => (
                     <motion.li
                       key={item}
@@ -495,19 +503,25 @@ export function AboutPage() {
             transition={{ duration: 0.8 }}
           >
             <h2 className="text-5xl font-bold mb-6 text-black">
-              Join Our Journey
+              Want to Know Your Real Number?
             </h2>
             <p className="text-xl text-black mb-8">
-              Let's build the future of AI together
+              Thirty minutes on your current reporting, and an honest read on whether this is worth doing at your spend level
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <motion.button
                 className="px-8 py-4 rounded-full bg-[#002B6B] text-white font-semibold hover:bg-[#002B6B] transition-colors"
                 whileHover={{ scale: 1.05, boxShadow: '0 10px 30px rgba(0, 43, 107, 0.2)' }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => navigate('contact')}
+                onClick={() => {
+                  if (BOOKING_URL) {
+                    window.open(BOOKING_URL, '_blank', 'noopener,noreferrer');
+                  } else {
+                    navigate('contact');
+                  }
+                }}
               >
-                Get in Touch
+                Book a Discovery Call
               </motion.button>
               <motion.button
                 className="px-8 py-4 rounded-full border-2 border-[#002B6B] text-[#002B6B] font-semibold hover:bg-[#E8F0FF] transition-colors"
@@ -515,7 +529,7 @@ export function AboutPage() {
                 whileTap={{ scale: 0.95 }}
                 onClick={() => navigate('services')}
               >
-                Our Services
+                What We Do
               </motion.button>
             </div>
           </motion.div>

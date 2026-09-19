@@ -20,7 +20,7 @@ export function Navbar() {
   const navItems = [
     { label: 'Home', page: 'home' as const },
     { label: 'Services', page: 'services' as const },
-    { label: 'Products', page: 'solutions' as const },
+    { label: 'How It Works', page: 'solutions' as const },
     { label: 'About', page: 'about' as const },
     { label: 'Contact', page: 'contact' as const },
   ];

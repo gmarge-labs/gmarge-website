@@ -10,18 +10,18 @@ import { ImageWithFallback } from '../components/figma/ImageWithFallback';
 const privacyPrinciples = [
   {
     icon: Lock,
-    title: 'Data Protection',
-    description: 'We use industry-leading encryption and security measures to protect your personal information.'
+    title: 'Read-Only Access',
+    description: 'We ask for read access to your ad and commerce platforms, and only to the accounts needed for the work.'
   },
   {
     icon: Eye,
-    title: 'Transparency',
-    description: 'We are clear about what data we collect, how we use it, and who we share it with.'
+    title: 'Plain Descriptions',
+    description: 'This page lists the data we touch, the providers that process it, and how long it is kept.'
   },
   {
     icon: Shield,
-    title: 'User Control',
-    description: 'You have full control over your data with the ability to access, modify, or delete it at any time.'
+    title: 'Your Data Stays Yours',
+    description: 'You keep the dashboard and the data behind it when an engagement ends, and you can withdraw our access at any time.'
   }
 ];
 
@@ -51,20 +51,24 @@ export default function PrivacyPage() {
               </motion.div>
 
               <h1 className="text-5xl sm:text-6xl font-bold mb-6 text-black">
-                <TextReveal text="Your Privacy" delay={0.2} />
+                <TextReveal text="How We Handle" delay={0.2} />
                 <br />
                 <span className="text-[#002B6B]">
-                  <TextReveal text="Matters to Us" delay={0.4} />
+                  <TextReveal text="Your Data" delay={0.4} />
                 </span>
               </h1>
 
               <p className="text-xl text-black mb-8 leading-relaxed">
-                At G-marge, we are committed to protecting your privacy and ensuring the security 
-                of your personal information. This policy outlines how we collect, use, and safeguard your data.
+                G-marge is a marketing measurement consultancy for direct-to-consumer e-commerce brands.
+                This policy covers the client platform data we access during an engagement and the personal data this website collects.
               </p>
 
               <p className="text-sm text-gray-600 mb-8">
-                Last Updated: December 26, 2024
+                Draft pending legal review. This policy has not been reviewed by a lawyer and will change before it is final.
+              </p>
+
+              <p className="text-sm text-gray-600 mb-8">
+                Effective date: [Effective date to be confirmed]
               </p>
             </motion.div>
 
@@ -121,15 +125,15 @@ export default function PrivacyPage() {
               viewport={{ once: true }}
               className="mb-12"
             >
-              <h2 className="text-3xl font-bold mb-6 text-black">1. Information We Collect</h2>
-              
-              <h3 className="text-2xl font-bold mb-4 text-black">Personal Information</h3>
+              <h2 className="text-3xl font-bold mb-6 text-black">1. Data We Access and Collect</h2>
+
+              <h3 className="text-2xl font-bold mb-4 text-black">Client Platform Data</h3>
               <ul className="space-y-3 mb-6">
                 {[
-                  'Name and contact information (email address, phone number)',
-                  'Business information (company name, role, industry)',
-                  'Account credentials and authentication data',
-                  'Payment and billing information'
+                  'Shopify: orders, line items, discounts and refunds, which can include customer names, email addresses and delivery addresses',
+                  'Meta Ads: spend, impressions, clicks and reported conversions at campaign, ad set and ad level',
+                  'GA4: sessions, traffic sources, landing pages and on-site events',
+                  'Files you send us, such as cost and margin data, promotion calendars or results from earlier tests'
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3 text-black">
                     <CheckCircle2 className="w-5 h-5 text-[#002B6B] flex-shrink-0 mt-1" />
@@ -138,13 +142,13 @@ export default function PrivacyPage() {
                 ))}
               </ul>
 
-              <h3 className="text-2xl font-bold mb-4 text-black">Usage Information</h3>
+              <h3 className="text-2xl font-bold mb-4 text-black">Personal Data This Website Collects</h3>
               <ul className="space-y-3 mb-6">
                 {[
-                  'Chatbot interactions and conversation data',
-                  'Website usage data and analytics',
-                  'Device information and IP addresses',
-                  'Browser type and operating system'
+                  'Contact form entries: your name, email address, company and the message you write',
+                  'Email you send us about an enquiry or an engagement, and our replies',
+                  'Website analytics: pages viewed, referring site and approximate location',
+                  'Technical data your browser sends, such as IP address, device type and browser version'
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3 text-black">
                     <CheckCircle2 className="w-5 h-5 text-[#002B6B] flex-shrink-0 mt-1" />
@@ -161,18 +165,21 @@ export default function PrivacyPage() {
               viewport={{ once: true }}
               className="mb-12"
             >
-              <h2 className="text-3xl font-bold mb-6 text-black">2. How We Use Your Information</h2>
+              <h2 className="text-3xl font-bold mb-6 text-black">2. Why We Use It and Lawful Basis</h2>
               <p className="text-black mb-4 leading-relaxed">
-                We use the information we collect to provide, maintain, and improve our services:
+                For data from your platforms you remain the controller and we act on your written instructions. For
+                enquiries sent through this site we decide how the data is used. Where data protection law of this kind
+                applies, we rely on performance of the contract for engagement data, legitimate interests for enquiries and
+                site analytics, and legal obligation for billing records. [Applicable data protection law to be confirmed]
               </p>
               <ul className="space-y-3 mb-6">
                 {[
-                  'To provide and operate our AI chatbot services',
-                  'To personalize your experience and improve our products',
-                  'To communicate with you about updates, offers, and support',
-                  'To process payments and prevent fraud',
-                  'To comply with legal obligations and enforce our terms',
-                  'To analyze usage patterns and optimize performance'
+                  'To build and refresh the dashboard that reports your Shopify, Meta Ads and GA4 results',
+                  'To let the reporting agent read that dashboard and write up what changed and why',
+                  'To design and measure incrementality tests, including geo holdouts and matched-market tests',
+                  'To run agreed deep dives: campaign evaluation, segmentation modelling and media mix modelling',
+                  'To answer enquiries sent through the contact form and to send proposals and scopes of work',
+                  'To keep the records we need for invoicing, accounting and tax'
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3 text-black">
                     <CheckCircle2 className="w-5 h-5 text-[#002B6B] flex-shrink-0 mt-1" />
@@ -189,17 +196,20 @@ export default function PrivacyPage() {
               viewport={{ once: true }}
               className="mb-12"
             >
-              <h2 className="text-3xl font-bold mb-6 text-black">3. Data Sharing and Disclosure</h2>
+              <h2 className="text-3xl font-bold mb-6 text-black">3. Sharing, Sub-Processors and Transfers</h2>
               <p className="text-black mb-4 leading-relaxed">
-                We do not sell your personal information. We may share your data only in these circumstances:
+                We do not sell personal data, and we do not use one client's data to build models for another. A small
+                number of providers process data on our behalf, and some of them operate outside your country, including in
+                the United States. Where transfer safeguards are required we put the relevant contractual terms in place.
+                [Current sub-processor list to be confirmed] [Transfer mechanism to be confirmed]
               </p>
               <ul className="space-y-3 mb-6">
                 {[
-                  'With service providers who help us operate our business',
-                  'With your consent or at your direction',
-                  'To comply with legal obligations or respond to lawful requests',
-                  'To protect our rights, privacy, safety, or property',
-                  'In connection with a merger, acquisition, or sale of assets'
+                  'Cloud hosting and database providers that run the dashboard and store the data it reads',
+                  'The platforms you connect, which remain the source of the data: Shopify, Meta and Google',
+                  'An AI model provider that processes dashboard summaries to produce written explanations',
+                  'Business tools we use for email, file storage, accounting and invoicing',
+                  'Professional advisers, or authorities, where disclosure is required by law'
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3 text-black">
                     <AlertCircle className="w-5 h-5 text-[#002B6B] flex-shrink-0 mt-1" />
@@ -216,17 +226,17 @@ export default function PrivacyPage() {
               viewport={{ once: true }}
               className="mb-12"
             >
-              <h2 className="text-3xl font-bold mb-6 text-black">4. Data Security</h2>
+              <h2 className="text-3xl font-bold mb-6 text-black">4. Access and Security</h2>
               <p className="text-black mb-4 leading-relaxed">
-                We implement robust security measures to protect your information:
+                We keep access narrow and remove it when it is no longer needed:
               </p>
               <ul className="space-y-3 mb-6">
                 {[
-                  'End-to-end encryption for data in transit and at rest',
-                  'Regular security audits and penetration testing',
-                  'Strict access controls and authentication requirements',
-                  'Secure data centers with 24/7 monitoring',
-                  'Regular backups and disaster recovery procedures'
+                  'We request read access only, and only to the accounts and properties the work needs',
+                  'Access is limited to the people working on your engagement',
+                  'Credentials and API tokens are held in a password manager, not in documents or email',
+                  'Data moves over encrypted connections and the dashboard sits behind a login',
+                  'You can withdraw our access from your own platform admin at any time'
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3 text-black">
                     <Lock className="w-5 h-5 text-[#002B6B] flex-shrink-0 mt-1" />
@@ -243,18 +253,21 @@ export default function PrivacyPage() {
               viewport={{ once: true }}
               className="mb-12"
             >
-              <h2 className="text-3xl font-bold mb-6 text-black">5. Your Rights</h2>
+              <h2 className="text-3xl font-bold mb-6 text-black">5. Retention and Your Rights</h2>
               <p className="text-black mb-4 leading-relaxed">
-                You have the following rights regarding your personal data:
+                Client platform data stays in place for as long as the engagement runs. When it ends, the dashboard and the
+                data in it stay with you, and we delete our own working copies within [Retention period to be confirmed].
+                Enquiries and email are kept for [Retention period to be confirmed], and billing records for as long as tax
+                law requires. Depending on where you live, you may have these rights over personal data we hold about you:
               </p>
               <ul className="space-y-3 mb-6">
                 {[
-                  'Access: Request a copy of your personal data',
-                  'Correction: Update or correct inaccurate information',
-                  'Deletion: Request deletion of your personal data',
-                  'Portability: Receive your data in a structured format',
-                  'Opt-out: Unsubscribe from marketing communications',
-                  'Object: Object to certain processing of your data'
+                  'Access: ask for a copy of the personal data we hold about you',
+                  'Correction: ask us to fix data that is wrong or out of date',
+                  'Deletion: ask us to delete data we no longer have a reason to keep',
+                  'Portability: ask for your data in a common machine-readable format',
+                  'Objection: object to processing we base on legitimate interests',
+                  'Complaint: raise a complaint with your data protection authority [Supervisory authority to be confirmed]'
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3 text-black">
                     <CheckCircle2 className="w-5 h-5 text-[#002B6B] flex-shrink-0 mt-1" />
@@ -263,7 +276,7 @@ export default function PrivacyPage() {
                 ))}
               </ul>
               <p className="text-black leading-relaxed">
-                To exercise these rights, please contact us at{' '}
+                Privacy questions and requests go to [Privacy contact to be confirmed] at{' '}
                 <a href="mailto:halimabl@gmarge.com" className="text-[#002B6B] underline">
                   halimabl@gmarge.com
                 </a>
@@ -277,10 +290,11 @@ export default function PrivacyPage() {
               viewport={{ once: true }}
               className="mb-12"
             >
-              <h2 className="text-3xl font-bold mb-6 text-black">6. Cookies and Tracking</h2>
+              <h2 className="text-3xl font-bold mb-6 text-black">6. Cookies and Site Analytics</h2>
               <p className="text-black mb-4 leading-relaxed">
-                We use cookies and similar technologies to enhance your experience and analyze usage. 
-                You can control cookies through your browser settings.
+                This site uses analytics to count visits and see which pages people read. It does not track you across other
+                websites and it is not used for advertising. You can block or clear cookies in your browser settings.
+                [Analytics provider to be confirmed]
               </p>
             </motion.div>
           </div>
@@ -307,7 +321,7 @@ export default function PrivacyPage() {
               Questions About Privacy?
             </h2>
             <p className="text-xl text-white/90 mb-8">
-              Our team is here to help you understand how we protect your data
+              Ask us exactly what data an engagement touches before you grant any access
             </p>
             <MagneticButton onClick={() => navigate('contact')} variant="secondary">
               Contact Us

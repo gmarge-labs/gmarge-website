@@ -20,8 +20,8 @@ const contactMethods = [
   },
   {
     icon: MessageCircle,
-    title: 'Live Agent',
-    details: 'Chat with our AI specialist',
+    title: 'Ask a Question',
+    details: 'Chat with our measurement agent',
     link: '#',
     color: 'from-[#002B6B] to-[#001B48]',
     isLiveChat: true
@@ -56,17 +56,18 @@ export function ContactPage() {
               }}
             >
               <MessageSquare className="w-4 h-4 sm:w-5 sm:h-5 text-blue-400" />
-              <span className="text-sm sm:text-base text-white">We'd love to hear from you</span>
+              <span className="text-sm sm:text-base text-white">Usually a reply within one business day</span>
             </motion.div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4">
-              Get in{' '}
+              Book a{' '}
               <span className="bg-gradient-to-r from-[#BFC0C2] to-white bg-clip-text text-transparent">
-                Touch
+                Discovery Call
               </span>
             </h1>
             <p className="text-base sm:text-lg lg:text-xl text-blue-200 max-w-3xl mx-auto">
-              Let's discuss how G-marge can help transform your business with AI
+              Thirty minutes on your current reporting setup. We will tell you where the gap between reported
+              and real performance probably sits, and whether this is worth doing at your spend level.
             </p>
           </motion.div>
         </div>
@@ -83,13 +84,13 @@ export function ContactPage() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-              Contact{' '}
+              How to{' '}
               <span className="bg-gradient-to-r from-[#002B6B] to-[#004B9B] bg-clip-text text-transparent">
-                Information
+                Reach Us
               </span>
             </h2>
             <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto">
-              Reach out to us through any of these channels
+              Tell us your monthly ad spend and which platforms you run, and the first call will be a lot more useful
             </p>
           </motion.div>
 

@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { HelpCircle, Search, MessageCircle, Book, Video, Mail, Phone, Clock, ArrowRight, ChevronDown } from 'lucide-react';
+import { HelpCircle, Search, LayoutDashboard, Database, FlaskConical, Mail, Phone, Clock, ArrowRight, ChevronDown, MessageCircle, CreditCard } from 'lucide-react';
 import { FloatingShapes } from '../components/FloatingShapes';
 import { ParticleField } from '../components/ParticleField';
 import { Card3D } from '../components/Card3D';
@@ -11,84 +11,84 @@ import { useState } from 'react';
 
 const supportCategories = [
   {
-    icon: MessageCircle,
-    title: 'Getting Started',
-    description: 'Learn the basics and set up your first AI chatbot',
-    articles: 12,
+    icon: LayoutDashboard,
+    title: 'What You Get',
+    description: 'The live dashboard, the weekly read and what lands each week',
+    articles: 3,
     color: 'from-blue-500 to-blue-600'
   },
   {
-    icon: Book,
-    title: 'Integration & Setup',
-    description: 'Connect G-marge AI to your website and platforms',
-    articles: 18,
+    icon: Database,
+    title: 'Data and Access',
+    description: 'Which accounts we connect to and the permissions we need',
+    articles: 3,
     color: 'from-purple-500 to-purple-600'
   },
   {
-    icon: Video,
-    title: 'Video Tutorials',
-    description: 'Step-by-step video guides for common tasks',
-    articles: 8,
+    icon: FlaskConical,
+    title: 'Incrementality Testing',
+    description: 'How a geo holdout works and what spend it needs to be valid',
+    articles: 3,
     color: 'from-pink-500 to-pink-600'
   },
   {
-    icon: HelpCircle,
-    title: 'Troubleshooting',
-    description: 'Solutions to common problems and errors',
-    articles: 24,
+    icon: CreditCard,
+    title: 'Pricing and Billing',
+    description: 'What the engagement costs, the minimum term and the notice period',
+    articles: 3,
     color: 'from-green-500 to-green-600'
   }
 ];
 
 const faqCategories = [
   {
-    category: 'General Questions',
+    category: 'The Engagement',
     faqs: [
       {
-        question: 'What is G-marge AI?',
-        answer: 'G-marge AI is a comprehensive platform that provides AI-powered chatbots and automation solutions specifically designed for small businesses. We help businesses automate customer interactions, generate leads, and improve customer service 24/7.'
+        question: 'What does the core package actually include?',
+        answer: 'A live Streamlit dashboard that pulls from Shopify, Meta Ads and GA4 and refreshes daily, so you are looking at yesterday rather than last month. An AI agent reads that dashboard and writes up, in plain language, what changed and why. On top of that you get a weekly anomaly check covering things like creative fatigue, double-firing pixels and budget drift, and incrementality testing to establish what your channels are really contributing. Deep dives such as campaign evaluation, segmentation modelling and media mix modelling are scoped as add-ons.'
       },
       {
-        question: 'How does the AI chatbot work?',
-        answer: 'Our chatbot uses advanced natural language processing (NLP) and machine learning to understand customer queries and provide intelligent responses. It learns from every interaction to continuously improve its accuracy and relevance.'
+        question: 'How long does setup take?',
+        answer: 'About two weeks from the day we get access to a dashboard you can use every morning. The first few days are connections and data checks, then we rebuild the reporting so Shopify, Meta and GA4 reconcile against each other, then we hand it over and start the weekly rhythm. Badly broken tracking can add a week, and we tell you that in week one rather than at the end.'
       },
       {
-        question: 'Can I customize the chatbot for my business?',
-        answer: 'Absolutely! Every chatbot is fully customizable to match your brand, industry, and specific business needs. You can customize the personality, responses, appearance, and integration points.'
+        question: 'What happens if the findings are underwhelming?',
+        answer: 'Then we say so. If a holdout shows your platform numbers are close to the truth, that is a real answer: you can keep spending with more confidence instead of paying someone to reallocate budget that did not need reallocating. We would rather hand you a boring result than dress one up. After the three-month minimum, if the work is not paying for itself, you stop and keep the dashboard.'
       }
     ]
   },
   {
-    category: 'Technical Support',
+    category: 'Data and Testing',
     faqs: [
       {
-        question: 'How do I integrate the chatbot on my website?',
-        answer: 'Integration is simple with our JavaScript snippet. Just copy the code from your dashboard and paste it before the closing </body> tag on your website. We also provide plugins for WordPress, Shopify, and other popular platforms.'
+        question: 'What data access do you need?',
+        answer: 'Shopify, Meta Ads and GA4 at minimum, plus any other channel carrying real spend. We ask for read-only access wherever the platform supports it, granted through the platform\'s own user or partner permissions rather than a shared login. We do not need customer names, email addresses or payment details, and we would rather not hold them.'
       },
       {
-        question: 'What browsers are supported?',
-        answer: 'Our chatbot works on all modern browsers including Chrome, Firefox, Safari, and Edge. We ensure compatibility with both desktop and mobile browsers.'
+        question: 'What does an incrementality test involve?',
+        answer: 'We hold a channel back in a set of matched regions while it keeps running everywhere else, then compare what actually happened in the held-out markets against the control markets. A holdout usually runs two to four weeks. The output is an estimate of the revenue a channel caused, rather than the revenue it claimed. In most accounts we look at, real ROAS lands 30 to 40 per cent below platform-reported ROAS.'
       },
       {
-        question: 'Is there an API available?',
-        answer: 'Yes! We provide a comprehensive REST API for developers who want to build custom integrations or connect G-marge AI to their existing systems. API access is available on Professional and Enterprise plans.'
+        question: 'How much spend do I need for a test to be meaningful?',
+        answer: 'Enough spend and enough orders in the test window that the result is signal rather than noise. In practice that means a channel with steady, concentrated spend and a few hundred orders across the holdout period. We run the power check before committing to anything, and if your volume will not support a clean read we tell you and test a different channel or a different question.'
       }
     ]
   },
   {
-    category: 'Billing & Pricing',
+    category: 'Ownership, Billing and Support',
     faqs: [
       {
-        question: 'What payment methods do you accept?',
-        answer: 'We accept all major credit cards (Visa, MasterCard, American Express, Discover), PayPal, and bank transfers for Enterprise customers.'
+        question: 'Who owns the dashboard and the data?',
+        answer: 'You do. The dashboard, the data model and the underlying data are yours from day one. If the engagement ends you keep all of it, and we hand over the code and the connection setup so your team or another consultant can carry on running it.'
       },
       {
-        question: 'Can I change my plan anytime?',
-        answer: 'Yes, you can upgrade or downgrade your plan at any time from your account settings. Changes take effect immediately, and we prorate charges accordingly.'
+        question: 'How does billing work?',
+        answer: 'The core package is $3,500 to $5,000 a month depending on channel count and how much work the data needs. Add-ons are scoped and quoted per project before anything starts. There is a three-month minimum, then it runs month to month with 30 days notice on either side. Invoiced monthly in advance.'
       },
       {
-        question: 'Do you offer refunds?',
-        answer: 'We offer a 14-day money-back guarantee on all plans. If you\'re not satisfied within the first 14 days, contact us for a full refund.'
+        question: 'How do I get support between the weekly reads?',
+        answer: 'Email the analyst on your account. Anything urgent, such as a broken connection or a number that looks wrong, gets picked up the same working day. Everything else is folded into the next weekly read so you are not chasing answers in fragments. Most clients also set up a shared Slack or Teams channel in week one.'
       }
     ]
   }
@@ -97,27 +97,27 @@ const faqCategories = [
 const contactOptions = [
   {
     icon: Mail,
-    title: 'Email Support',
-    description: 'Get help via email',
+    title: 'Email',
+    description: 'Reach the analyst on your account',
     contact: 'halimabl@gmarge.com',
-    responseTime: 'Within 24 hours',
+    responseTime: 'Same working day',
     action: 'Send Email'
   },
   {
     icon: Phone,
-    title: 'Phone Support',
-    description: 'Talk to our team',
+    title: 'Phone',
+    description: 'For anything easier to talk through',
     contact: '+1 207 900 7700',
     responseTime: 'Mon-Fri, 9AM-6PM EST',
     action: 'Call Now'
   },
   {
     icon: MessageCircle,
-    title: 'Live Chat',
-    description: 'Chat with support',
-    contact: 'Available on website',
-    responseTime: 'Average 5 min response',
-    action: 'Start Chat'
+    title: 'Shared Channel',
+    description: 'Slack or Teams with your team',
+    contact: 'Set up in week one',
+    responseTime: 'Questions answered as they come',
+    action: 'Ask About Setup'
   }
 ];
 
@@ -149,20 +149,20 @@ export default function HelpCenterPage() {
                 whileHover={{ scale: 1.05 }}
               >
                 <HelpCircle className="w-5 h-5 text-[#002B6B]" />
-                <span className="text-sm font-medium text-black">24/7 Support</span>
+                <span className="text-sm font-medium text-black">Straight Answers</span>
               </motion.div>
 
               <h1 className="text-5xl sm:text-6xl font-bold mb-6 text-black">
-                <TextReveal text="How Can We" delay={0.2} />
+                <TextReveal text="Questions," delay={0.2} />
                 <br />
                 <span className="text-[#002B6B]">
-                  <TextReveal text="Help You?" delay={0.4} />
+                  <TextReveal text="Answered" delay={0.4} />
                 </span>
               </h1>
 
               <p className="text-xl text-black mb-8 leading-relaxed">
-                Find answers to your questions, explore our knowledge base, or reach out to our 
-                support team. We're here to help you succeed.
+                What the engagement includes, what access we need, how testing works and what it
+                costs. If something is not covered here, ask and we'll answer plainly.
               </p>
 
               {/* Search Bar */}
@@ -170,7 +170,7 @@ export default function HelpCenterPage() {
                 <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
                 <input
                   type="text"
-                  placeholder="Search for help articles..."
+                  placeholder="Search the questions below..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="w-full pl-12 pr-4 py-4 rounded-xl border-2 border-[#BFC0C2] focus:border-[#002B6B] focus:outline-none text-black"
@@ -178,7 +178,7 @@ export default function HelpCenterPage() {
               </div>
 
               <div className="flex flex-wrap gap-2">
-                {['Setup Guide', 'Integration', 'Billing', 'API Docs'].map((tag) => (
+                {['Setup', 'Data Access', 'Incrementality', 'Billing'].map((tag) => (
                   <button
                     key={tag}
                     className="px-4 py-2 rounded-full bg-gray-100 hover:bg-[#E8F0FF] text-sm text-black transition-colors"
@@ -198,7 +198,7 @@ export default function HelpCenterPage() {
               <div className="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-[#BFC0C2]">
                 <ImageWithFallback
                   src="https://images.unsplash.com/photo-1709715357479-591f9971fb05?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjdXN0b21lciUyMHN1cHBvcnQlMjBoZWxwfGVufDF8fHx8MTc2NjY5NDk1OXww&ixlib=rb-4.1.0&q=80&w=1080"
-                  alt="Customer Support"
+                  alt="Client Questions"
                   className="w-full h-96 object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#002B6B]/80 via-[#002B6B]/20 to-transparent" />
@@ -212,8 +212,8 @@ export default function HelpCenterPage() {
                   <div className="flex items-center gap-3">
                     <Clock className="w-8 h-8 text-[#002B6B]" />
                     <div>
-                      <div className="text-2xl font-bold text-[#002B6B]">&lt;5min</div>
-                      <div className="text-sm text-gray-600">Avg Response</div>
+                      <div className="text-2xl font-bold text-[#002B6B]">2 weeks</div>
+                      <div className="text-sm text-gray-600">Typical Time to Live</div>
                     </div>
                   </div>
                 </motion.div>
@@ -234,10 +234,10 @@ export default function HelpCenterPage() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-4xl sm:text-5xl font-bold mb-6 text-black">
-              Browse by <span className="text-[#002B6B]">Category</span>
+              Browse by <span className="text-[#002B6B]">Topic</span>
             </h2>
             <p className="text-xl text-black max-w-3xl mx-auto">
-              Find helpful resources organized by topic
+              The questions that come up most, before and during an engagement
             </p>
           </motion.div>
 
@@ -267,7 +267,7 @@ export default function HelpCenterPage() {
                       </p>
 
                       <div className="flex items-center justify-between">
-                        <span className="text-sm text-gray-600">{category.articles} articles</span>
+                        <span className="text-sm text-gray-600">{category.articles} questions</span>
                         <ArrowRight className="w-5 h-5 text-[#002B6B]" />
                       </div>
                     </div>
@@ -353,10 +353,10 @@ export default function HelpCenterPage() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-4xl sm:text-5xl font-bold mb-6 text-black">
-              Still Need <span className="text-[#002B6B]">Help?</span>
+              Ask Us <span className="text-[#002B6B]">Directly</span>
             </h2>
             <p className="text-xl text-black max-w-3xl mx-auto">
-              Our support team is ready to assist you
+              You get a named analyst, not a ticket queue
             </p>
           </motion.div>
 
@@ -421,13 +421,13 @@ export default function HelpCenterPage() {
             transition={{ duration: 0.8 }}
           >
             <h2 className="text-4xl sm:text-5xl font-bold mb-6 text-white">
-              Can't Find What You're Looking For?
+              Still Not Sure If This Fits Your Business?
             </h2>
             <p className="text-xl text-white/90 mb-8">
-              Contact our support team and we'll help you find the answer
+              Tell us what you spend and where, and we'll tell you honestly whether a test would be worth running
             </p>
             <MagneticButton onClick={() => navigate('contact')} variant="secondary">
-              Contact Support
+              Talk to Us
             </MagneticButton>
           </motion.div>
         </div>

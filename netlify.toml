@@ -1,7 +1,7 @@
 [build]
   # Install, attempt to rebuild @swc/core, then build the site
   command = "npm ci && npm rebuild @swc/core && npm run build"
-  publish = "dist"
+  publish = "build"
 
 [context.production.environment]
   # Use a recent Node version on Netlify

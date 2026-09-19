@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from 'motion/react';
-import { Code2, Bot, Lightbulb, Zap, Database, TrendingUp, Award, Users } from 'lucide-react';
+import { LineChart, FlaskConical, Users2, Zap, Database, TrendingUp, Award, Users } from 'lucide-react';
+import { BOOKING_URL } from '../config/links';
 import { FloatingShapes } from '../components/FloatingShapes';
 import { ParticleField } from '../components/ParticleField';
 import { useRouter } from '../components/Router';
@@ -7,56 +8,56 @@ import { useState } from 'react';
 
 const services = [
   {
-    icon: Code2,
-    title: 'End-to-End Development',
-    description: 'Custom AI solutions built from the ground up. We handle everything from architecture design to deployment and scaling.',
+    icon: LineChart,
+    title: 'Live Dashboard + AI Agent',
+    description: 'The core engagement. A dashboard that pulls live from your stack, and an agent that reads it every day and tells you what changed.',
     features: [
-      'Custom AI Models',
-      'Scalable Infrastructure',
-      'Integration Services',
-      'Ongoing Support',
-      'Performance Optimization',
-      'Quality Assurance'
+      'Shopify, Meta Ads, GA4',
+      'Daily automatic refresh',
+      'Plain-language explanations',
+      'Weekly anomaly alerts',
+      'Reported vs. incremental view',
+      'Monthly analyst review'
     ],
     image: 'https://backend.coreops.ai/wp-content/uploads/2025/07/Blog-2-Architecture-intelligence.png',
-    details: 'Our development team brings years of expertise in building enterprise-grade AI solutions. We follow industry best practices and agile methodologies to deliver solutions that scale with your business.'
+    details: 'We connect your order data, ad spend, and site analytics into one reconciled Streamlit dashboard, then put an AI agent on top of it. The agent reads the same numbers you do and writes the explanation: which campaign moved, how much of the change it accounts for, and whether the shift is real or inside normal weekly variance. Live in roughly two weeks.'
   },
   {
-    icon: Bot,
-    title: 'Ready-to-Deploy AI Solutions',
-    description: 'Quick-start AI tools designed for small businesses. Get your custom chatbot or automation system up and running fast.',
+    icon: FlaskConical,
+    title: 'Incrementality Testing',
+    description: 'The honest number. Geo holdouts and matched-market tests that answer what would have happened if you had not run the campaign.',
     features: [
-      'Instant Deployment',
-      'Pre-trained Models',
-      'Industry Solutions',
-      'Quick ROI',
-      'Regular Updates',
-      'Technical Support'
+      'Geo holdout design',
+      'Matched-market tests',
+      'Conversion lift studies',
+      'Statistical power checks',
+      'Channel overlap analysis',
+      'Repeatable test framework'
     ],
     image: 'https://backend.coreops.ai/wp-content/uploads/2025/06/AI-integration.png',
-    details: 'Launch your AI solution in days, not months. Our ready-to-deploy chatbots and automation tools are specifically designed for small businesses like restaurants, salons, and service providers who need practical solutions without the complexity.'
+    details: 'Every ad platform grades its own homework, which is why your platform-reported revenue exceeds what Shopify actually recorded. We design holdout tests sized to your spend and seasonality, run them cleanly, and give you a defensible incremental ROAS per channel. In most D2C engagements the real number lands 30-40% below what the platforms claim.'
   },
   {
-    icon: Lightbulb,
-    title: 'Strategic Consulting',
-    description: 'Expert guidance to navigate your AI transformation. We help you identify opportunities and create actionable roadmaps.',
+    icon: Users2,
+    title: 'Segmentation & Deep-Dives',
+    description: 'Periodic studies on the questions the dashboard raises but cannot answer on its own.',
     features: [
-      'AI Strategy',
-      'Use Case Discovery',
-      'ROI Analysis',
-      'Implementation Planning',
-      'Change Management',
-      'Training Programs'
+      'Customer segmentation',
+      'Campaign evaluation',
+      'Creative and audience analysis',
+      'Media mix modelling',
+      'Retention and LTV cuts',
+      'Written recommendations'
     ],
     image: 'https://backend.coreops.ai/wp-content/uploads/2025/07/Integrating-AI-into-legacy.png',
-    details: 'Transform your organization with data-driven insights. Our consultants help you identify high-impact AI opportunities and build a roadmap for successful implementation.'
+    details: 'Built on your own purchase data, not an industry benchmark. Segmentation separates the customers worth reacquiring from the ones who were always going to buy. Campaign evaluation grades spend against incremental return rather than platform-attributed return. Each study ends with specific recommendations and the confidence behind them.'
   },
 ];
 
 const additionalServices = [
-  { icon: Zap, title: 'AI Automation', description: 'Automate tasks, workflows with enterprise-grade security and privacy compliance' },
-  { icon: Database, title: 'Data Science', description: 'ML optimization, computer vision, data pipelines, and seamless cloud integration solutions' },
-  { icon: TrendingUp, title: 'Growth Strategy', description: 'Quality-driven processes, enhanced user experience, and sustainable growth' },
+  { icon: Zap, title: 'Tracking Audit', description: 'Pixel and server-side event checks, double-firing, and the attribution gaps that quietly inflate every report you read' },
+  { icon: Database, title: 'Data Pipeline Work', description: 'Warehouse setup, custom connectors, and reconciling ad platform exports against your actual order data' },
+  { icon: TrendingUp, title: 'Budget Planning', description: 'Scenario modelling on incremental returns so next quarter\'s allocation is a decision, not a guess' },
 ];
 
 export function ServicesPage() {
@@ -96,17 +97,17 @@ export function ServicesPage() {
             >
               <div className="flex items-center gap-2">
                 <Award className="w-4 h-4 sm:w-5 sm:h-5 text-[#002B6B]" />
-                <span className="text-xs sm:text-sm font-medium text-black">Enterprise-Grade Solutions</span>
+                <span className="text-xs sm:text-sm font-medium text-black">Incrementality-First</span>
               </div>
               <div className="hidden sm:block w-px h-4 bg-[#BFC0C2]" />
               <div className="flex items-center gap-2">
                 <Users className="w-4 h-4 sm:w-5 sm:h-5 text-[#002B6B]" />
-                <span className="text-xs sm:text-sm font-medium text-black">500+ Clients</span>
+                <span className="text-xs sm:text-sm font-medium text-black">Built for D2C</span>
               </div>
               <div className="hidden sm:block w-px h-4 bg-[#BFC0C2]" />
               <div className="flex items-center gap-2">
                 <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5 text-[#002B6B]" />
-                <span className="text-xs sm:text-sm font-medium text-black">98% Success Rate</span>
+                <span className="text-xs sm:text-sm font-medium text-black">Live in ~2 Weeks</span>
               </div>
             </motion.div>
 
@@ -117,10 +118,10 @@ export function ServicesPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
             >
-              Professional AI Solutions
+              Marketing Measurement
               <br />
               <span className="text-[#002B6B]">
-                Engineered for Excellence
+                You Can Actually Trust
               </span>
             </motion.h1>
 
@@ -131,7 +132,7 @@ export function ServicesPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              Empowering small businesses with cutting-edge artificial intelligence solutions that drive transformation and measurable business outcomes.
+              Live dashboards, honest incrementality numbers, and an AI agent that explains your marketing performance in plain language. Built for D2C e-commerce brands.
             </motion.p>
 
             {/* CTA Buttons */}
@@ -145,9 +146,15 @@ export function ServicesPage() {
                 className="px-8 sm:px-10 py-3 sm:py-4 rounded-full bg-[#002B6B] text-white font-semibold shadow-lg hover:bg-[#002B6B] transition-all"
                 whileHover={{ scale: 1.05, boxShadow: '0 20px 40px rgba(0, 43, 107, 0.3)' }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => navigate('contact')}
+                onClick={() => {
+                  if (BOOKING_URL) {
+                    window.open(BOOKING_URL, '_blank', 'noopener,noreferrer');
+                  } else {
+                    navigate('contact');
+                  }
+                }}
               >
-                Get Started
+                Book a Discovery Call
               </motion.button>
               <motion.button
                 className="px-8 sm:px-10 py-3 sm:py-4 rounded-full bg-white text-[#002B6B] font-semibold border-2 border-[#002B6B] hover:bg-[#002B6B] hover:text-white transition-all"
@@ -155,7 +162,7 @@ export function ServicesPage() {
                 whileTap={{ scale: 0.95 }}
                 onClick={() => navigate('solutions')}
               >
-                View Solutions
+                How It Works
               </motion.button>
             </motion.div>
           </motion.div>
@@ -239,9 +246,15 @@ export function ServicesPage() {
                           className="px-8 py-4 rounded-full bg-[#002B6B] text-white font-semibold hover:bg-[#002B6B] transition-colors"
                           whileHover={{ scale: 1.05, boxShadow: '0 10px 30px rgba(0, 43, 107, 0.3)' }}
                           whileTap={{ scale: 0.95 }}
-                          onClick={() => navigate('contact')}
+                          onClick={() => {
+                            if (BOOKING_URL) {
+                              window.open(BOOKING_URL, '_blank', 'noopener,noreferrer');
+                            } else {
+                              navigate('contact');
+                            }
+                          }}
                         >
-                          Get Started
+                          Book a Discovery Call
                         </motion.button>
                       </motion.div>
                     </motion.div>
@@ -302,13 +315,13 @@ export function ServicesPage() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-4xl font-bold mb-4 text-[#6E6F72]">
-              Additional{' '}
+              Supporting{' '}
               <span className="text-[#002B6B]">
-                Capabilities
+                Work
               </span>
             </h2>
             <p className="text-xl text-black">
-              Comprehensive solutions for all your AI needs
+              The groundwork that makes the headline numbers trustworthy
             </p>
           </motion.div>
 
@@ -345,19 +358,25 @@ export function ServicesPage() {
             transition={{ duration: 0.8 }}
           >
             <h2 className="text-5xl font-bold text-white mb-6">
-              Ready to Get Started?
+              Find Out What Your Data Is Hiding
             </h2>
             <p className="text-xl text-white/90 mb-8">
-              Let's discuss how our services can transform your business
+              Thirty minutes, no deck. We look at your current reporting and tell you where the gap probably is.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <motion.button
                 className="px-8 py-4 rounded-full bg-white text-[#002B6B] font-semibold hover:bg-[#E8F0FF] transition-colors"
                 whileHover={{ scale: 1.05, boxShadow: '0 10px 30px rgba(255, 255, 255, 0.2)' }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => navigate('contact')}
+                onClick={() => {
+                  if (BOOKING_URL) {
+                    window.open(BOOKING_URL, '_blank', 'noopener,noreferrer');
+                  } else {
+                    navigate('contact');
+                  }
+                }}
               >
-                Contact Us
+                Book a Discovery Call
               </motion.button>
               <motion.button
                 className="px-8 py-4 rounded-full border-2 border-white text-white font-semibold hover:bg-white/10 transition-colors"
@@ -365,7 +384,7 @@ export function ServicesPage() {
                 whileTap={{ scale: 0.95 }}
                 onClick={() => navigate('solutions')}
               >
-                View Solutions
+                How It Works
               </motion.button>
             </div>
           </motion.div>
