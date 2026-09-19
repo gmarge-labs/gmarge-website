@@ -1,5 +1,7 @@
+import { useEffect } from 'react';
 import { MotionConfig } from 'motion/react';
 import { RouterProvider, useRouter } from './components/Router';
+import { applyPageMeta } from './config/pageMeta';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { ScrollProgress } from './components/ScrollProgress';
@@ -22,6 +24,12 @@ import TermsPage from './pages/TermsPage';
 
 function AppContent() {
   const { currentPage } = useRouter();
+
+  // Every route shipped the single <title> baked into index.html, so all 14
+  // pages looked like the same document to a crawler.
+  useEffect(() => {
+    applyPageMeta(currentPage);
+  }, [currentPage]);
 
   const renderPage = () => {
     switch (currentPage) {
