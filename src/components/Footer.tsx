@@ -128,7 +128,7 @@ export function Footer() {
                 }}
               >
                 <ImageWithFallback
-                  src="https://res.cloudinary.com/dwwa5bzo4/image/upload/v1766506457/davinci_image_1766506427004_plhcpo.png"
+                  src="/gmarge-logo-4x.png"
                   alt="G-marge Logo"
                   className="w-full h-full object-contain"
                 />
