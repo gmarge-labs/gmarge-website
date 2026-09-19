@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, lazy, Suspense } from 'react';
 import { MotionConfig } from 'motion/react';
 import { RouterProvider, useRouter } from './components/Router';
 import { applyPageMeta } from './config/pageMeta';
@@ -7,21 +7,21 @@ import { Footer } from './components/Footer';
 import { ScrollProgress } from './components/ScrollProgress';
 import { PageTransition } from './components/PageTransition';
 import { Chatbot } from './components/Chatbot';
-import { HomePage } from './pages/HomePage';
-import { ServicesPage } from './pages/ServicesPage';
-import { SolutionsPage } from './pages/SolutionsPage';
-import { AboutPage } from './pages/AboutPage';
-import { ContactPage } from './pages/ContactPage';
-import FeaturesPage from './pages/FeaturesPage';
-import PricingPage from './pages/PricingPage';
-import SecurityPage from './pages/SecurityPage';
-import DocumentationPage from './pages/DocumentationPage';
-import HelpCenterPage from './pages/HelpCenterPage';
-import APIPage from './pages/APIPage';
-import PrivacyPage from './pages/PrivacyPage';
-import LicensesPage from './pages/LicensesPage';
-import TermsPage from './pages/TermsPage';
-import NotFoundPage from './pages/NotFoundPage';
+const HomePage = lazy(() => import('./pages/HomePage').then(m => ({ default: m.HomePage })));
+const ServicesPage = lazy(() => import('./pages/ServicesPage').then(m => ({ default: m.ServicesPage })));
+const SolutionsPage = lazy(() => import('./pages/SolutionsPage').then(m => ({ default: m.SolutionsPage })));
+const AboutPage = lazy(() => import('./pages/AboutPage').then(m => ({ default: m.AboutPage })));
+const ContactPage = lazy(() => import('./pages/ContactPage').then(m => ({ default: m.ContactPage })));
+const FeaturesPage = lazy(() => import('./pages/FeaturesPage'));
+const PricingPage = lazy(() => import('./pages/PricingPage'));
+const SecurityPage = lazy(() => import('./pages/SecurityPage'));
+const DocumentationPage = lazy(() => import('./pages/DocumentationPage'));
+const HelpCenterPage = lazy(() => import('./pages/HelpCenterPage'));
+const APIPage = lazy(() => import('./pages/APIPage'));
+const PrivacyPage = lazy(() => import('./pages/PrivacyPage'));
+const LicensesPage = lazy(() => import('./pages/LicensesPage'));
+const TermsPage = lazy(() => import('./pages/TermsPage'));
+const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 
 function AppContent() {
   const { currentPage } = useRouter();
@@ -79,7 +79,12 @@ function AppContent() {
       <Navbar />
       <main id="main-content" tabIndex={-1}>
         <PageTransition key={currentPage}>
-          {renderPage()}
+          {/* Routes are separate chunks, so a page can be in flight briefly.
+              The fallback holds a viewport of height to stop the footer
+              jumping up and back down while it lands. */}
+          <Suspense fallback={<div className="min-h-screen" />}>
+            {renderPage()}
+          </Suspense>
         </PageTransition>
       </main>
       <Footer />

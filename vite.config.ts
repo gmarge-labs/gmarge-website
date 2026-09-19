@@ -52,6 +52,17 @@
     build: {
       target: 'esnext',
       outDir: 'build',
+      rollupOptions: {
+        output: {
+          // Keep the libraries every page needs in their own chunks so they
+          // stay cached across deploys, instead of being invalidated whenever
+          // page copy changes.
+          manualChunks: {
+            react: ['react', 'react-dom'],
+            motion: ['motion/react'],
+          },
+        },
+      },
     },
     server: {
       port: 3000,
