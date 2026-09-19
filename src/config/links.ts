@@ -8,7 +8,7 @@
  * DEMO_URL: leave as '' to have "See a Demo" smooth-scroll to the live
  * dashboard preview on the homepage. Paste a Streamlit URL here to link out.
  */
-export const BOOKING_URL = '';
+export const BOOKING_URL = 'https://calendly.com/gmarge/30min';
 export const DEMO_URL = '';
 
 /** id of the homepage dashboard preview section, used by the demo scroll */
