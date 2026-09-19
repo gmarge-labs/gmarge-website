@@ -10,8 +10,22 @@ const footerLinks = {
   Legal: ['Privacy', 'Licenses'],
 };
 
-const socialLinks = [
-  { icon: Linkedin, href: 'https://www.linkedin.com/company/gmarge', label: 'LinkedIn' },
+const socialLinks: {
+  icon: typeof Linkedin;
+  href: string;
+  label: string;
+  target?: string;
+  rel?: string;
+}[] = [
+  {
+    icon: Linkedin,
+    href: 'https://www.linkedin.com/in/halimabulamaladan/',
+    label: 'LinkedIn',
+    target: '_blank',
+    rel: 'noopener noreferrer',
+  },
+  // mailto: hands off to the mail client, so it never navigates away and
+  // needs no target.
   { icon: Mail, href: 'mailto:halimabl@gmarge.com', label: 'Email' },
 ];
 
@@ -160,6 +174,8 @@ export function Footer() {
                   <motion.a
                     key={social.label}
                     href={social.href}
+                    target={social.target}
+                    rel={social.rel}
                     className="w-10 h-10 rounded-lg bg-white border border-[#BFC0C2] flex items-center justify-center hover:bg-[#E8F0FF] hover:border-[#002B6B] transition-colors"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
