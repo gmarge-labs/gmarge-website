@@ -1,1 +1,20 @@
-/*    /index.html   200
+# SPA routing. Known routes serve index.html with 200; anything else gets a
+# real 404 status so search engines do not index junk URLs as copies of /.
+# Routes mirror the PAGES list in src/components/Router.tsx.
+
+/                  /index.html   200
+/services          /index.html   200
+/solutions         /index.html   200
+/about             /index.html   200
+/contact           /index.html   200
+/features          /index.html   200
+/pricing           /index.html   200
+/security          /index.html   200
+/documentation     /index.html   200
+/help-center       /index.html   200
+/api               /index.html   200
+/privacy           /index.html   200
+/licenses          /index.html   200
+/terms             /index.html   200
+
+/*                 /index.html   404

@@ -21,6 +21,7 @@ import APIPage from './pages/APIPage';
 import PrivacyPage from './pages/PrivacyPage';
 import LicensesPage from './pages/LicensesPage';
 import TermsPage from './pages/TermsPage';
+import NotFoundPage from './pages/NotFoundPage';
 
 function AppContent() {
   const { currentPage } = useRouter();
@@ -61,8 +62,9 @@ function AppContent() {
         return <LicensesPage />;
       case 'terms':
         return <TermsPage />;
+      case 'not-found':
       default:
-        return <HomePage />;
+        return <NotFoundPage />;
     }
   };
 

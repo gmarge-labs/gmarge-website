@@ -12,6 +12,10 @@ export const SITE_URL = 'https://www.gmarge.com';
  * roughly what search results show before truncating.
  */
 export const PAGE_META: Record<Page, { title: string; description: string }> = {
+  'not-found': {
+    title: 'Page not found | G-marge',
+    description: 'This page does not exist. The link may be out of date, or the address mistyped.',
+  },
   home: {
     title: 'G-marge — Marketing measurement for D2C e-commerce',
     description:
@@ -104,16 +108,33 @@ function setCanonical(url: string) {
   el.setAttribute('href', url);
 }
 
+function removeCanonical() {
+  document.head.querySelector('link[rel="canonical"]')?.remove();
+}
+
 /** Point the document's title, description, social tags and canonical at one page. */
 export function applyPageMeta(page: Page) {
   const meta = PAGE_META[page] ?? PAGE_META.home;
-  const url = SITE_URL + pathForPage(page);
   document.title = meta.title;
   setTag('name', 'description', meta.description);
   setTag('property', 'og:title', meta.title);
   setTag('property', 'og:description', meta.description);
-  setTag('property', 'og:url', url);
   setTag('name', 'twitter:title', meta.title);
   setTag('name', 'twitter:description', meta.description);
+
+  if (page === 'not-found') {
+    // A 404 has no canonical of its own - the URL that produced it is junk -
+    // and must not be indexed. Keep og:url on the real address the visitor is
+    // looking at rather than pointing it somewhere misleading.
+    setTag('name', 'robots', 'noindex, follow');
+    setTag('property', 'og:url', SITE_URL + window.location.pathname);
+    removeCanonical();
+    return;
+  }
+
+  // Clear the 404's noindex when navigating back to a real page.
+  setTag('name', 'robots', 'index, follow');
+  const url = SITE_URL + pathForPage(page);
+  setTag('property', 'og:url', url);
   setCanonical(url);
 }

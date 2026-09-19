@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, useEffect, ReactNode, MouseEvent } from 'react';
 
-export type Page = 'home' | 'services' | 'solutions' | 'about' | 'contact' | 'features' | 'pricing' | 'security' | 'documentation' | 'help-center' | 'api' | 'privacy' | 'licenses' | 'terms';
+export type Page = 'not-found' | 'home' | 'services' | 'solutions' | 'about' | 'contact' | 'features' | 'pricing' | 'security' | 'documentation' | 'help-center' | 'api' | 'privacy' | 'licenses' | 'terms';
 
 const PAGES: readonly Page[] = [
   'home',
@@ -24,11 +24,15 @@ export function pathForPage(page: Page): string {
   return page === 'home' ? '/' : `/${page}`;
 }
 
-/** Inverse of pathForPage. Anything unrecognised falls back to home. */
+/**
+ * Inverse of pathForPage. Anything unrecognised becomes 'not-found' so the
+ * app can render a real 404 rather than silently serving the homepage, which
+ * let search engines index junk URLs as duplicates of /.
+ */
 export function pageForPath(pathname: string): Page {
   const slug = pathname.replace(/^\/+/, '').replace(/\/+$/, '');
   if (!slug) return 'home';
-  return PAGES.includes(slug as Page) ? (slug as Page) : 'home';
+  return PAGES.includes(slug as Page) ? (slug as Page) : 'not-found';
 }
 
 /**
