@@ -2,14 +2,16 @@ import { motion } from 'motion/react';
 import { ReactNode } from 'react';
 
 interface TextRevealProps {
-  children: ReactNode;
+  /** Text to reveal. Alternative to passing the string as children. */
+  text?: string;
+  children?: ReactNode;
   className?: string;
   delay?: number;
 }
 
-export function TextReveal({ children, className = '', delay = 0 }: TextRevealProps) {
-  const text = typeof children === 'string' ? children : '';
-  const words = text.split(' ');
+export function TextReveal({ text, children, className = '', delay = 0 }: TextRevealProps) {
+  const content = text ?? (typeof children === 'string' ? children : '');
+  const words = content.split(' ').filter(Boolean);
 
   return (
     <div className={className}>
