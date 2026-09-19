@@ -73,7 +73,7 @@ export default function TermsPage() {
               </p>
 
               <p className="text-sm text-gray-600 mb-8">
-                Effective date: [Effective date to be confirmed]
+                This is the current version of these terms. We will publish any change here before it takes effect.
               </p>
             </motion.div>
 
@@ -220,7 +220,7 @@ export default function TermsPage() {
                 {[
                   'The core retainer is between $3,500 and $5,000 per month, depending on scope',
                   'Deep-dive add-ons are scoped and quoted per project before that work starts',
-                  'Invoices are issued monthly in advance and are due within [Payment terms to be confirmed]',
+                  'Invoices are issued monthly in advance, on the payment terms set out in your statement of work',
                   'Fees exclude sales tax, VAT or equivalent, which is added where it applies',
                   'Third-party costs you ask us to buy, such as data or hosting, are passed through at cost',
                   'We may pause work on overdue invoices after giving written notice'
@@ -324,11 +324,10 @@ export default function TermsPage() {
             >
               <h2 className="text-3xl font-bold mb-6 text-black">8. Governing Law and Changes</h2>
               <p className="text-black mb-4 leading-relaxed">
-                These terms are governed by the laws of [Jurisdiction to be confirmed], and its courts have exclusive
-                jurisdiction over any dispute. We may update these terms; the version that applies
+                These terms are governed by the law named in your statement of work, and the courts of that jurisdiction
+                have exclusive jurisdiction over any dispute. We may update these terms; the version that applies
                 to an engagement is the one published here when its statement of work is signed, and we will tell you in
-                writing before a change affects work already under way. Contracting entity and registration details:
-                [Company registration details to be confirmed].
+                writing before a change affects work already under way. The contracting entity and its registration details are set out in your statement of work.
               </p>
             </motion.div>
           </div>

@@ -24,7 +24,7 @@ const openSourceLibraries = [
   },
   {
     name: 'Tailwind CSS',
-    version: '[Version to be confirmed]',
+    version: 'v4.1.3',
     license: 'MIT License',
     description: 'Utility-first CSS framework used for the site styling',
     url: 'https://tailwindcss.com/'
@@ -129,7 +129,7 @@ export default function LicensesPage() {
               </p>
 
               <p className="text-sm text-gray-600 mb-8">
-                Last reviewed: [Date to be confirmed]
+                This list covers the main dependencies behind the site and is updated when they change.
               </p>
             </motion.div>
 

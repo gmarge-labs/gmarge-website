@@ -68,7 +68,7 @@ export default function PrivacyPage() {
               </p>
 
               <p className="text-sm text-gray-600 mb-8">
-                Effective date: [Effective date to be confirmed]
+                This is the current version of this policy. We will publish any change here before it takes effect.
               </p>
             </motion.div>
 
@@ -147,7 +147,6 @@ export default function PrivacyPage() {
                 {[
                   'Contact form entries: your name, email address, company and the message you write',
                   'Email you send us about an enquiry or an engagement, and our replies',
-                  'Website analytics: pages viewed, referring site and approximate location',
                   'Technical data your browser sends, such as IP address, device type and browser version'
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3 text-black">
@@ -169,8 +168,8 @@ export default function PrivacyPage() {
               <p className="text-black mb-4 leading-relaxed">
                 For data from your platforms you remain the controller and we act on your written instructions. For
                 enquiries sent through this site we decide how the data is used. Where data protection law of this kind
-                applies, we rely on performance of the contract for engagement data, legitimate interests for enquiries and
-                site analytics, and legal obligation for billing records. [Applicable data protection law to be confirmed]
+                applies, we rely on performance of the contract for engagement data, legitimate interests for enquiries,
+                and legal obligation for billing records.
               </p>
               <ul className="space-y-3 mb-6">
                 {[
@@ -201,7 +200,8 @@ export default function PrivacyPage() {
                 We do not sell personal data, and we do not use one client's data to build models for another. A small
                 number of providers process data on our behalf, and some of them operate outside your country, including in
                 the United States. Where transfer safeguards are required we put the relevant contractual terms in place.
-                [Current sub-processor list to be confirmed] [Transfer mechanism to be confirmed]
+                We will name the specific providers behind these categories, and the safeguards covering any
+                transfer, on request.
               </p>
               <ul className="space-y-3 mb-6">
                 {[
@@ -256,9 +256,9 @@ export default function PrivacyPage() {
               <h2 className="text-3xl font-bold mb-6 text-black">5. Retention and Your Rights</h2>
               <p className="text-black mb-4 leading-relaxed">
                 Client platform data stays in place for as long as the engagement runs. When it ends, the dashboard and the
-                data in it stay with you, and we delete our own working copies within [Retention period to be confirmed].
-                Enquiries and email are kept for [Retention period to be confirmed], and billing records for as long as tax
-                law requires. Depending on where you live, you may have these rights over personal data we hold about you:
+                data in it stay with you, and we delete our own working copies once the handover is complete, confirming in
+                writing when it is done. Enquiries and email are kept only as long as we need them to answer you and
+                keep a record of the conversation, and billing records for as long as tax law requires. Depending on where you live, you may have these rights over personal data we hold about you:
               </p>
               <ul className="space-y-3 mb-6">
                 {[
@@ -267,7 +267,7 @@ export default function PrivacyPage() {
                   'Deletion: ask us to delete data we no longer have a reason to keep',
                   'Portability: ask for your data in a common machine-readable format',
                   'Objection: object to processing we base on legitimate interests',
-                  'Complaint: raise a complaint with your data protection authority [Supervisory authority to be confirmed]'
+                  'Complaint: raise a complaint with your data protection authority'
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3 text-black">
                     <CheckCircle2 className="w-5 h-5 text-[#002B6B] flex-shrink-0 mt-1" />
@@ -276,7 +276,7 @@ export default function PrivacyPage() {
                 ))}
               </ul>
               <p className="text-black leading-relaxed">
-                Privacy questions and requests go to [Privacy contact to be confirmed] at{' '}
+                Privacy questions and requests go to{' '}
                 <a href="mailto:halimabl@gmarge.com" className="text-[#002B6B] underline">
                   halimabl@gmarge.com
                 </a>
@@ -292,9 +292,9 @@ export default function PrivacyPage() {
             >
               <h2 className="text-3xl font-bold mb-6 text-black">6. Cookies and Site Analytics</h2>
               <p className="text-black mb-4 leading-relaxed">
-                This site uses analytics to count visits and see which pages people read. It does not track you across other
-                websites and it is not used for advertising. You can block or clear cookies in your browser settings.
-                [Analytics provider to be confirmed]
+                This site sets no analytics or advertising cookies and does not track you across other websites. Our
+                host keeps standard server request logs, such as IP address and page requested, to serve the site and
+                keep it secure. You can block or clear cookies at any time in your browser settings.
               </p>
             </motion.div>
           </div>
