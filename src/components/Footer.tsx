@@ -1,6 +1,6 @@
 import { motion } from 'motion/react';
 import { Github, Twitter, Linkedin, Mail } from 'lucide-react';
-import { useRouter } from './Router';
+import { useRouter, pathForPage, isModifiedClick, Page } from './Router';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 
 const footerLinks = {
@@ -194,8 +194,8 @@ export function Footer() {
               <ul className="space-y-3">
                 {links.map((link, linkIndex) => {
                   // Map link text to route
-                  const getRoute = (linkText: string) => {
-                    const routeMap: { [key: string]: string } = {
+                  const getRoute = (linkText: string): Page => {
+                    const routeMap: { [key: string]: Page } = {
                       'What You Get': 'features',
                       'Pricing': 'pricing',
                       'Data Security': 'security',
@@ -222,9 +222,17 @@ export function Footer() {
                         delay: categoryIndex * 0.1 + linkIndex * 0.05,
                       }}
                     >
-                      <motion.button
-                        onClick={() => navigate(route as any)}
+                      <motion.a
+                        href={pathForPage(route)}
+                        onClick={(e) => {
+                          if (isModifiedClick(e)) return;
+                          e.preventDefault();
+                          navigate(route);
+                        }}
                         className="text-black hover:text-[#002B6B] transition-colors inline-flex items-center group cursor-pointer"
+                        // index.css:474 gives bare <button> font-weight 500; anchors
+                        // miss that rule, so restore it to keep these byte-identical.
+                        style={{ fontWeight: 500 }}
                         whileHover={{ x: 5 }}
                       >
                         <motion.span
@@ -235,7 +243,7 @@ export function Footer() {
                           →
                         </motion.span>
                         {link}
-                      </motion.button>
+                      </motion.a>
                     </motion.li>
                   );
                 })}
@@ -266,20 +274,30 @@ export function Footer() {
           </div>
           
           <div className="flex items-center gap-6 text-sm text-black">
-            <motion.button
-              onClick={() => navigate('privacy')}
+            <motion.a
+              href={pathForPage('privacy')}
+              onClick={(e) => {
+                if (isModifiedClick(e)) return;
+                e.preventDefault();
+                navigate('privacy');
+              }}
               className="hover:text-[#002B6B] transition-colors cursor-pointer"
               whileHover={{ scale: 1.05 }}
             >
               Privacy Policy
-            </motion.button>
-            <motion.button
-              onClick={() => navigate('terms')}
+            </motion.a>
+            <motion.a
+              href={pathForPage('terms')}
+              onClick={(e) => {
+                if (isModifiedClick(e)) return;
+                e.preventDefault();
+                navigate('terms');
+              }}
               className="hover:text-[#002B6B] transition-colors cursor-pointer"
               whileHover={{ scale: 1.05 }}
             >
               Terms of Service
-            </motion.button>
+            </motion.a>
           </div>
         </motion.div>
       </div>

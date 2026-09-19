@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from 'motion/react';
 import { useState, useEffect } from 'react';
-import { useRouter } from './Router';
+import { useRouter, pathForPage, isModifiedClick } from './Router';
 import { Menu, X } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 
@@ -72,9 +72,14 @@ export function Navbar() {
             {/* Desktop Navigation Links */}
             <div className="hidden md:flex items-center gap-8">
               {navItems.map((item, i) => (
-                <motion.button
+                <motion.a
                   key={item.label}
-                  onClick={() => handleNavigation(item.page)}
+                  href={pathForPage(item.page)}
+                  onClick={(e) => {
+                    if (isModifiedClick(e)) return;
+                    e.preventDefault();
+                    handleNavigation(item.page);
+                  }}
                   className={`relative font-bold transition-colors ${
                     useWhiteText 
                       ? 'text-white hover:text-blue-200' 
@@ -94,7 +99,7 @@ export function Navbar() {
                     whileHover={{ width: '100%' }}
                     transition={{ duration: 0.3 }}
                   />
-                </motion.button>
+                </motion.a>
               ))}
             </div>
 
@@ -181,9 +186,14 @@ export function Navbar() {
               {/* Navigation Items */}
               <nav className="flex flex-col px-6 py-4 space-y-2">
                 {navItems.map((item, i) => (
-                  <motion.button
+                  <motion.a
                     key={item.label}
-                    onClick={() => handleNavigation(item.page)}
+                    href={pathForPage(item.page)}
+                    onClick={(e) => {
+                      if (isModifiedClick(e)) return;
+                      e.preventDefault();
+                      handleNavigation(item.page);
+                    }}
                     className="text-left py-3 px-4 rounded-lg text-black hover:bg-[#E8F0FF] hover:text-[#002B6B] transition-colors font-medium"
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -191,7 +201,7 @@ export function Navbar() {
                     whileTap={{ scale: 0.95 }}
                   >
                     {item.label}
-                  </motion.button>
+                  </motion.a>
                 ))}
 
                 {/* Mobile CTA Button */}
