@@ -1,6 +1,7 @@
 import { motion } from 'motion/react';
 import { Mail, Phone, MessageCircle, MessageSquare } from 'lucide-react';
 import { FloatingShapes } from '../components/FloatingShapes';
+import { ContactForm } from '../components/ContactForm';
 import { ParticleField } from '../components/ParticleField';
 
 const contactMethods = [
@@ -162,6 +163,28 @@ export function ContactPage() {
               );
             })}
           </div>
+        </div>
+      </section>
+
+      {/* Enquiry form */}
+      <section className="py-20 sm:py-24 bg-[#E8F0FF]">
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-black">
+              Or send it in writing
+            </h2>
+            <p className="text-lg sm:text-xl text-black max-w-2xl mx-auto">
+              The more you tell us up front, the more useful the first call is
+            </p>
+          </motion.div>
+
+          <ContactForm />
         </div>
       </section>
     </div>

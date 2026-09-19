@@ -28,6 +28,20 @@
   </head>
 
   <body>
+    <!-- Netlify Forms detects forms by parsing the served HTML at build time,
+         and this app renders its form with React, so the parser would never
+         see it. This hidden copy registers the form and its field names; the
+         real submission comes from src/components/ContactForm.tsx. Keep the
+         field names here in step with that component. -->
+    <form name="contact" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="text" name="brand" />
+      <input type="text" name="spend" />
+      <input type="text" name="platforms" />
+      <textarea name="message"></textarea>
+      <input type="text" name="bot-field" />
+    </form>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
