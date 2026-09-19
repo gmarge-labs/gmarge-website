@@ -284,3 +284,21 @@ html {
   outline: 2px solid #FFFFFF;
   outline-offset: -4px;
 }
+
+/* Stop the page scrolling sideways.
+
+   Nothing here is a layout bug: decorative layers and motion entrance
+   animations park elements off-canvas - the AINeuron glow animates to
+   scale(1.2), and the /services cards sit at translateX(+/-50px) with
+   opacity:0 until they scroll into view. Both pushed scrollWidth past the
+   viewport (+38px on /, +26px on /services) and produced a real horizontal
+   scrollbar.
+
+   Clipping at the viewport hides only those off-canvas states; the content
+   itself animates back to x:0 well inside the bounds. Set on body so it
+   propagates to the viewport rather than making an element a scroll
+   container, and safe because the site uses no position:sticky. Elements
+   that need real horizontal scrolling use their own .overflow-x-auto. */
+body {
+  overflow-x: hidden;
+}
