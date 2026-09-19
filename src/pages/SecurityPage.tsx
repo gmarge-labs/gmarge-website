@@ -56,11 +56,11 @@ const securityFeatures = [
   {
     icon: Key,
     title: 'Who Can See It',
-    description: 'Access is limited to the analyst working on your account, plus whoever on your side you choose to invite. Access is reviewed when people join or leave, and removed the day an engagement ends.',
+    description: 'Access is limited to the G-marge team members assigned to your account, plus whoever on your side you choose to invite. We keep that list as short as the work allows, and access is reviewed when people join or leave and removed the day an engagement ends.',
     details: [
-      'Access limited to your named analyst',
-      'Multi-factor authentication on every account',
-      'You control who on your team gets a login',
+      'Access limited to the G-marge team members assigned to your account',
+      'We keep that list as short as the work allows',
+      'We will name everyone with access on request',
       'Access removed when the engagement ends'
     ]
   },
