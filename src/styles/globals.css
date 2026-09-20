@@ -1,16 +1,14 @@
 /* ============================================================================
-   NOT LOADED AT RUNTIME.
+   The stylesheet the app loads, compiled by Tailwind at build time.
 
-   This is the Tailwind *source* for the site. It still contains build-time
-   directives (@custom-variant, @theme inline, @apply), so it cannot be
-   imported as-is: this project has no Tailwind build step. main.tsx imports
-   src/index.css, which is the pre-generated v4.1.3 output of this file.
-
-   Editing anything here has no effect on the live site. To change styling,
-   edit src/index.css - and mirror it here so a future regeneration keeps it.
-   The two accessibility blocks at the foot of this file are duplicated in
-   index.css for exactly that reason.
+   This was previously a source file that nothing imported: src/index.css held
+   a pre-generated v4.1.3 output of it, and any Tailwind class not already in
+   that output silently rendered unstyled. The build step is now wired up
+   (@tailwindcss/vite), so classes are generated from the markup that uses
+   them and that trap is gone.
    ========================================================================= */
+
+@import "tailwindcss";
 
 @custom-variant dark (&:is(.dark *));
 
