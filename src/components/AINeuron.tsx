@@ -169,7 +169,7 @@ export function AINeuron() {
                 <span className="text-white text-xs font-bold">AI</span>
               </div>
               <p className="text-sm text-black leading-relaxed">
-                35% of your reported return isn&apos;t incremental. The gap is widest on prospecting.
+                Reported return is running well ahead of incremental. The gap is widest on prospecting.
               </p>
             </div>
           </motion.div>
