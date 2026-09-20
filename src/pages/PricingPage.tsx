@@ -239,13 +239,13 @@ export default function PricingPage() {
               What the <span className="text-[#002B6B]">Retainer Buys You</span>
             </h2>
             <p className="text-xl text-black max-w-3xl mx-auto">
-              Typical figures from D2C engagements — your numbers will differ, and we will tell you honestly if they are likely to be smaller
+              What the retainer covers and how quickly it lands — the numbers that matter are yours, and they come out of the measurement rather than a benchmark
             </p>
           </motion.div>
 
           <div className="grid md:grid-cols-4 gap-8">
             {[
-              { value: '30-40%', label: 'Typical gap between reported and real ROAS' },
+              { value: 'Both', label: 'Reported and incremental ROAS, side by side' },
               { value: '~2 wks', label: 'From kickoff to live dashboard' },
               { value: 'Daily', label: 'Dashboard refresh and agent read' },
               { value: 'Weekly', label: 'Anomaly checks on every channel' }

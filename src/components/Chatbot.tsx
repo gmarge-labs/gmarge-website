@@ -368,7 +368,7 @@ When you want to look at your real numbers rather than the platform-reported one
 Here is what I can cover properly:
 
 • **The service** - a live dashboard across Shopify, Meta Ads and GA4, plus an AI agent that explains what changed
-• **Incrementality testing** - geo holdouts and matched-market tests, and why real ROAS usually lands 30-40% below platform-reported
+• **Incrementality testing** - geo holdouts and matched-market tests, and why real ROAS lands below platform-reported
 • **Pricing** - ${knowledgeBase.pricing.core.price} for the core package, add-ons scoped per project
 • **Data access** - read-only Shopify, Meta and GA4, about 30 minutes of your team's time
 • **Timeline** - roughly two weeks from access to live dashboard
@@ -406,7 +406,7 @@ Things I can be specific about:
 • The live Streamlit dashboard and its daily refresh
 • The AI agent that explains movement in plain language
 • Weekly anomaly detection and what it catches before it costs you
-• Incrementality testing, and why platform-reported ROAS overstates reality by 30-40%
+• Incrementality testing, and why platform-reported ROAS overstates reality
 • Deep-dive add-ons: campaign evaluation, segmentation modelling, media mix modelling
 • Pricing, setup time, and booking a Discovery Call
 

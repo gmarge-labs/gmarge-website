@@ -76,7 +76,7 @@ const documentationSections = [
     description: 'Platform-reported ROAS and real ROAS are different numbers. We report both and show the gap',
     topics: [
       'Why platforms over-claim credit',
-      'The typical 30-40% gap',
+      'Why the gap varies by channel',
       'Holdout-adjusted ROAS',
       'What to change once you know'
     ],
@@ -119,7 +119,6 @@ Holdout read-out
   Incremental ROAS             2.6x
 
   Gap to reported              35%
-  Typical range we see         30-40%
 
 The difference is revenue the platform claimed
 that would have arrived without the ad spend:

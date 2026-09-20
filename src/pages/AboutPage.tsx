@@ -341,7 +341,7 @@ export function AboutPage() {
                 </h3>
                 
                 <p className="text-lg text-black leading-relaxed mb-6">
-                  Attribution tells you which touchpoint was nearby when someone bought. Measurement tells you whether the ad caused the purchase. The difference is usually 30-40% of your reported ROAS, and closing it takes holdout design, power calculations and an honest treatment of uncertainty — not a prettier dashboard.
+                  Attribution tells you which touchpoint was nearby when someone bought. Measurement tells you whether the ad caused the purchase. The difference is rarely small, and how large it is depends on your channel mix — closing it takes holdout design, power calculations and an honest treatment of uncertainty, not a prettier dashboard.
                 </p>
                 
                 <ul className="space-y-3">
