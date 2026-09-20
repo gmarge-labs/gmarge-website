@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { Mail, Phone, MessageCircle, MessageSquare } from 'lucide-react';
+import { Mail, Phone, MessageSquare } from 'lucide-react';
 import { FloatingShapes } from '../components/FloatingShapes';
 import { ContactForm } from '../components/ContactForm';
 import { ParticleField } from '../components/ParticleField';
@@ -18,14 +18,6 @@ const contactMethods = [
     details: '+1 207 900 7700',
     link: 'tel:+12079007700',
     color: 'from-[#004B9B] to-[#002B6B]'
-  },
-  {
-    icon: MessageCircle,
-    title: 'Ask a Question',
-    details: 'Chat with our measurement agent',
-    link: '#',
-    color: 'from-[#002B6B] to-[#001B48]',
-    isLiveChat: true
   },
 ];
 
@@ -95,63 +87,24 @@ export function ContactPage() {
             </p>
           </motion.div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <div className="grid sm:grid-cols-2 gap-8 max-w-3xl mx-auto">
             {contactMethods.map((info, i) => {
               const Icon = info.icon;
-              const isLiveAgent = info.isLiveChat;
               return (
                 <motion.a
                   key={info.title}
                   href={info.link}
-                  onClick={(e) => {
-                    if (isLiveAgent) {
-                      e.preventDefault();
-                      // Dispatch custom event to open chatbot
-                      window.dispatchEvent(new Event('openChatbot'));
-                    }
-                  }}
-                  className={`block text-center p-8 sm:p-10 bg-white rounded-2xl border-2 ${
-                    isLiveAgent ? 'border-blue-400 bg-gradient-to-br from-blue-50/50 to-white' : 'border-gray-200'
-                  } hover:border-blue-400 transition-all cursor-pointer relative overflow-hidden`}
+                  className="block text-center p-8 sm:p-10 bg-white rounded-2xl border-2 border-gray-200 hover:border-blue-400 transition-all cursor-pointer relative overflow-hidden"
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: i * 0.1 }}
                   whileHover={{ y: -10, boxShadow: '0 20px 40px rgba(0, 43, 107, 0.15)' }}
                 >
-                  {/* Live indicator for Live Agent */}
-                  {isLiveAgent && (
-                    <motion.div
-                      className="absolute top-4 right-4 flex items-center gap-2 px-3 py-1 rounded-full bg-green-500 text-white text-xs"
-                      animate={{
-                        opacity: [1, 0.6, 1],
-                      }}
-                      transition={{
-                        duration: 2,
-                        repeat: Infinity,
-                      }}
-                    >
-                      <span className="w-2 h-2 bg-white rounded-full animate-pulse"></span>
-                      Online
-                    </motion.div>
-                  )}
-                  
                   <motion.div
                     className={`w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br ${info.color} flex items-center justify-center`}
                     whileHover={{ rotate: [0, -10, 10, 0], scale: 1.1 }}
                     transition={{ duration: 0.5 }}
-                    animate={isLiveAgent ? {
-                      boxShadow: [
-                        '0 0 0 0 rgba(0, 43, 107, 0.4)',
-                        '0 0 0 20px rgba(0, 43, 107, 0)',
-                      ],
-                    } : {}}
-                    {...(isLiveAgent && {
-                      transition: {
-                        duration: 2,
-                        repeat: Infinity,
-                      }
-                    })}
                   >
                     <Icon className="w-10 h-10 text-white" />
                   </motion.div>

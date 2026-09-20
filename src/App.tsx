@@ -6,7 +6,6 @@ import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { ScrollProgress } from './components/ScrollProgress';
 import { PageTransition } from './components/PageTransition';
-import { Chatbot } from './components/Chatbot';
 const HomePage = lazy(() => import('./pages/HomePage').then(m => ({ default: m.HomePage })));
 const ServicesPage = lazy(() => import('./pages/ServicesPage').then(m => ({ default: m.ServicesPage })));
 const SolutionsPage = lazy(() => import('./pages/SolutionsPage').then(m => ({ default: m.SolutionsPage })));
@@ -88,7 +87,6 @@ function AppContent() {
         </PageTransition>
       </main>
       <Footer />
-      <Chatbot />
     </div>
   );
 }
