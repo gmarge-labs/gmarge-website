@@ -139,7 +139,7 @@ export default function PricingPage() {
             >
               <div className="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-[#BFC0C2]">
                 <ImageWithFallback
-                  src="https://images.unsplash.com/photo-1656164631668-8673eab87b84?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxidXNpbmVzcyUyMHByaWNpbmclMjBzdHJhdGVneXxlbnwxfHx8fDE3NjY3NzIzOTl8MA&ixlib=rb-4.1.0&q=80&w=1080"
+                  src="/images/pricing.jpg"
                   alt="Marketing measurement"
                   className="w-full h-96 object-cover"
                 />

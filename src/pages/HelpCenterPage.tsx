@@ -197,7 +197,7 @@ export default function HelpCenterPage() {
             >
               <div className="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-[#BFC0C2]">
                 <ImageWithFallback
-                  src="https://images.unsplash.com/photo-1709715357479-591f9971fb05?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjdXN0b21lciUyMHN1cHBvcnQlMjBoZWxwfGVufDF8fHx8MTc2NjY5NDk1OXww&ixlib=rb-4.1.0&q=80&w=1080"
+                  src="/images/help-center.jpg"
                   alt="Client Questions"
                   className="w-full h-96 object-cover"
                 />

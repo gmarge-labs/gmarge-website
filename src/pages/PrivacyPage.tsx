@@ -80,7 +80,7 @@ export default function PrivacyPage() {
             >
               <div className="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-[#BFC0C2]">
                 <ImageWithFallback
-                  src="https://images.unsplash.com/photo-1603985529862-9e12198c9a60?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkYXRhJTIwcHJpdmFjeSUyMHNlY3VyaXR5fGVufDF8fHx8MTc2Njc3MjQwMXww&ixlib=rb-4.1.0&q=80&w=1080"
+                  src="/images/privacy.jpg"
                   alt="Data Privacy"
                   className="w-full h-96 object-cover"
                 />

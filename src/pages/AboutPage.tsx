@@ -319,7 +319,7 @@ export function AboutPage() {
                   transition={{ duration: 0.4 }}
                 >
                   <ImageWithFallback
-                    src="https://images.unsplash.com/photo-1543286386-713bdd548da4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+                    src="/images/about-measurement-science.jpg"
                     alt="A line chart plotted by hand on graph paper"
                     className="w-full h-80 object-cover"
                   />
@@ -421,7 +421,7 @@ export function AboutPage() {
                   transition={{ duration: 0.4 }}
                 >
                   <ImageWithFallback
-                    src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+                    src="/images/about-ai-engineering.jpg"
                     alt="A dashboard screen showing traffic and performance charts"
                     className="w-full h-80 object-cover"
                   />
@@ -445,7 +445,7 @@ export function AboutPage() {
                   transition={{ duration: 0.4 }}
                 >
                   <ImageWithFallback
-                    src="https://images.unsplash.com/photo-1551434678-e076c223a692?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+                    src="/images/about-data-plumbing.jpg"
                     alt="Two people working at desktop monitors"
                     className="w-full h-80 object-cover"
                   />

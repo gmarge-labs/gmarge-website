@@ -19,7 +19,7 @@ const services = [
       'Reported vs. incremental view',
       'Monthly analyst review'
     ],
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+    image: '/images/services-live-dashboard.jpg',
     imageAlt: 'A laptop showing an analytics dashboard',
     details: 'We connect your order data, ad spend, and site analytics into one reconciled Streamlit dashboard, then put an AI agent on top of it. The agent reads the same numbers you do and writes the explanation: which campaign moved, how much of the change it accounts for, and whether the shift is real or inside normal weekly variance. Live in roughly two weeks.'
   },
@@ -35,7 +35,7 @@ const services = [
       'Channel overlap analysis',
       'Repeatable test framework'
     ],
-    image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+    image: '/images/services-incrementality.jpg',
     imageAlt: 'Two people sketching a chart on paper beside their laptops',
     details: 'Every ad platform grades its own homework, which is why your platform-reported revenue exceeds what Shopify actually recorded. We design holdout tests sized to your spend and seasonality, run them cleanly, and give you a defensible incremental ROAS per channel. In most D2C engagements the real number lands 30-40% below what the platforms claim.'
   },
@@ -51,7 +51,7 @@ const services = [
       'Retention and LTV cuts',
       'Written recommendations'
     ],
-    image: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+    image: '/images/services-segmentation.jpg',
     imageAlt: 'Two colleagues talking through results at their laptops',
     details: 'Built on your own purchase data, not an industry benchmark. Segmentation separates the customers worth reacquiring from the ones who were always going to buy. Campaign evaluation grades spend against incremental return rather than platform-attributed return. Each study ends with specific recommendations and the confidence behind them.'
   },

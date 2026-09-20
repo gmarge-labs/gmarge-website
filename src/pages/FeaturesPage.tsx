@@ -122,7 +122,7 @@ export default function FeaturesPage() {
             >
               <div className="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-[#BFC0C2]">
                 <ImageWithFallback
-                  src="https://images.unsplash.com/photo-1658401598980-c2276a6aba14?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhaSUyMHRlY2hub2xvZ3klMjBmZWF0dXJlcyUyMGRhc2hib2FyZHxlbnwxfHx8fDE3NjY3NzIzOTl8MA&ixlib=rb-4.1.0&q=80&w=1080"
+                  src="/images/features.jpg"
                   alt="Marketing performance dashboard"
                   className="w-full h-96 object-cover"
                 />
