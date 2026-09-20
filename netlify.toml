@@ -1,6 +1,10 @@
 [build]
-  # Install, attempt to rebuild @swc/core, then build the site
-  command = "npm ci && npm rebuild @swc/core && npm run build"
+  # npm ci installs the right @swc/core platform binary straight from the
+  # lockfile - verified with `npm ci --os=linux --cpu=x64`, which resolves
+  # @swc/core-linux-x64-gnu, @rollup/rollup-linux-x64-gnu and @esbuild/linux-x64.
+  # The old `npm rebuild @swc/core` step was a workaround for a problem the
+  # lockfile no longer has, and it is one more thing that can fail the build.
+  command = "npm ci && npm run build"
   publish = "build"
 
 [context.production.environment]
