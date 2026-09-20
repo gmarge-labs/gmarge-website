@@ -1,4 +1,5 @@
 import { motion, useMotionValue, useSpring } from 'motion/react';
+import type { MotionProps } from 'motion/react';
 import { ReactNode, useRef, MouseEvent as ReactMouseEvent, RefObject } from 'react';
 
 /**
@@ -29,9 +30,26 @@ interface MagneticButtonProps {
   href?: string;
   target?: string;
   rel?: string;
+  /**
+   * Hover and tap treatments. Call sites passed these long before the
+   * component read them, so the hero CTA's scale and glow never ran. They
+   * compose with the magnetic x/y spring rather than replacing it.
+   */
+  whileHover?: MotionProps['whileHover'];
+  whileTap?: MotionProps['whileTap'];
 }
 
-export function MagneticButton({ children, className = '', variant, onClick, href, target, rel }: MagneticButtonProps) {
+export function MagneticButton({
+  children,
+  className = '',
+  variant,
+  onClick,
+  href,
+  target,
+  rel,
+  whileHover,
+  whileTap = { scale: 0.95 },
+}: MagneticButtonProps) {
   const base = variant ? VARIANTS[variant] : className ? '' : VARIANTS.primary;
   const classes = [base, className].filter(Boolean).join(' ');
   const buttonRef = useRef<HTMLElement>(null);
@@ -74,7 +92,8 @@ export function MagneticButton({ children, className = '', variant, onClick, hre
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
         onClick={onClick}
-        whileTap={{ scale: 0.95 }}
+        whileHover={whileHover}
+        whileTap={whileTap}
       >
         {children}
       </motion.a>
@@ -89,7 +108,8 @@ export function MagneticButton({ children, className = '', variant, onClick, hre
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       onClick={onClick}
-      whileTap={{ scale: 0.95 }}
+      whileHover={whileHover}
+      whileTap={whileTap}
     >
       {children}
     </motion.button>

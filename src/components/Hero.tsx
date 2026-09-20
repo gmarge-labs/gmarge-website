@@ -86,6 +86,7 @@ export function Hero() {
           >
             <MagneticButton
               className="px-6 sm:px-8 py-3 sm:py-4 rounded-full bg-[#002B6B] text-white relative overflow-hidden hover:bg-[#002B6B] transition-colors text-center"
+              whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(0, 43, 107, 0.5)' }}
               {...bookingCtaProps(navigate)}
             >
               <motion.div
@@ -99,6 +100,7 @@ export function Hero() {
 
             <MagneticButton
               className="px-6 sm:px-8 py-3 sm:py-4 rounded-full border-2 border-[#002B6B] text-[#002B6B] hover:bg-[#002B6B] hover:text-white transition-colors text-center"
+              whileHover={{ scale: 1.05 }}
               onClick={() => {
                 if (DEMO_URL) {
                   window.open(DEMO_URL, '_blank', 'noopener,noreferrer');
