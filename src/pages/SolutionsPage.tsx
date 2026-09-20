@@ -17,9 +17,9 @@ const solutions = [
     description: 'One live dashboard, one AI agent, and a standing answer to the question of what your marketing spend is actually doing',
     features: ['Shopify Orders', 'Meta Ads Spend', 'GA4 Behaviour', 'Incremental ROAS', 'Anomaly Alerts', 'Monthly Review'],
     color: 'from-[#002B6B] to-[#004B9B]',
-    stats: { roi: '35%', time: '~2 wks', accuracy: 'Daily' },
+    stats: { roi: '—', time: '~2 wks', accuracy: 'Daily' },
     image: '/images/solutions.jpg',
-    fullDescription: 'Most D2C brands are running on numbers that three different systems disagree about. Meta claims credit for an order. Google claims the same order. GA4 last-click tells a third story, and the sum of platform-reported revenue exceeds what Shopify actually banked. Decisions get made anyway, because the alternative is making no decision at all. This engagement replaces that with one reconciled view. We connect your order data, ad spend and site analytics into a live Streamlit dashboard, put an AI agent on top that reads it daily and writes the explanation in plain language, and run incrementality tests alongside it to establish what your spend is genuinely causing rather than merely witnessing. In a typical engagement, real ROAS lands 30-40% below what the platforms report. Knowing that number does not mean spending less. It means spending the same money where it actually works.',
+    fullDescription: 'Most D2C brands are running on numbers that three different systems disagree about. Meta claims credit for an order. Google claims the same order. GA4 last-click tells a third story, and the sum of platform-reported revenue exceeds what Shopify actually banked. Decisions get made anyway, because the alternative is making no decision at all. This engagement replaces that with one reconciled view. We connect your order data, ad spend and site analytics into a live Streamlit dashboard, put an AI agent on top that reads it daily and writes the explanation in plain language, and run incrementality tests alongside it to establish what your spend is genuinely causing rather than merely witnessing. Real ROAS almost always sits below the platform-reported figure, but by how much is specific to your channel mix. Knowing that number does not mean spending less. It means spending the same money where it actually works.',
     useCases: [
       'Week 1 — Connect and reconcile: we wire up Shopify, Meta Ads and GA4, then reconcile platform-reported revenue against your actual orders. This step alone usually surfaces double-counting, a mis-firing pixel, or a channel taking credit for demand it never created.',
       'Week 2 — Dashboard and agent go live: the Streamlit dashboard is built around the questions you actually ask, not a generic template. The AI agent layer goes on once the underlying numbers are trustworthy, never before. You get access for your whole team.',
@@ -340,6 +340,7 @@ export function SolutionsPage() {
               {/* Header */}
               <div className={`relative bg-gradient-to-br ${selectedSolution.color} p-8 rounded-t-3xl`}>
                 <button
+                  aria-label="Close"
                   className="absolute top-6 right-6 w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-colors"
                   onClick={() => setSelectedSolution(null)}
                 >

@@ -20,7 +20,7 @@ const socialLinks: {
 }[] = [
   {
     icon: Linkedin,
-    href: 'https://www.linkedin.com/in/halimabulamaladan/',
+    href: 'https://www.linkedin.com/company/gmarge/',
     label: 'LinkedIn',
     // Icon-only links carry no text, so each needs its own accessible name.
     ariaLabel: 'G-marge on LinkedIn (opens in a new tab)',
@@ -145,8 +145,8 @@ export function Footer() {
                 <ImageWithFallback
                   src="/gmarge-logo-4x.png"
                   alt="G-marge"
-                  width={48}
-                  height={48}
+                  width={124}
+                  height={160}
                   className="w-full h-full object-contain"
                 />
               </motion.div>

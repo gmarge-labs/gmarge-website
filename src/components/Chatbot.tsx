@@ -58,7 +58,7 @@ const knowledgeBase = {
   // Incrementality detail
   incrementality: {
     problem: 'Meta, Google and your Shopify reports all claim the same revenue. Add up platform-reported ROAS and it exceeds what actually landed in the bank.',
-    gap: 'Across the brands we have measured, real incremental ROAS typically comes in 30-40% below platform-reported ROAS.',
+    gap: 'Incremental ROAS almost always comes in below platform-reported ROAS. The size of the gap is specific to your channel mix, which is the point of measuring it.',
     methods: [
       'Geo holdouts: switch spend off in matched regions, keep it on elsewhere, and measure the difference in revenue',
       'Matched-market tests: pair comparable markets, change one variable, read the lift',

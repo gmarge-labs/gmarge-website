@@ -67,7 +67,7 @@ const faqCategories = [
       },
       {
         question: 'What does an incrementality test involve?',
-        answer: 'We hold a channel back in a set of matched regions while it keeps running everywhere else, then compare what actually happened in the held-out markets against the control markets. A holdout usually runs two to four weeks. The output is an estimate of the revenue a channel caused, rather than the revenue it claimed. In most accounts we look at, real ROAS lands 30 to 40 per cent below platform-reported ROAS.'
+        answer: 'We hold a channel back in a set of matched regions while it keeps running everywhere else, then compare what actually happened in the held-out markets against the control markets. A holdout usually runs two to four weeks. The output is an estimate of the revenue a channel caused, rather than the revenue it claimed. Published lift studies consistently find incremental ROAS well below the platform-reported figure, though the size of the gap varies enormously by channel — which is why the number worth having is yours, not a benchmark.'
       },
       {
         question: 'How much spend do I need for a test to be meaningful?',

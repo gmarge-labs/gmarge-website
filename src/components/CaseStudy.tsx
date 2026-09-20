@@ -5,24 +5,24 @@ const steps = [
   {
     step: '01',
     label: 'The Problem',
-    body: 'A D2C brand doing $500K/month in revenue could not trust its own ROAS. Meta, Google, and GA4 each claimed credit for the same orders, and the totals added up to more revenue than Shopify had actually recorded. Budget decisions were being made on numbers nobody in the room believed.',
+    body: 'A D2C brand doing $500K/month cannot trust its own ROAS. Meta, Google and GA4 each claim credit for the same orders, and the totals add up to more revenue than Shopify recorded. Budget decisions get made on numbers nobody in the room believes.',
   },
   {
     step: '02',
-    label: 'What We Built',
-    body: 'A live Streamlit dashboard pulling Shopify, Meta Ads, and GA4 into one reconciled view, plus an AI agent that reads it daily and writes the explanation in plain language. A geo holdout test ran alongside it for six weeks to establish the incremental baseline.',
+    label: 'What We Build',
+    body: 'A live Streamlit dashboard pulling Shopify, Meta Ads and GA4 into one reconciled view, plus an AI agent that reads it daily and writes the explanation in plain language. A geo holdout test runs alongside it to establish the incremental baseline.',
   },
   {
     step: '03',
-    label: 'The Result',
-    body: 'Real ROAS came in 35% below what the platforms reported. $50K/month of spend moved out of campaigns that were harvesting demand they had not created, and into two channels the holdout showed were genuinely incremental. Blended ROI improved 22% within one quarter.',
+    label: 'What Changes',
+    body: 'Reported and incremental ROAS sit side by side, so spend that is harvesting demand it did not create becomes visible. Budget moves to the channels the holdout shows are genuinely incremental, and a weekly read means you stop reacting a month late.',
   },
 ];
 
 const metrics = [
-  { value: '35%', label: 'Gap between reported and real ROAS' },
-  { value: '$50K', label: 'Monthly budget reallocated' },
-  { value: '+22%', label: 'Improvement in blended ROI' },
+  { value: '2 wks', label: 'From kickoff to a live dashboard' },
+  { value: '2-4 wks', label: 'Typical geo-holdout test window' },
+  { value: 'Weekly', label: 'How often the agent flags a change' },
 ];
 
 export function CaseStudy() {
@@ -39,7 +39,7 @@ export function CaseStudy() {
             What This Looks Like in Practice
           </h2>
           <p className="text-base sm:text-lg lg:text-xl text-black">
-            One engagement, start to finish — a $500K/month D2C brand that could not trust its own numbers
+            A worked example of the method. The brand is illustrative, not a client.
           </p>
         </motion.div>
 
@@ -73,7 +73,7 @@ export function CaseStudy() {
                   whileHover={{ scale: 1.05 }}
                 >
                   <CheckCircle className="w-4 h-4 text-[#002B6B]" />
-                  <span className="text-sm text-black">Anonymised client engagement</span>
+                  <span className="text-sm text-black">Illustrative example</span>
                 </motion.div>
               </div>
             </motion.div>
@@ -98,7 +98,7 @@ export function CaseStudy() {
           ))}
         </div>
 
-        {/* Client quote */}
+        {/* Why there is no client logo here */}
         <motion.div
           className="mt-8 bg-[#E8F0FF] border border-[#BFC0C2] rounded-xl sm:rounded-2xl p-6 sm:p-8 max-w-4xl mx-auto"
           initial={{ opacity: 0, y: 30 }}
@@ -106,16 +106,12 @@ export function CaseStudy() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <div className="text-6xl text-[#002B6B] opacity-20 mb-4 leading-none">"</div>
-          <p className="text-black mb-6 italic leading-relaxed">
-            We had been optimising toward a number that was never real. Seeing reported and incremental
-            ROAS next to each other changed how we budget — and the agent flagging things mid-week means
-            we stop reacting a month late.
+          <div className="font-semibold text-black">Why there is no client logo here</div>
+          <p className="text-black mb-6 leading-relaxed">
+            G-marge is new. Rather than dress up someone else's results as ours, this page shows the
+            method and what it costs. When there are client results worth publishing, they will appear
+            here with the client's permission and their name on them.
           </p>
-          <div className="pt-4 border-t border-[#BFC0C2]">
-            <div className="font-semibold text-black">Founder</div>
-            <div className="text-sm text-[#002B6B]">D2C skincare brand, $6M ARR</div>
-          </div>
         </motion.div>
       </div>
     </section>

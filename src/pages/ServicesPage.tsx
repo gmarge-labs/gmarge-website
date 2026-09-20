@@ -37,7 +37,7 @@ const services = [
     ],
     image: '/images/services-incrementality.jpg',
     imageAlt: 'Two people sketching a chart on paper beside their laptops',
-    details: 'Every ad platform grades its own homework, which is why your platform-reported revenue exceeds what Shopify actually recorded. We design holdout tests sized to your spend and seasonality, run them cleanly, and give you a defensible incremental ROAS per channel. In most D2C engagements the real number lands 30-40% below what the platforms claim.'
+    details: 'Every ad platform grades its own homework, which is why your platform-reported revenue exceeds what Shopify actually recorded. We design holdout tests sized to your spend and seasonality, run them cleanly, and give you a defensible incremental ROAS per channel. How far that number sits below the platform-reported one differs by channel and by brand, which is exactly why it is worth measuring rather than assuming.'
   },
   {
     icon: Users2,

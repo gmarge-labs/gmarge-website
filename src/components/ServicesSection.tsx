@@ -11,7 +11,7 @@ const services = [
     description: 'Platform ROAS vs. real incrementality — the gap costs you money every month',
     features: ['Reported vs. real ROAS', 'Incrementality testing', 'Holdout design', 'Channel overlap analysis'],
     color: 'from-blue-700 to-indigo-600',
-    detailedDescription: 'Every ad platform grades its own homework. Meta claims credit for a purchase it merely touched. Google claims the same purchase. Your GA4 last-click model tells a third story. Add them up and your platforms report more revenue than your Shopify account ever received. We close that gap with incrementality measurement: geo holdouts, matched-market tests, and conversion-lift studies that answer one question — what would have happened if we had not run this campaign? A typical first engagement finds reported ROAS running 30-40% above reality. Meta reports 4:1; the honest number is 2.5:1. That is not a reason to stop spending. It is the number you need before you decide where the next dollar goes.',
+    detailedDescription: 'Every ad platform grades its own homework. Meta claims credit for a purchase it merely touched. Google claims the same purchase. Your GA4 last-click model tells a third story. Add them up and your platforms report more revenue than your Shopify account ever received. We close that gap with incrementality measurement: geo holdouts, matched-market tests, and conversion-lift studies that answer one question — what would have happened if we had not run this campaign? A holdout can show Meta reporting 4:1 where the incremental number is nearer 2.5:1 — the gap is specific to your account, which is why it is measured rather than assumed. That is not a reason to stop spending. It is the number you need before you decide where the next dollar goes.',
     benefits: ['Reported vs. incremental ROAS, side by side', 'Holdout and geo-test design that fits your spend', 'Cross-channel overlap and double-counting exposed', 'A defensible number for your board deck', 'Test results you can rerun each quarter'],
   },
   {
@@ -66,6 +66,7 @@ export function ServicesSection() {
           {/* Header (deep blue to match Close button) */}
           <div className="relative bg-[#002B6B] p-6 rounded-t-3xl">
             <button
+              aria-label="Close"
               className="absolute top-4 right-4 w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-colors"
               onClick={() => setExpandedService(null)}
             >

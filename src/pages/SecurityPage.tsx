@@ -80,7 +80,7 @@ const securityFeatures = [
 const securityPractices = [
   {
     title: 'What We Do Not Ask For',
-    description: 'We do not need customer names, email addresses, phone numbers or payment details to do this work, so we ask you not to send them. Orders, spend, sessions and revenue are enough.'
+    description: 'We do not need customer names, email addresses, phone numbers or payment details to do this work, so we ask you not to send them. Orders, spend, sessions and revenue are enough. The contact form on this site is the exception: it collects the name and email you give us so we can reply, and nothing else.'
   },
   {
     title: 'Sub-processors',

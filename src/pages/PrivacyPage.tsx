@@ -209,7 +209,9 @@ export default function PrivacyPage() {
                   'The platforms you connect, which remain the source of the data: Shopify, Meta and Google',
                   'An AI model provider that processes dashboard summaries to produce written explanations',
                   'Business tools we use for email, file storage, accounting and invoicing',
-                  'Professional advisers, or authorities, where disclosure is required by law'
+                  'Professional advisers, or authorities, where disclosure is required by law',
+                  'Our website host, which receives and stores contact-form submissions before they reach our inbox',
+                  'Contractors working under written confidentiality and data-protection terms, who may be located outside your country'
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3 text-black">
                     <AlertCircle className="w-5 h-5 text-[#002B6B] flex-shrink-0 mt-1" />
