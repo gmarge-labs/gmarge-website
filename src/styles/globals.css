@@ -10,6 +10,12 @@
 
 @import "tailwindcss";
 
+/* Known gap: /privacy and /terms use `prose` and `prose-lg`, which come from
+   @tailwindcss/typography. That plugin is not installed, so those two classes
+   still generate nothing. They never worked under the frozen stylesheet
+   either, so this is not a regression - but installing the plugin would
+   visibly restyle both pages, so it is left as a deliberate decision. */
+
 @custom-variant dark (&:is(.dark *));
 
 :root {
