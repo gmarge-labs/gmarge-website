@@ -48,7 +48,9 @@ export function SolutionsPage() {
   // Real anchor when a booking URL is configured, so popup blockers cannot
   // swallow the click; plain button routing to /contact otherwise.
   const BookingCta = BOOKING_IS_EXTERNAL ? motion.a : motion.button;
-  const [selectedSolution, setSelectedSolution] = useState(null);
+  // typed off the data it holds; plain useState(null) inferred `never`,
+  // which made every property read on it a type error
+  const [selectedSolution, setSelectedSolution] = useState<(typeof solutions)[number] | null>(null);
 
   return (
     <div className="min-h-screen">
