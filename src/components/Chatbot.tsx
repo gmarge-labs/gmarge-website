@@ -16,7 +16,7 @@ const knowledgeBase = {
     name: 'G-marge',
     description: 'G-marge is a marketing measurement consultancy for D2C e-commerce brands. We connect your Shopify, Meta Ads and GA4 data into one live dashboard, refreshed daily, and put an AI agent on top of it that explains in plain language what changed and why.',
     mission: 'Most D2C brands make budget decisions on platform-reported numbers that overstate performance. Our job is to show you what your marketing is actually doing, measured independently, and to keep showing you every day.',
-    positioning: 'Your marketing metrics are lying to you. Here is what is actually happening, live.',
+    positioning: 'Find what works. Prove what matters. Invest with confidence.',
     contact: {
       email: 'halimabl@gmarge.com',
       phone: '+1 207 900 7700',
@@ -421,7 +421,7 @@ export function Chatbot() {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: '1',
-      text: 'Hello. 👋 I am the assistant for G-marge, a marketing measurement consultancy for D2C e-commerce brands.\n\nYour marketing metrics are lying to you. We show you what is actually happening, live. I can walk you through:\n\n✨ What we do: one live dashboard across Shopify, Meta Ads and GA4\n💰 Pricing and what is in the core package\n🔒 What data access we need and how it is handled\n📊 Incrementality testing and why your real ROAS is lower than reported\n👥 Weekly anomaly checks: creative fatigue, pixels, budget drift\n📞 How to book a Discovery Call\n\nWhat would you like to know?',
+      text: 'Hello. 👋 I am the assistant for G-marge, a marketing measurement consultancy for D2C e-commerce brands.\n\nWe show you which ad spend is actually causing sales, not which conversions a platform claimed. I can walk you through:\n\n✨ What we do: one live dashboard across Shopify, Meta Ads and GA4\n💰 Pricing and what is in the core package\n🔒 What data access we need and how it is handled\n📊 Incrementality testing and why your real ROAS is lower than reported\n👥 Weekly anomaly checks: creative fatigue, pixels, budget drift\n📞 How to book a Discovery Call\n\nWhat would you like to know?',
       sender: 'bot',
       timestamp: new Date()
     }

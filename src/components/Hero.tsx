@@ -56,15 +56,14 @@ export function Hero() {
             transition={{ duration: 0.8 }}
           >
             <motion.h1 
-              className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight text-black"
+              className="text-3xl sm:text-4xl lg:text-4xl font-bold mb-4 sm:mb-6 leading-tight text-black"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              Your marketing metrics are{' '}
-              <span className="text-[#002B6B]">
-                lying to you
-              </span>
+              <span className="block">Find What Works.</span>
+              <span className="block">Prove What Matters.</span>
+              <span className="block text-[#002B6B]">Invest with Confidence.</span>
             </motion.h1>
           </motion.div>
 
@@ -74,8 +73,8 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <span className="font-semibold">Here's what's actually happening—live.</span>{' '}
-            Live dashboards + AI-interpreted insights for D2C e-commerce brands.
+            <span className="font-semibold">Live dashboards and incrementality testing for D2C brands.</span>{' '}
+            Know which spend is actually causing sales — within the week it happens.
           </motion.p>
 
           <motion.div
