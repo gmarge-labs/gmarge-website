@@ -12,6 +12,25 @@ import { CheckCircle2, AlertCircle } from 'lucide-react';
  */
 const FORM_NAME = 'contact';
 
+/**
+ * Turns a failed submission into a pre-filled email. The visitor keeps
+ * everything they typed and needs one click, instead of being told to go and
+ * write the whole thing again.
+ */
+const buildMailto = (data: Record<string, string>) => {
+  const line = (label: string, key: string) => (data[key] ? `${label}: ${data[key]}\n` : '');
+  const body =
+    line('Name', 'name') +
+    line('Email', 'email') +
+    line('Brand', 'brand') +
+    line('Monthly ad spend', 'spend') +
+    line('Platforms', 'platforms') +
+    `\n${data.message || ''}`;
+  return `mailto:halimabl@gmarge.com?subject=${encodeURIComponent(
+    'Enquiry from gmarge.com'
+  )}&body=${encodeURIComponent(body)}`;
+};
+
 const encode = (data: Record<string, string>) =>
   Object.entries(data)
     .map(([k, v]) => encodeURIComponent(k) + '=' + encodeURIComponent(v))
@@ -23,6 +42,9 @@ const LABEL = 'block text-sm font-medium text-black mb-2';
 
 export function ContactForm() {
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
+  // Held only so a failed submit can be turned into a pre-filled email rather
+  // than making the visitor retype everything.
+  const [mailtoHref, setMailtoHref] = useState('');
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -39,6 +61,7 @@ export function ContactForm() {
       setStatus('sent');
       form.reset();
     } catch {
+      setMailtoHref(buildMailto(data));
       setStatus('error');
     }
   };
@@ -124,15 +147,20 @@ export function ContactForm() {
       </div>
 
       {status === 'error' && (
-        <div className="flex items-center gap-3 mb-4 text-black">
-          <AlertCircle className="w-5 h-5 text-[#002B6B] flex-shrink-0" />
-          <span className="text-sm">
-            That did not send. Please email{' '}
-            <a className="text-[#002B6B] underline" href="mailto:halimabl@gmarge.com">
-              halimabl@gmarge.com
-            </a>{' '}
-            instead and we will pick it up.
-          </span>
+        <div className="flex items-start gap-3 mb-4 text-black">
+          <AlertCircle className="w-5 h-5 text-[#002B6B] flex-shrink-0 mt-0.5" />
+          <div className="text-sm leading-relaxed">
+            <p className="mb-2">
+              That did not send. Nothing you typed is lost — send it as an email instead and we
+              will pick it up.
+            </p>
+            <a
+              className="inline-block px-6 py-3 rounded-full bg-[#002B6B] text-white font-semibold"
+              href={mailtoHref}
+            >
+              Send this as an email
+            </a>
+          </div>
         </div>
       )}
 
