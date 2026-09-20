@@ -122,7 +122,7 @@ export default function TermsPage() {
       {/* Terms Content */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-4xl mx-auto px-6">
-          <div className="prose prose-lg max-w-none">
+          <div>
             {/* Acceptance of Terms */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}

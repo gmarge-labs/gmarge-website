@@ -117,7 +117,7 @@ export default function PrivacyPage() {
       {/* Policy Content */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-4xl mx-auto px-6">
-          <div className="prose prose-lg max-w-none">
+          <div>
             {/* Information We Collect */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
