@@ -1,4 +1,4 @@
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'motion/react';
 import { MessageSquare, LayoutDashboard, Bot, Plug, Bell, TrendingUp, Send } from 'lucide-react';
 import { DEMO_SECTION_ID } from '../config/links';
 import { useState, useEffect } from 'react';
