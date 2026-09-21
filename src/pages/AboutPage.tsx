@@ -320,10 +320,9 @@ export function AboutPage() {
                 >
                   <ImageWithFallback
                     src="/images/about-measurement-science.jpg"
-                    alt="A line chart plotted by hand on graph paper"
-                    className="w-full h-80 object-cover"
+                    alt="Geo holdout chart: live markets and holdout markets diverge after spend is paused; the shaded gap is the incremental effect"
+                    className="w-full aspect-[3/2] object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#002B6B]/60 to-transparent" />
                 </motion.div>
               </div>
               
@@ -422,10 +421,9 @@ export function AboutPage() {
                 >
                   <ImageWithFallback
                     src="/images/about-ai-engineering.jpg"
-                    alt="A dashboard screen showing traffic and performance charts"
-                    className="w-full h-80 object-cover"
+                    alt="AI agent read-out flagging prospecting ROAS falling outside its normal weekly range, with a plain-language explanation"
+                    className="w-full aspect-[3/2] object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#002B6B]/60 to-transparent" />
                 </motion.div>
               </div>
             </motion.div>
@@ -446,10 +444,9 @@ export function AboutPage() {
                 >
                   <ImageWithFallback
                     src="/images/about-data-plumbing.jpg"
-                    alt="Two people working at desktop monitors"
-                    className="w-full h-80 object-cover"
+                    alt="Reconciliation diagram: Meta Ads and GA4 order claims compared with Shopify's actual orders, showing 196 orders counted twice"
+                    className="w-full aspect-[3/2] object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#002B6B]/60 to-transparent" />
                 </motion.div>
               </div>
               

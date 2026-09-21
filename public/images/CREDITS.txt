@@ -1,3 +1,8 @@
+Original diagrams created for G-marge (not stock photography):
+  about-ai-engineering.jpg
+  about-data-plumbing.jpg
+  about-measurement-science.jpg
+
 Photography in this directory is from Unsplash, used under the Unsplash
 License (https://unsplash.com/license): free for commercial use, no
 attribution required. Downloaded and self-hosted rather than hotlinked so
@@ -5,9 +10,6 @@ the site does not depend on a third party staying up.
 
 Fetched at ?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080
 
-about-ai-engineering.jpg           https://unsplash.com/photos/1551288049-bebda4e38f71
-about-data-plumbing.jpg            https://unsplash.com/photos/1551434678-e076c223a692
-about-measurement-science.jpg      https://unsplash.com/photos/1543286386-713bdd548da4
 documentation.jpg                  https://unsplash.com/photos/1649451844931-57e22fc82de3
 features.jpg                       https://unsplash.com/photos/1658401598980-c2276a6aba14
 help-center.jpg                    https://unsplash.com/photos/1709715357479-591f9971fb05
