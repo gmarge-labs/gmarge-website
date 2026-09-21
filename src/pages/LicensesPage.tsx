@@ -42,27 +42,6 @@ const openSourceLibraries = [
     license: 'ISC License',
     description: 'The icon set used across these pages',
     url: 'https://lucide.dev/'
-  },
-  {
-    name: 'Radix UI Primitives',
-    version: 'Multiple packages',
-    license: 'MIT License',
-    description: 'Accessible, unstyled UI primitives behind the interface components',
-    url: 'https://www.radix-ui.com/'
-  },
-  {
-    name: 'Recharts',
-    version: 'v2.15.4',
-    license: 'MIT License',
-    description: 'Charting library built on React and D3, used for charts on this site',
-    url: 'https://recharts.org/'
-  },
-  {
-    name: 'React Hook Form',
-    version: 'v7.69.0',
-    license: 'MIT License',
-    description: 'Form state and validation used by the contact form',
-    url: 'https://react-hook-form.com/'
   }
 ];
 
