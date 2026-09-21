@@ -17,7 +17,7 @@ const openSourceLibraries = [
   },
   {
     name: 'Vite',
-    version: 'v6.3.5',
+    version: 'v6.4.3',
     license: 'MIT License',
     description: 'Build tool and development server used to bundle the site',
     url: 'https://vite.dev/'
