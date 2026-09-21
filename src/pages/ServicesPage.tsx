@@ -20,7 +20,7 @@ const services = [
       'Monthly analyst review'
     ],
     image: '/images/services-live-dashboard.jpg',
-    imageAlt: 'A laptop showing an analytics dashboard',
+    imageAlt: 'Live dashboard: revenue, reported and incremental ROAS, and an AI note explaining what moved',
     details: 'We connect your order data, ad spend, and site analytics into one reconciled Streamlit dashboard, then put an AI agent on top of it. The agent reads the same numbers you do and writes the explanation: which campaign moved, how much of the change it accounts for, and whether the shift is real or inside normal weekly variance. Live in roughly two weeks.'
   },
   {
@@ -36,7 +36,7 @@ const services = [
       'Repeatable test framework'
     ],
     image: '/images/services-incrementality.jpg',
-    imageAlt: 'Two people sketching a chart on paper beside their laptops',
+    imageAlt: 'Reported versus incremental ROAS for five channels, with branded search and retargeting furthest apart',
     details: 'Every ad platform grades its own homework, which is why your platform-reported revenue exceeds what Shopify actually recorded. We design holdout tests sized to your spend and seasonality, run them cleanly, and give you a defensible incremental ROAS per channel. How far that number sits below the platform-reported one differs by channel and by brand, which is exactly why it is worth measuring rather than assuming.'
   },
   {
@@ -52,7 +52,7 @@ const services = [
       'Written recommendations'
     ],
     image: '/images/services-segmentation.jpg',
-    imageAlt: 'Two colleagues talking through results at their laptops',
+    imageAlt: 'Customer segments by ad response: persuadables, sure things, lost causes and do-not-disturb',
     details: 'Built on your own purchase data, not an industry benchmark. Segmentation separates the customers worth reacquiring from the ones who were always going to buy. Campaign evaluation grades spend against incremental return rather than platform-attributed return. Each study ends with specific recommendations and the confidence behind them.'
   },
 ];
@@ -264,13 +264,13 @@ export function ServicesPage() {
                       transition={{ duration: 0.8, delay: 0.4 }}
                     >
                       <motion.div
-                        className="relative h-[500px] rounded-2xl overflow-hidden shadow-2xl"
+                        className="relative aspect-[6/5] rounded-2xl overflow-hidden shadow-2xl"
                         animate={{
                           x: hoveredIndex === index ? (isEven ? -20 : 20) : 0,
                         }}
                         transition={{ duration: 0.4, ease: 'easeOut' }}
                       >
-                        {/* Image with Overlay */}
+                        {/* Image */}
                         <motion.img
                           src={service.image}
                           alt={service.imageAlt}
@@ -279,16 +279,6 @@ export function ServicesPage() {
                           whileInView={{ scale: 1 }}
                           viewport={{ once: true }}
                           transition={{ duration: 1.2 }}
-                        />
-                        
-                        {/* Gradient Overlay */}
-                        <motion.div
-                          className="absolute inset-0 bg-gradient-to-t from-[#002B6B]/90 via-[#002B6B]/40 to-transparent"
-                          initial={{ opacity: 0.6 }}
-                          animate={{
-                            opacity: hoveredIndex === index ? 0.3 : 0.6,
-                          }}
-                          transition={{ duration: 0.4 }}
                         />
                       </motion.div>
                     </motion.div>

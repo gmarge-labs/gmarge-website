@@ -86,10 +86,9 @@ export default function TermsPage() {
               <div className="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-[#BFC0C2]">
                 <ImageWithFallback
                   src="/images/terms.jpg"
-                  alt="Legal Agreement"
-                  className="w-full h-96 object-cover"
+                  alt="Statement of work outline: scope, timeline, data handling, fees, ownership and exit"
+                  className="w-full aspect-[3/2] object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#002B6B]/80 via-[#002B6B]/20 to-transparent" />
               </div>
             </motion.div>
           </div>

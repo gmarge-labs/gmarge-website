@@ -161,10 +161,9 @@ export default function SecurityPage() {
               <div className="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-[#BFC0C2]">
                 <ImageWithFallback
                   src="/images/security.jpg"
-                  alt="Data Security"
-                  className="w-full h-96 object-cover"
+                  alt="Access levels per platform: Shopify read-only, Meta Ads analyst, GA4 viewer, no access to payment details, data deleted 30 days after exit"
+                  className="w-full aspect-[3/2] object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#002B6B]/80 via-[#002B6B]/20 to-transparent" />
                 
                 {/* Security Badge */}
                 <motion.div

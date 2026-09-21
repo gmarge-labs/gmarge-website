@@ -19,6 +19,8 @@ const solutions = [
     color: 'from-[#002B6B] to-[#004B9B]',
     stats: { roi: '—', time: '~2 wks', accuracy: 'Daily' },
     image: '/images/solutions.jpg',
+    imageAlt:
+      'Engagement timeline: connect and reconcile, dashboard live, holdout test, weekly read-outs, quarterly deep dives',
     fullDescription: 'Most D2C brands are running on numbers that three different systems disagree about. Meta claims credit for an order. Google claims the same order. GA4 last-click tells a third story, and the sum of platform-reported revenue exceeds what Shopify actually banked. Decisions get made anyway, because the alternative is making no decision at all. This engagement replaces that with one reconciled view. We connect your order data, ad spend and site analytics into a live Streamlit dashboard, put an AI agent on top that reads it daily and writes the explanation in plain language, and run incrementality tests alongside it to establish what your spend is genuinely causing rather than merely witnessing. Real ROAS almost always sits below the platform-reported figure, but by how much is specific to your channel mix. Knowing that number does not mean spending less. It means spending the same money where it actually works.',
     useCases: [
       'Week 1 — Connect and reconcile: we wire up Shopify, Meta Ads and GA4, then reconcile platform-reported revenue against your actual orders. This step alone usually surfaces double-counting, a mis-firing pixel, or a channel taking credit for demand it never created.',
@@ -103,10 +105,10 @@ export function SolutionsPage() {
                   transition={{ duration: 0.4 }}
                 >
                   {/* Premium Header Section with Image */}
-                  <div className="relative h-96 sm:h-[28rem] overflow-hidden">
+                  <div className="relative aspect-[16/5] overflow-hidden">
                     <motion.img
                       src={solution.image}
-                      alt={solution.title}
+                      alt={solution.imageAlt}
                       className="w-full h-full object-cover"
                       initial={{ scale: 1 }}
                       whileHover={{ scale: 1.03 }}
@@ -394,8 +396,8 @@ export function SolutionsPage() {
                 >
                   <img 
                     src={selectedSolution.image} 
-                    alt={selectedSolution.title}
-                    className="w-full h-64 object-cover"
+                    alt={selectedSolution.imageAlt}
+                    className="w-full aspect-[16/5] object-cover"
                   />
                 </motion.div>
 
