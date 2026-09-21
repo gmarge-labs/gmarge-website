@@ -81,10 +81,9 @@ export default function PrivacyPage() {
               <div className="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-[#BFC0C2]">
                 <ImageWithFallback
                   src="/images/privacy.jpg"
-                  alt="Data Privacy"
-                  className="w-full h-96 object-cover"
+                  alt="Order table with customer names and emails masked, keeping only channel, revenue and date"
+                  className="w-full aspect-[3/2] object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#002B6B]/80 via-[#002B6B]/20 to-transparent" />
               </div>
             </motion.div>
           </div>

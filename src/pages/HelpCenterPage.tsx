@@ -198,10 +198,9 @@ export default function HelpCenterPage() {
               <div className="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-[#BFC0C2]">
                 <ImageWithFallback
                   src="/images/help-center.jpg"
-                  alt="Client Questions"
-                  className="w-full h-96 object-cover"
+                  alt="Help centre questions and answers: how long until the dashboard is live, and whether an incrementality test is needed"
+                  className="w-full aspect-[3/2] object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#002B6B]/80 via-[#002B6B]/20 to-transparent" />
                 
                 {/* Support Stats */}
                 <motion.div

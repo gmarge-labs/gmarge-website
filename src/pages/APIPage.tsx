@@ -162,10 +162,9 @@ export default function APIPage() {
               <div className="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-[#BFC0C2]">
                 <ImageWithFallback
                   src="/images/integrations.jpg"
-                  alt="Connected marketing and e-commerce data sources"
-                  className="w-full h-96 object-cover"
+                  alt="Shopify, Meta Ads and GA4 connected as standard; Google Ads, TikTok, Klaviyo and Amazon Ads on request"
+                  className="w-full aspect-[3/2] object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#002B6B]/80 via-[#002B6B]/20 to-transparent" />
               </div>
             </motion.div>
           </div>

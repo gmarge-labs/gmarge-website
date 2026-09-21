@@ -140,10 +140,9 @@ export default function PricingPage() {
               <div className="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-[#BFC0C2]">
                 <ImageWithFallback
                   src="/images/pricing.jpg"
-                  alt="Marketing measurement"
-                  className="w-full h-96 object-cover"
+                  alt="Core package at $3,500–5,000 per month with its inclusions, alongside per-project deep-dive add-ons"
+                  className="w-full aspect-[3/2] object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#002B6B]/80 via-[#002B6B]/20 to-transparent" />
               </div>
             </motion.div>
           </div>
