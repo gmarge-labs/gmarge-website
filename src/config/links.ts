@@ -12,7 +12,7 @@
 // "is it configured?" checks below are real runtime checks rather than
 // comparisons TypeScript considers statically decided.
 export const BOOKING_URL: string = 'https://calendly.com/gmarge/30min';
-export const DEMO_URL: string = '';
+export const DEMO_URL: string = 'https://gmarge-demo.streamlit.app';
 
 /** True when booking CTAs point somewhere off-site. */
 export const BOOKING_IS_EXTERNAL = BOOKING_URL !== '';
