@@ -102,7 +102,7 @@ export function AboutPage() {
               >
                 About{' '}
                 <span className="text-[#002B6B]">
-                  G-marge
+                  G-Marge
                 </span>
               </motion.h1>
 
@@ -124,7 +124,7 @@ export function AboutPage() {
                 transition={{ duration: 0.8, delay: 0.5 }}
               >
                 <p>
-                  G-marge grew out of eight years of retail media measurement work — incrementality testing,
+                  G-Marge grew out of eight years of retail media measurement work — incrementality testing,
                   media mix modelling and campaign evaluation for brands spending across Amazon, Walmart and
                   the major ad platforms. The same problem came up on every account: the platform-reported
                   numbers were confidently wrong, and everyone downstream was making decisions on them anyway.

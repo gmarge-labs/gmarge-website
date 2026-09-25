@@ -64,7 +64,7 @@ export default function TermsPage() {
               </h1>
 
               <p className="text-xl text-black mb-8 leading-relaxed">
-                These terms cover consulting engagements with G-marge, a marketing measurement consultancy for
+                These terms cover consulting engagements with G-Marge, a marketing measurement consultancy for
                 direct-to-consumer e-commerce brands, and your use of this website.
               </p>
 
@@ -131,7 +131,7 @@ export default function TermsPage() {
             >
               <h2 className="text-3xl font-bold mb-6 text-black">1. Agreement and Scope</h2>
               <p className="text-black mb-4 leading-relaxed">
-                These terms apply when you engage G-marge for measurement consulting and when you use this website. Where a
+                These terms apply when you engage G-Marge for measurement consulting and when you use this website. Where a
                 signed statement of work says something different, that document takes priority for that engagement.
               </p>
               <ul className="space-y-3 mb-6">

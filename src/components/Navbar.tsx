@@ -63,7 +63,7 @@ export function Navbar() {
               >
                 <ImageWithFallback
                   src="/gmarge-logo-4x.png"
-                  alt="G-marge"
+                  alt="G-Marge"
                   width={124}
                   height={160}
                   className="w-full h-full object-contain"
