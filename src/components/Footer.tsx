@@ -23,13 +23,13 @@ const socialLinks: {
     href: 'https://www.linkedin.com/company/gmarge/',
     label: 'LinkedIn',
     // Icon-only links carry no text, so each needs its own accessible name.
-    ariaLabel: 'G-marge on LinkedIn (opens in a new tab)',
+    ariaLabel: 'G-Marge on LinkedIn (opens in a new tab)',
     target: '_blank',
     rel: 'noopener noreferrer',
   },
   // mailto: hands off to the mail client, so it never navigates away and
   // needs no target.
-  { icon: Mail, href: 'mailto:halimabl@gmarge.com', label: 'Email', ariaLabel: 'Email G-marge' },
+  { icon: Mail, href: 'mailto:halimabl@gmarge.com', label: 'Email', ariaLabel: 'Email G-Marge' },
 ];
 
 export function Footer() {
@@ -144,14 +144,14 @@ export function Footer() {
               >
                 <ImageWithFallback
                   src="/gmarge-logo-4x.png"
-                  alt="G-marge"
+                  alt="G-Marge"
                   width={124}
                   height={160}
                   className="w-full h-full object-contain"
                 />
               </motion.div>
               <span className="text-2xl font-bold text-[#002B6B]">
-                G-marge
+                G-Marge
               </span>
             </motion.div>
 
@@ -290,7 +290,7 @@ export function Footer() {
           transition={{ duration: 0.6 }}
         >
           <div className="text-black text-sm">
-            © 2026 G-marge. All rights reserved.
+            © 2026 G-Marge. All rights reserved.
           </div>
           
           <div className="flex items-center gap-6 text-sm text-black">

@@ -88,7 +88,7 @@ const faqCategories = [
       },
       {
         question: 'How do I get support between the weekly reads?',
-        answer: 'Email the G-marge team members assigned to your account. Anything urgent, such as a broken connection or a number that looks wrong, gets picked up the same working day. Everything else is folded into the next weekly read so you are not chasing answers in fragments. Most clients also set up a shared Slack or Teams channel in week one.'
+        answer: 'Email the G-Marge team members assigned to your account. Anything urgent, such as a broken connection or a number that looks wrong, gets picked up the same working day. Everything else is folded into the next weekly read so you are not chasing answers in fragments. Most clients also set up a shared Slack or Teams channel in week one.'
       }
     ]
   }

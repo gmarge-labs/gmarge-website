@@ -59,7 +59,7 @@ export default function PrivacyPage() {
               </h1>
 
               <p className="text-xl text-black mb-8 leading-relaxed">
-                G-marge is a marketing measurement consultancy for direct-to-consumer e-commerce brands.
+                G-Marge is a marketing measurement consultancy for direct-to-consumer e-commerce brands.
                 This policy covers the client platform data we access during an engagement and the personal data this website collects.
               </p>
 

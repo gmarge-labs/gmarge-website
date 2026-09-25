@@ -108,7 +108,7 @@ export function CaseStudy() {
         >
           <div className="font-semibold text-black">Why there is no client logo here</div>
           <p className="text-black mb-6 leading-relaxed">
-            G-marge is new. Rather than dress up someone else's results as ours, this page shows the
+            G-Marge is new. Rather than dress up someone else's results as ours, this page shows the
             method and what it costs. When there are client results worth publishing, they will appear
             here with the client's permission and their name on them.
           </p>

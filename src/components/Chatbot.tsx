@@ -13,8 +13,8 @@ interface Message {
 const knowledgeBase = {
   // Company Information
   company: {
-    name: 'G-marge',
-    description: 'G-marge is a marketing measurement consultancy for D2C e-commerce brands. We connect your Shopify, Meta Ads and GA4 data into one live dashboard, refreshed daily, and put an AI agent on top of it that explains in plain language what changed and why.',
+    name: 'G-Marge',
+    description: 'G-Marge is a marketing measurement consultancy for D2C e-commerce brands. We connect your Shopify, Meta Ads and GA4 data into one live dashboard, refreshed daily, and put an AI agent on top of it that explains in plain language what changed and why.',
     mission: 'Most D2C brands make budget decisions on platform-reported numbers that overstate performance. Our job is to show you what your marketing is actually doing, measured independently, and to keep showing you every day.',
     positioning: 'Find what works. Prove what matters. Invest with confidence.',
     contact: {
@@ -122,9 +122,9 @@ function generateBotResponse(userMessage: string): string {
   // Greetings - warm and welcoming
   if (/^(hello|hi|hey|good morning|good afternoon|good evening|greetings|howdy)/.test(message)) {
     const greetings = [
-      "Hello. 👋 I'm the assistant for G-marge, a marketing measurement consultancy for D2C e-commerce brands. I can explain how the dashboard works, what incrementality testing tells you, what it costs, and how to book a call. What do you want to know?",
+      "Hello. 👋 I'm the assistant for G-Marge, a marketing measurement consultancy for D2C e-commerce brands. I can explain how the dashboard works, what incrementality testing tells you, what it costs, and how to book a call. What do you want to know?",
       "Hi. 👋 I can answer questions about how we measure D2C marketing performance: the live dashboard, the weekly anomaly checks, incrementality testing, pricing and setup. Where would you like to start?",
-      "Hey. 👋 I'm here to explain what G-marge does: one live dashboard across Shopify, Meta Ads and GA4, plus an AI agent that tells you what changed and why. Ask me about the service, the data we need, pricing or timelines."
+      "Hey. 👋 I'm here to explain what G-Marge does: one live dashboard across Shopify, Meta Ads and GA4, plus an AI agent that tells you what changed and why. Ask me about the service, the data we need, pricing or timelines."
     ];
     return greetings[Math.floor(Math.random() * greetings.length)];
   }
@@ -421,7 +421,7 @@ export function Chatbot() {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: '1',
-      text: 'Hello. 👋 I am the assistant for G-marge, a marketing measurement consultancy for D2C e-commerce brands.\n\nWe show you which ad spend is actually causing sales, not which conversions a platform claimed. I can walk you through:\n\n✨ What we do: one live dashboard across Shopify, Meta Ads and GA4\n💰 Pricing and what is in the core package\n🔒 What data access we need and how it is handled\n📊 Incrementality testing and why your real ROAS is lower than reported\n👥 Weekly anomaly checks: creative fatigue, pixels, budget drift\n📞 How to book a Discovery Call\n\nWhat would you like to know?',
+      text: 'Hello. 👋 I am the assistant for G-Marge, a marketing measurement consultancy for D2C e-commerce brands.\n\nWe show you which ad spend is actually causing sales, not which conversions a platform claimed. I can walk you through:\n\n✨ What we do: one live dashboard across Shopify, Meta Ads and GA4\n💰 Pricing and what is in the core package\n🔒 What data access we need and how it is handled\n📊 Incrementality testing and why your real ROAS is lower than reported\n👥 Weekly anomaly checks: creative fatigue, pixels, budget drift\n📞 How to book a Discovery Call\n\nWhat would you like to know?',
       sender: 'bot',
       timestamp: new Date()
     }
@@ -560,7 +560,7 @@ export function Chatbot() {
                 <Bot className="w-6 h-6" />
               </motion.div>
               <div>
-                <h3 className="font-bold">G-marge AI Assistant</h3>
+                <h3 className="font-bold">G-Marge AI Assistant</h3>
                 <p className="text-xs text-blue-100">Online • Measurement questions</p>
               </div>
             </div>
